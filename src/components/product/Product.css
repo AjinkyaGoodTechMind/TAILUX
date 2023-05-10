@@ -1,0 +1,335 @@
+.productContainer {
+  padding: 60px;
+}
+
+.productContainer > div:first-child {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  border-bottom: 2px solid #c5c5c5;
+  padding-bottom: 30px;
+}
+
+.productContainer > div:nth-child(2) {
+  padding: 25px 0;
+}
+
+.productContainer > div:nth-child(2) > div {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  align-items: center;
+}
+
+.productContainer > div:nth-child(2) > div > a {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  background: #eaeaea;
+  width: 20%;
+  text-align: center;
+  padding: 6px;
+  text-decoration: none;
+  color: #000000;
+}
+
+.productName {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 35px;
+}
+
+.productPrice {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+  padding: 15px 0 0 0;
+}
+
+.productPrice + p {
+  border-bottom: 2px solid #c5c5c5;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  color: #008555;
+  padding: 0 0 15px 0;
+}
+
+.productPrice > span:first-child {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.productPrice > span:nth-child(2),
+.productPrice > span:nth-child(2) > span {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 600;
+  font-size: 14px;
+  color: #ababab;
+}
+
+.productPrice > span:nth-child(2) > span {
+  text-decoration: line-through;
+}
+
+.productPrice > div {
+  column-gap: 4px;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.productPrice > div > img {
+  width: 11px;
+}
+
+.productPrice > div > span {
+  font-size: 10px;
+}
+
+.productPrice > div > span:first-child {
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.productPrice > div > span:last-child {
+  border-left: 1px solid black;
+  padding-left: 4px;
+}
+
+.productPrice > button {
+  border: none;
+}
+
+.productPrice > button > img {
+  width: 22px;
+}
+
+.productSize,
+.productColor {
+  padding-top: 15px;
+}
+.productSize > p > a {
+  font-size: 10px;
+  color: #ababab;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.productSize > div,
+.productColor > div {
+  display: flex;
+  column-gap: 15px;
+  padding: 8px 0 5px 0;
+}
+
+.productSize > div > button:first-child {
+  border: 1.5px solid #bebebe;
+  color: #bebebe;
+}
+
+.productSize > div > button,
+.productColor > div > button {
+  border-radius: 100%;
+  width: 35px;
+  height: 35px;
+  border: 1.5px solid #000000;
+  font-size: 14px;
+}
+
+.deliveryOption {
+  padding-top: 15px;
+}
+
+.deliveryOption > p > img {
+  width: 15px;
+}
+
+.deliveryOption > div > div {
+  display: inline-block;
+}
+
+.deliveryOption > div > div > input {
+  font-size: 11px;
+  color: #ababab;
+  border: 1px solid #7a7a7a;
+  border-radius: 4px;
+  padding: 5px 8px;
+  margin: 5px 0;
+}
+
+.deliveryOption > div > div > p {
+  font-size: 11px;
+  font-weight: 700;
+  transform: translateX(-45px);
+  display: inline-block;
+}
+
+.deliveryOption > div > div {
+  display: flex;
+  align-items: center;
+}
+
+.deliveryOption > div > div > span {
+  font-size: 11px;
+  line-height: 13px;
+}
+
+.productColor > div > button:first-child {
+  background: #0c302c;
+}
+.productColor > div > button:nth-child(2) {
+  background: #172323;
+}
+.productColor > div > button:nth-child(3) {
+  background: #ae1e1e;
+}
+.productColor > div > button:nth-child(4) {
+  background: #bc473e;
+}
+.productColor > div > button:nth-child(5) {
+  background: #f9f6f4;
+}
+.productColor > div > button:last-child {
+  background: #212549;
+}
+
+.rightSide > div > select {
+  display: block;
+  border: none;
+  font-weight: 800;
+  font-size: 13px;
+  background: #d9d9d9;
+  border-radius: 3px;
+  padding: 8px;
+  margin: 12px 0;
+}
+
+.costomizeBtn,
+.addToBagBtn {
+  background: #000000;
+  border-radius: 5px;
+  font-family: "Plus Jakarta Sans";
+  font-weight: 500;
+  font-size: 15px;
+  color: #ffffff;
+  padding: 5px 0;
+  margin: 5px 0;
+  width: 35%;
+  border: none;
+  padding: 10px;
+}
+
+.costomizeBtn {
+  background: #7c7c7c;
+  border-radius: 5px;
+  margin-right: 10%;
+}
+
+.productContainer .aboutProduct > div {
+  padding-right: 30px;
+  border-right: 2px solid #c5c5c5;
+}
+
+.productContainer .aboutProduct > div > div {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+}
+
+.productContainer .aboutProduct .specificationBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ratingsAndReviews {
+  padding-left: 30px;
+}
+
+.ratingsAndReviews > p:nth-child(2) {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.ratingsAndReviews > p:nth-child(2) > img {
+  width: 35px;
+}
+.ratingsAndReviews > p:nth-child(2) > span {
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 45px;
+}
+
+.ratingsAndReviews > p:nth-child(3) {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.ratingsAndReviews > div {
+  margin: 25px 0;
+}
+
+.ratingsAndReviews > div > div {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.ratingsAndReviews > div > div > img {
+  width: 11px;
+}
+
+.ratingsAndReviews > div > div > span:first-child {
+  width: 10px;
+}
+
+.ratingsAndReviews > div > div > div {
+  width: 80%;
+  height: 5px;
+  margin: 12px 0;
+}
+
+.image-gallery-thumbnails .image-gallery-thumbnails-container {
+  display: block;
+}
+
+.image-gallery-thumbnails-wrapper.left .image-gallery-thumbnails .image-gallery-thumbnail,
+.image-gallery-thumbnails-wrapper.right .image-gallery-thumbnails .image-gallery-thumbnail {
+  width: 250px;
+}
+
+.image-gallery-thumbnails-wrapper.left .image-gallery-thumbnails,
+.image-gallery-thumbnails-wrapper.right .image-gallery-thumbnails {
+  width: 300px;
+}
+
+.image-gallery-content.left .image-gallery-slide .image-gallery-image,
+.image-gallery-content.right .image-gallery-slide .image-gallery-image {
+  height: 800px;
+}
+
+.image-gallery-thumbnails-wrapper.left,
+.image-gallery-thumbnails-wrapper.right {
+  width: 300px;
+}
+
+.image-gallery-content {
+  display: flex;
+}
+
+.image-gallery {
+  padding-right: 40px;
+}
+
+.aboutProduct {
+  margin-top: 50px;
+}
+
+.image-gallery-thumbnail.active,
+.image-gallery-thumbnail:focus,
+.image-gallery-thumbnail:hover {
+  border: 1px solid #337ab7;
+  border-radius: 10px;
+}

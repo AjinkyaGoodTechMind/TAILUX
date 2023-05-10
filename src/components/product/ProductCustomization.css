@@ -1,0 +1,319 @@
+.ProductCustomizeContainer {
+  padding: 20px 40px;
+}
+
+.ProductCustomizeContainer > p:first-child {
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 40px;
+  border-bottom: 2px solid #969696;
+  padding-bottom: 10px;
+}
+
+.ProductCustomizeContainer > div:nth-child(2) {
+  display: grid;
+  grid-template-columns: 5fr 4fr;
+}
+
+.ProductCustomizeContainer .productDetails {
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  padding: 30px 0;
+}
+
+.ProductCustomizeContainer .productDetails > div:first-child {
+  padding-right: 10px;
+}
+
+.ProductCustomizeContainer .productDetails > div:last-child {
+  padding: 4px 10px;
+}
+
+.ProductCustomizeContainer .productDetails .productName {
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 35px;
+}
+
+.ProductCustomizeContainer .productDetails .productPrice {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+  padding: 15px 0 0 0;
+}
+
+.ProductCustomizeContainer .productDetails .productPrice + p {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  color: #008555;
+  padding: 0 0 15px 0;
+}
+
+.ProductCustomizeContainer .productDetails .productPrice > span:first-child {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.ProductCustomizeContainer .productDetails .productPrice > span:nth-child(2),
+.ProductCustomizeContainer
+  .productDetails
+  .productPrice
+  > span:nth-child(2)
+  > span {
+  font-weight: 600;
+  font-size: 14px;
+  color: #ababab;
+}
+
+.ProductCustomizeContainer
+  .productDetails
+  .productPrice
+  > span:nth-child(2)
+  > span {
+  text-decoration: line-through;
+}
+
+.ProductCustomizeContainer .productDetails .productPrice > div {
+  column-gap: 4px;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 5px;
+  margin-left: 30px;
+}
+
+.ProductCustomizeContainer .productDetails .productPrice > div > img {
+  width: 11px;
+}
+
+.ProductCustomizeContainer .productDetails .productPrice > div > span {
+  font-size: 10px;
+}
+
+.ProductCustomizeContainer
+  .productDetails
+  .productPrice
+  > div
+  > span:first-child {
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.ProductCustomizeContainer
+  .productDetails
+  .productPrice
+  > div
+  > span:last-child {
+  border-left: 1px solid black;
+  padding-left: 4px;
+}
+
+.ProductCustomizeContainer .productDetails .productSize {
+  padding-top: 15px;
+}
+
+.ProductCustomizeContainer .productDetails .productSize > p > a {
+  font-size: 10px;
+  color: #ababab;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.ProductCustomizeContainer .productDetails .productSize > div {
+  display: flex;
+  column-gap: 15px;
+  padding: 8px 0 5px 0;
+}
+
+.ProductCustomizeContainer
+  .productDetails
+  .productSize
+  > div
+  > button:first-child {
+  border: 1.5px solid #bebebe;
+  color: #bebebe;
+}
+
+.ProductCustomizeContainer .productDetails .productSize > div > button {
+  border-radius: 100%;
+  width: 35px;
+  height: 35px;
+  border: 1.5px solid #000000;
+  font-size: 14px;
+}
+
+.ProductCustomizeContainer .productDetails select {
+  display: block;
+  border: none;
+  font-weight: 800;
+  font-size: 13px;
+  background: #d9d9d9;
+  border-radius: 3px;
+  padding: 8px;
+  margin: 12px 0;
+}
+
+.ProductCustomizeContainer .productDetails > div:last-child > div:nth-child(4) {
+  display: flex;
+  column-gap: 15px;
+}
+
+.ProductCustomizeContainer .productDetails select + img {
+  width: 30px;
+}
+
+.ProductCustomizeContainer .aboutProduct > div {
+  padding-right: 30px;
+  border-right: 2px solid #c5c5c5;
+}
+
+.ProductCustomizeContainer .aboutProduct > div > div {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+}
+
+.ProductCustomizeContainer .aboutProduct .specificationBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ProductCustomizeContainer .costomizeBox {
+  padding: 20px;
+}
+
+.ProductCustomizeContainer .costomizeBox > p:first-child {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+}
+
+.ProductCustomizeContainer .costomizeBox > p:nth-child(2) {
+  font-size: 12px;
+  line-height: 15px;
+  color: #8f8f8f;
+}
+
+.ProductCustomizeContainer .costomizeBox .savedSizes {
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+}
+
+.ProductCustomizeContainer .costomizeBox .savedSizes img {
+  width: 70px;
+}
+
+.ProductCustomizeContainer .costomizeBox .savedSizes > div > p {
+  text-align: center;
+}
+
+.ProductCustomizeContainer .costomizeBox .savedSizes > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ProductCustomizeContainer
+  .costomizeBox
+  .savedSizes
+  > div:last-child
+  > p:nth-child(1) {
+  background: #dadada;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  font-size: 25px;
+  line-height: 30px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ProductCustomizeContainer .costomizeBox .selectColor {
+  padding-top: 15px;
+}
+
+.ProductCustomizeContainer .costomizeBox .selectColor {
+  display: flex;
+  column-gap: 15px;
+  padding: 8px 0 5px 0;
+}
+
+.ProductCustomizeContainer .costomizeBox .selectColor > button {
+  border-radius: 100%;
+  width: 35px;
+  height: 35px;
+  font-size: 14px;
+}
+
+.ProductCustomizeContainer .costomizeBox .selectColor > button:first-child {
+  background: #0c302c;
+}
+.ProductCustomizeContainer .costomizeBox .selectColor > button:nth-child(2) {
+  background: #172323;
+}
+.ProductCustomizeContainer .costomizeBox .selectColor > button:nth-child(3) {
+  background: #ae1e1e;
+}
+.ProductCustomizeContainer .costomizeBox .selectColor > button:nth-child(4) {
+  background: #bc473e;
+}
+.ProductCustomizeContainer .costomizeBox .selectColor > button:nth-child(5) {
+  background: #f9f6f4;
+}
+.ProductCustomizeContainer .costomizeBox .selectColor > button:nth-child(s6) {
+  background: #212549;
+}
+
+.ProductCustomizeContainer .costomizeBox .addToBagBtn {
+  background: #000000;
+  border-radius: 5px;
+  font-family: "Plus Jakarta Sans";
+  font-weight: 500;
+  font-size: 15px;
+  color: #ffffff;
+  padding: 5px 0;
+  margin: 25px 0;
+  width: 35%;
+  border: none;
+  padding: 10px;
+}
+
+.ProductCustomizeContainer .costomizeBox > p:nth-child(8) {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 800;
+}
+
+.ProductCustomizeContainer .costomizeBox > p:nth-child(9) {
+  font-size: 11px;
+  line-height: 13px;
+}
+
+.ProductCustomizeContainer .costomizeBox > .openInTailuxStudioBtn {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+  background: linear-gradient(91.02deg, #0094ff 5.59%, #bd00ff 99.5%);
+  box-shadow: inset 0px 0px 29px #ffffff;
+  border-radius: 5px;
+  border: none;
+  padding: 12px 35px;
+  margin: 20px 0;
+}
+
+.ProductCustomizeContainer .costomizeBox > p:nth-last-child(1) {
+  font-size: 14px;
+  line-height: 16px;
+  text-align: justify;
+}
+
+.ProductCustomizeContainer .costomizeBox > p:nth-last-child(2) {
+  font-size: 16px;
+  line-height: 20px;
+  text-align: justify;
+  font-weight: 700;
+  margin: 0 0 10px 0 !important;
+}

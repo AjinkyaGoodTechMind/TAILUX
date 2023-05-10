@@ -1,0 +1,71 @@
+footer {
+  margin-top: 30px;
+  width: 100%;
+}
+footer > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1.3fr;
+  padding: 20px 40px;
+}
+
+footer > div > div > p:first-child {
+  font-weight: 900;
+}
+
+footer > div > div > p {
+  font-family: "Plus Jakarta Sans";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  padding: 6px 0;
+}
+
+footer > p {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 26px;
+  background-color: black;
+  color: #ffffff;
+  padding: 8px;
+  text-align: center;
+}
+
+.socialMedia {
+  margin-top: 30px;
+  padding: 0 10px;
+}
+
+.socialMedia > div:first-child {
+  display: flex;
+  justify-content: space-between;
+}
+
+.socialMedia > div:first-child > a > img {
+  width: 16px;
+  background-color: #e7e7e7;
+}
+
+.facebookIcon {
+  width: 12px !important;
+}
+
+.socialMedia > div:first-child > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e7e7e7;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+}
+
+.socialMedia > div:last-child {
+  display: flex;
+  margin-top: 30px;
+  column-gap: 20px;
+}
+
+.socialMedia > div:last-child > a > img {
+  height: 45px;
+}

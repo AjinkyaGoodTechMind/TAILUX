@@ -1,0 +1,100 @@
+.cart1Container {
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  padding: 25px;
+  column-gap: 25px;
+}
+
+.cart1Container > div {
+  border-radius: 20px;
+  background-color: #efefef;
+  padding: 50px 30px;
+}
+
+.cart1Container > .priceDetails{
+    height: fit-content;
+}
+
+.cart1Container > .deliveryDetails > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #8c8c8c;
+  align-items: center;
+  padding-bottom: 15px;
+}
+
+.cart1Container > .deliveryDetails > .outOfStockBox,
+.cart1Container > .deliveryDetails > .deliveryBox {
+  display: grid;
+  grid-template-columns: 2fr 6fr 4fr;
+  border-bottom: 2px solid #8c8c8c;
+  padding: 25px;
+  column-gap: 20px;
+}
+
+.cart1Container > .deliveryDetails > .outOfStockBox > img,
+.cart1Container > .deliveryDetails > .deliveryBox > img {
+  width: 120px;
+}
+
+.cart1Container > .deliveryDetails > .outOfStockBox > div > P,
+.cart1Container > .deliveryDetails > .deliveryBox > div:nth-child(2) > p {
+  padding-bottom: 8px;
+}
+
+.cart1Container > .deliveryDetails > .outOfStockBox > div > P:nth-child(2),
+.cart1Container
+  > .deliveryDetails
+  > .deliveryBox
+  > div:nth-child(2)
+  > p:nth-child(2) {
+  font-size: 13px;
+  line-height: 16px;
+  color: #a9a9a9;
+}
+
+.cart1Container > .deliveryDetails > .outOfStockBox > div > div,
+.cart1Container > .deliveryDetails > .deliveryBox > div > div {
+  display: flex;
+  column-gap: 30px;
+}
+
+.cart1Container > .deliveryDetails > .outOfStockBox > div > div > button,
+.cart1Container > .deliveryDetails > .deliveryBox > div > div > button {
+  font-size: 15px;
+  line-height: 18px;
+  text-decoration-line: underline;
+  border: none;
+  font-weight: 500;
+}
+
+.cart1Container > .deliveryDetails > .outOfStockBox > div > P:nth-child(3) {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ff0000;
+  padding-bottom: 12px;
+}
+
+.cart1Container > .deliveryDetails > .deliveryBox > div > P:nth-child(3),
+.cart1Container > .deliveryDetails > .deliveryBox > div:last-child > p {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.cart1Container > .deliveryDetails > div:first-child > button {
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  padding: 6px 14px;
+}
+
+.cart1Container > .priceDetails > button {
+  background: #000000;
+  border-radius: 7px;
+  width: 100%;
+  color: white;
+  padding: 8px;
+  margin-top: 30px;
+}

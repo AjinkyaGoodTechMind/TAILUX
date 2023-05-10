@@ -1,0 +1,7 @@
+.logInSignUpContainer > p:first-child > span {
+  font-weight: 400;
+}
+
+.logInSignUpContainer input::placeholder {
+  color: #afafaf;
+}

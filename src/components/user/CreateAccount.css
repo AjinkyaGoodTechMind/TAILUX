@@ -1,0 +1,7 @@
+.createAcountContainer input {
+  color: #686868;
+}
+
+.createAcountContainer input::placeholder{
+    color: #bcbcbc;
+}
