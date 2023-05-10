@@ -9,7 +9,7 @@ import "./Navbar.css";
 
 const Navbar = () => {
   return (
-    <nav>
+    <div className="nav">
       <div className="d-flex">
         <img className="navLogo me-5" src={Logo} alt="Tailux" />
         <div className="categoryLink">
@@ -59,7 +59,7 @@ const Navbar = () => {
           </Link>
         </div>
       </div>
-    </nav>
+    </div>
   );
 };
 
