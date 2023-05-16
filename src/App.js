@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/home/Home";
 import "./App.css";
@@ -19,8 +19,16 @@ import Step5 from "./StudioPage/Step5";
 import Cart1 from "./components/cart/Cart1";
 import Mens from "./StudioPage/Mens";
 import ProductCustomization from "./components/product/ProductCustomization";
+import { useDispatch } from "react-redux";
+import { loadUser } from "./actions/userAction";
 
 function App() {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(loadUser())
+  }, []);
+
   return (
     <BrowserRouter>
       <Routes>
