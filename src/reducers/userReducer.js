@@ -22,7 +22,7 @@ export const userReducer = (state = {
             return {
                 loading: false,
                 isAuthenticated: true,
-                user: action.payload.user
+                user: action.payload
             }
 
 

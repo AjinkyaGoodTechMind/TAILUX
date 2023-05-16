@@ -1,6 +1,6 @@
-import React, { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import React, { Fragment, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import Navbar from "../layout/navbar/Navbar";
 import { register } from "../../actions/userAction";
@@ -9,11 +9,19 @@ import "./CreateAccount.css";
 import FacebookIcon2 from "../../assets/images/FacebookIcon2.svg";
 import GoogleIcon from "../../assets/images/GoogleIcon.svg";
 
-
 const CreateAccount = () => {
   const [formData, setFormData] = useState({});
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const { isAuthenticated } = useSelector((state) => state.user);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/");
+    }
+  }, [isAuthenticated]);
 
   const collectData = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -22,13 +30,13 @@ const CreateAccount = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    // const formData0 = new FormData()
-    // formData0.append("email", formData.email)
-    // formData0.append("mobile", formData.mobile)
-    // formData0.append("password", formData.password)
-    // formData0.append("confirmPassword", formData.confirmPassword)
-    
-    dispatch(register(formData));
+    const formData0 = new FormData();
+    formData0.append("email", formData.email);
+    formData0.append("mobile", formData.mobile);
+    formData0.append("password", formData.password);
+    formData0.append("confirmPassword", formData.confirmPassword);
+
+    dispatch(register(formData0));
   };
 
   return (
@@ -40,7 +48,7 @@ const CreateAccount = () => {
           <div className="createAcountContainer box1">
             <p className="heading2">Create Account</p>
 
-            <form onSubmit={submitHandler}>
+            <form onSubmit={submitHandler} encType="multipart/form-data">
               <input
                 placeholder="Enter your Mobile No."
                 className="input1"
