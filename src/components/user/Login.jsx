@@ -1,11 +1,30 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 import Navbar from "../layout/navbar/Navbar";
+import { login } from "../../actions/userAction";
 
 import FacebookIcon2 from "../../assets/images/FacebookIcon2.svg";
 import GoogleIcon from "../../assets/images/GoogleIcon.svg";
-import { Link } from "react-router-dom";
 
 const Login = () => {
+
+  const [formData, setFormData] = useState({});
+
+  const dispatch = useDispatch();
+
+  const collectData = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+
+  const submitHandler = (e) => {
+    e.preventDefault()
+
+    dispatch(login(formData))
+  }
+
   return (
     <Fragment>
       <div className="logInBackground">
@@ -15,8 +34,9 @@ const Login = () => {
           <div className="loginContainer box1">
             <p className="heading2">Login</p>
 
-            <input placeholder="Email/Phone Number" className="input1" type="text" name="" id="" />
-            <input placeholder="Password" className="input1" type="text" name="" id="" />
+            <form onSubmit={submitHandler}>
+            <input placeholder="Email/Phone Number" className="input1" type="text" name="email" onChange={collectData} />
+            <input placeholder="Password" className="input1" type="text" name="password" onChange={collectData}/>
 
             <p className="text1">
               Forgot Password?{" "}
@@ -37,7 +57,8 @@ const Login = () => {
               </Link>
             </p>
 
-            <button className="btn1">SUBMIT</button>
+            <button type="submit" className="btn1">SUBMIT</button>
+            </form>
 
             <p className="text1">
               Or <span className="text2"> Continue With:</span>

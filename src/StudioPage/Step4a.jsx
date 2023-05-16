@@ -4,6 +4,7 @@ import Navbar from "../components/layout/navbar/Navbar";
 import Footer from "../components/layout/footer/Footer";
 import { useNavigate } from "react-router-dom";
 import "./Studio.css";
+import React from "react";
 
 export default function Step4b() {
   const navigate = useNavigate();

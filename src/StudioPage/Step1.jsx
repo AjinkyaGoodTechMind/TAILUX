@@ -1,3 +1,4 @@
+import React from "react";
 import Banner from "../components/studio/Banner";
 import Tag from "../components/studio/Tag";
 import Content from "../components/studio/Content";

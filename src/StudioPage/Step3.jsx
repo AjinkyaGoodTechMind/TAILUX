@@ -1,9 +1,9 @@
+import React, { useState } from "react";
 import Banner from "../components/studio/Banner";
 import Tag from "../components/studio/Tag";
 import Navbar from "../components/layout/navbar/Navbar";
 import Footer from "../components/layout/footer/Footer";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 export default function Step3() {
   const navigate = useNavigate();
