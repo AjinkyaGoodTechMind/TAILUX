@@ -1,4 +1,4 @@
-import { CLEAR_ERRORS, LOAD_USER_FAIL, LOAD_USER_REQUEST, LOAD_USER_SUCCESS, LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS, REGISTER_USER_FAIL, REGISTER_USER_REQUEST, REGISTER_USER_SUCCESS } from "../constants/userConstants";
+import { CLEAR_ERRORS, LOAD_USER_FAIL, LOAD_USER_REQUEST, LOAD_USER_SUCCESS, LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS, REGISTER_USER_FAIL, REGISTER_USER_REQUEST, REGISTER_USER_SUCCESS, UPDATE_PROFILE_REQUEST, UPDATE_PROFILE_RESET, UPDATE_PROFILE_SUCCESS } from "../constants/userConstants";
 
 
 export const userReducer = (state = {
@@ -15,7 +15,11 @@ export const userReducer = (state = {
                 loading: true,
                 isAuthenticated: false
             }
-
+        case UPDATE_PROFILE_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
         case REGISTER_USER_SUCCESS:
         case LOGIN_SUCCESS:
         case LOAD_USER_SUCCESS:
@@ -24,7 +28,13 @@ export const userReducer = (state = {
                 isAuthenticated: true,
                 user: action.payload
             }
-
+        case UPDATE_PROFILE_SUCCESS: {
+            return {
+                ...state,
+                loading: false,
+                profileUpdated: action.payload
+            }
+        }
 
         case REGISTER_USER_FAIL:
         case LOGIN_FAIL:
@@ -39,6 +49,11 @@ export const userReducer = (state = {
             return {
                 ...state,
                 error: null
+            }
+        case UPDATE_PROFILE_RESET:
+            return {
+                ...state,
+                profileUpdated: false
             }
         default:
             return state
