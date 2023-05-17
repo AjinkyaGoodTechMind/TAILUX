@@ -24,9 +24,9 @@ import "./Product.css";
 import { useDispatch, useSelector } from "react-redux";
 import { productDetails } from "../../actions/productActions";
 import { addToCart } from "../../actions/cartActions";
+import { ADD_TO_CART_RESET } from "../../constants/cartConstants";
 
 const Product = () => {
-
   const [quantity, setQuantity] = useState(1);
 
   const { id } = useParams();
@@ -34,17 +34,24 @@ const Product = () => {
 
   const { loading, product } = useSelector((state) => state.productDetails);
   const { user } = useSelector((state) => state.user);
+  const { cartAdded } = useSelector((state) => state.cart);
 
   useEffect(() => {
     dispatch(productDetails(id));
   }, []);
 
+  useEffect(() => {
+    if (cartAdded) {
+      alert("Product Added To Cart");
+      dispatch({ type: ADD_TO_CART_RESET });
+    }
+  }, [cartAdded]);
+
   const quantityHandler = (e) => {
-    setQuantity(e.target.value)
-  }
+    setQuantity(e.target.value);
+  };
 
   const addToBagHandler = () => {
-    console.log(user)
     dispatch(addToCart({ user: user._id, product: id, quantity }));
   };
 
@@ -121,12 +128,12 @@ const Product = () => {
             thumbnail: `http://localhost:5000/productImages/${product.images[0]}`,
           },
           {
-            original: `http://localhost:5000/productImages/${product.images[1]}`,
-            thumbnail: `http://localhost:5000/productImages/${product.images[1]}`,
+            original: `http://localhost:5000/productImages/${product.images[0]}`,
+            thumbnail: `http://localhost:5000/productImages/${product.images[0]}`,
           },
           {
-            original: `http://localhost:5000/productImages/${product.images[2]}`,
-            thumbnail: `http://localhost:5000/productImages/${product.images[2]}`,
+            original: `http://localhost:5000/productImages/${product.images[0]}`,
+            thumbnail: `http://localhost:5000/productImages/${product.images[0]}`,
           },
         ]
       : [],

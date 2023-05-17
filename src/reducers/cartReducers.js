@@ -1,4 +1,4 @@
-import { USER_CARTS_FAIL, USER_CARTS_REQUEST, USER_CARTS_SUCCESS, CLEAR_ERRORS, ADD_TO_CART_FAIL, ADD_TO_CART_REQUEST, ADD_TO_CART_SUCCESS, REMOVE_CART_REQUEST, REMOVE_CART_SUCCESS, REMOVE_CART_FAIL } from "../constants/cartConstants"
+import { USER_CARTS_FAIL, USER_CARTS_REQUEST, USER_CARTS_SUCCESS, CLEAR_ERRORS, ADD_TO_CART_FAIL, ADD_TO_CART_REQUEST, ADD_TO_CART_SUCCESS, REMOVE_CART_REQUEST, REMOVE_CART_SUCCESS, REMOVE_CART_FAIL, ADD_TO_CART_RESET, REMOVE_CART_RESET } from "../constants/cartConstants"
 
 export const cartReducer = (state = {}, action) => {
     switch (action.type) {
@@ -9,13 +9,13 @@ export const cartReducer = (state = {}, action) => {
             }
         case ADD_TO_CART_SUCCESS:
             return {
-                loading: true,
-                cart: action.payload
+                loading: false,
+                cartAdded: action.payload
             }
         case REMOVE_CART_SUCCESS:
             return {
                 loading: false,
-                success: action.payload
+                cartRemoved: action.payload
             }
         case REMOVE_CART_FAIL:
             return {
@@ -34,6 +34,16 @@ export const cartReducer = (state = {}, action) => {
                 ...state,
                 error: null
             }
+        case ADD_TO_CART_RESET:
+            return {
+                ...state,
+                cartAdded: false
+            }
+        case REMOVE_CART_RESET:
+            return {
+                ...state,
+                cartRemoved: false
+            }
         default:
             return {
                 ...state
@@ -41,7 +51,7 @@ export const cartReducer = (state = {}, action) => {
     }
 }
 
-export const cartsReducer = (state = {cartItems:[]}, action) => {
+export const cartsReducer = (state = { cartItems: [] }, action) => {
     switch (action.type) {
         case USER_CARTS_REQUEST:
             return {

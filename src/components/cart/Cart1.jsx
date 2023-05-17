@@ -8,19 +8,29 @@ import "./Cart1.css";
 import HeadPhone from "../layout/HeadPhone";
 import { useDispatch, useSelector } from "react-redux";
 import { removeCart, userCarts } from "../../actions/cartActions";
+import { REMOVE_CART_RESET } from "../../constants/cartConstants";
 
 const Cart1 = () => {
+  const dispatch = useDispatch();
 
-  const dispatch = useDispatch()
-  const { cartItems } = useSelector((state) => state.carts)
+  const { cartItems } = useSelector((state) => state.carts);
+  const { cartRemoved } = useSelector((state) => state.cart);
 
   useEffect(() => {
-    dispatch(userCarts())
+    dispatch(userCarts());
   }, []);
 
+  useEffect(() => {
+    if (cartRemoved) {
+      dispatch(userCarts());
+      alert("Product Removed From Cart List");
+      dispatch({ type: REMOVE_CART_RESET });
+    }
+  }, [cartRemoved]);
+
   const removeCartItem = (id) => {
-    dispatch(removeCart(id))
-  }
+    dispatch(removeCart(id));
+  };
 
   return (
     <Fragment>
@@ -34,7 +44,7 @@ const Cart1 = () => {
             <button className="text15">Change</button>
           </div>
 
-          <div className="outOfStockBox">
+          {/* <div className="outOfStockBox">
             <img src={CartItem1} alt="CartItem1" />
             <div>
               <p className="text16">Party Wear Dress for Women</p>
@@ -45,27 +55,34 @@ const Cart1 = () => {
                 <button>Remove</button>
               </div>
             </div>
-          </div>
+          </div> */}
 
-          {cartItems.map((cartItem) => <div className="deliveryBox">
-            <img src={`http://localhost:5000/productImages/${cartItem.product.images[0]}`} alt="CartItem1" />
-            <div>
-              <p className="text16">{cartItem.product.name}</p>
-              <p>Pack of {cartItem.quantity}</p>
-              <p>₹{cartItem.product.price}</p>
+          {cartItems.map((cartItem, key) => (
+            <div key={key} className="deliveryBox">
+              <img
+                src={`http://localhost:5000/productImages/${cartItem.product.images[0]}`}
+                alt="CartItem1"
+              />
               <div>
-                <button>Add to Wishlist</button>
-                <button onClick={() => removeCartItem(cartItem._id)}>Remove</button>
+                <p className="text16">{cartItem.product.name}</p>
+                <p>Pack of {cartItem.quantity}</p>
+                <p>₹{cartItem.product.price}</p>
+                <div>
+                  <button>Add to Wishlist</button>
+                  <button onClick={() => removeCartItem(cartItem._id)}>
+                    Remove
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <p>Delivery Expected by</p>
+                <p>30th March, 2023</p>
               </div>
             </div>
+          ))}
 
-            <div>
-              <p>Delivery Expected by</p>
-              <p>30th March, 2023</p>
-            </div>
-          </div>)}
-
-          <div className="deliveryBox">
+          {/* <div className="deliveryBox">
             <img src={Women2} alt="Women2" />
             <div>
               <p className="text16">Party Wear Dress for Women</p>
@@ -81,7 +98,7 @@ const Cart1 = () => {
               <p>Delivery Expected by</p>
               <p>30th March, 2023</p>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="priceDetails">

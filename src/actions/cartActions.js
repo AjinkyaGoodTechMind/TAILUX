@@ -7,7 +7,7 @@ export const addToCart = (details) => async (dispatch) => {
 
         const { data } = await axios.post("http://localhost:5000/api/cart/new", details)
         console.log(data)
-        dispatch({ type: ADD_TO_CART_SUCCESS, payload: data })
+        dispatch({ type: ADD_TO_CART_SUCCESS, payload: data.success })
 
     } catch (error) {
         dispatch({
