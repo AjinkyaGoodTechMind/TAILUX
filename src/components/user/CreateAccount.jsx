@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import Navbar from "../layout/navbar/Navbar";
-import { register } from "../../actions/userAction";
+import { register } from "../../actions/userActions";
 import "./CreateAccount.css";
 
 import FacebookIcon2 from "../../assets/images/FacebookIcon2.svg";

@@ -20,7 +20,7 @@ import Cart1 from "./components/cart/Cart1";
 import Mens from "./StudioPage/Mens";
 import ProductCustomization from "./components/product/ProductCustomization";
 import { useDispatch } from "react-redux";
-import { loadUser } from "./actions/userAction";
+import { loadUser } from "./actions/userActions";
 
 function App() {
   const dispatch = useDispatch()
@@ -40,7 +40,7 @@ function App() {
         <Route path="/resetPasswordOtp" element={<ResetPasswordOtp />} />
         <Route path="/productCustomization" element={<ProductCustomization />} />
         <Route path="/setPassword" element={<SetPassword />} />
-        <Route path="/product" element={<Product />} />
+        <Route path="/product/:id" element={<Product />} />
         <Route path="/tailuxStudio" element={<Step1 />} />
         <Route path="/step2" element={<Step2 />} />
         <Route path="/step3" element={<Step3 />} />

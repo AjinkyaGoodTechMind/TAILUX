@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 
 import CarouselImage1 from "../../assets/images/CarouselImage1.png";
 import CarouselImage2 from "../../assets/images/CarouselImage2.png";
@@ -29,8 +29,19 @@ import Footer from "../layout/footer/Footer";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 import "./Home.css";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { allProducts } from "../../actions/productActions";
 
 const Home = () => {
+  const { loading, products } = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(allProducts());
+    // console.log(products)
+  }, []);
+
   const deals = [
     <div className="dealBox">
       <img src={fotor1} alt="fotor1" />
@@ -60,14 +71,24 @@ const Home = () => {
 
   const womens = [
     <div className="womenBox">
-      <img src={Women1} alt="Women1" />
-      <div>
-        <p className="text4">Plunge Floral Print</p>
-        <p className="text4">Georgette Dress</p>
-        <p className="text4">
-          <span>₹1999</span> <span>₹1999</span>
-        </p>
-      </div>
+      {products ? 
+        <>
+          <Link to={`product/${products[3]._id}`}>
+            <img
+              src={`http://localhost:5000/productImages/${products[3].images[0]}`}
+              alt={products[3].images[0]}
+            />
+          </Link>
+          <div>
+            <p className="text4">{products[3].name}</p>
+            {/* <p className="text4">Georgette Dress</p> */}
+            <p className="text4">
+              <span>₹{products[3].price}</span> <span>₹{products[3].mrp}</span>
+            </p>
+          </div>
+        </>
+        :""
+      }
     </div>,
     <div className="womenBox">
       <img src={Women2} alt="Women2" />
@@ -220,7 +241,13 @@ const Home = () => {
 
       {/* Home Carousel */}
       <div className="carousel">
-        <Carousel showThumbs={false} showArrows={false} showStatus={false} autoPlay infiniteLoop>
+        <Carousel
+          showThumbs={false}
+          showArrows={false}
+          showStatus={false}
+          autoPlay
+          infiniteLoop
+        >
           <div>
             <img src={CarouselImage1} alt="CarouselImage1" />
           </div>
@@ -237,13 +264,23 @@ const Home = () => {
         {/* Deals of The day Slider */}
         <div>
           <p className="heading1">DEALS OF THE DAY</p>
-          <AliceCarousel mouseTracking items={deals} slideBy="page" autoWidth disableButtonsControls disableDotsControls />
+          <AliceCarousel
+            mouseTracking
+            items={deals}
+            slideBy="page"
+            autoWidth
+            disableButtonsControls
+            disableDotsControls
+          />
         </div>
 
         {/* Masonry */}
         <div className="seasonalWear px-4">
           <p className="heading1">SEASONAL DESIGNER WEAR</p>
-          <ResponsiveMasonry columnsCount={2} columnsCountBreakPoints={{ 350: 3, 750: 2, 900: 2 }}>
+          <ResponsiveMasonry
+            columnsCount={2}
+            columnsCountBreakPoints={{ 350: 3, 750: 2, 900: 2 }}
+          >
             <Masonry gutter="40px">
               <div className="seasonalBox">
                 <img src={Rectangle14} alt="Rectangle14" />
@@ -281,25 +318,53 @@ const Home = () => {
         {/* Women Slider */}
         <div>
           <p className="heading1">NEW ARRIVALS- WOMEN</p>
-          <AliceCarousel mouseTracking items={womens} slideBy="page" autoWidth disableButtonsControls disableDotsControls />
+          <AliceCarousel
+            mouseTracking
+            items={womens}
+            slideBy="page"
+            autoWidth
+            disableButtonsControls
+            disableDotsControls
+          />
         </div>
 
         {/* Men Slider */}
         <div>
           <p className="heading1">NEW ARRIVALS- MEN</p>
-          <AliceCarousel mouseTracking items={womens} slideBy="page" autoWidth disableButtonsControls disableDotsControls />
+          <AliceCarousel
+            mouseTracking
+            items={womens}
+            slideBy="page"
+            autoWidth
+            disableButtonsControls
+            disableDotsControls
+          />
         </div>
 
         {/* Fabric Sliider */}
         <div>
           <p className="heading1">PREMIUM RANGE OF FABRICS</p>
-          <AliceCarousel mouseTracking items={fabrics} slideBy="page" autoWidth disableButtonsControls disableDotsControls />
+          <AliceCarousel
+            mouseTracking
+            items={fabrics}
+            slideBy="page"
+            autoWidth
+            disableButtonsControls
+            disableDotsControls
+          />
         </div>
 
         {/* Recent Visit Slider */}
         <div>
           <p className="heading1">YOUR RECENT VISITS</p>
-          <AliceCarousel mouseTracking items={womens} slideBy="page" autoWidth disableButtonsControls disableDotsControls />
+          <AliceCarousel
+            mouseTracking
+            items={womens}
+            slideBy="page"
+            autoWidth
+            disableButtonsControls
+            disableDotsControls
+          />
         </div>
       </div>
 

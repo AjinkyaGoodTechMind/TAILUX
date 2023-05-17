@@ -10,7 +10,7 @@ P{
 }
 
 img{
-  pointer-events: none;
+  /* pointer-events: none; */
   width:100%;
 }
 
