@@ -3,13 +3,16 @@ import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { userReducer } from './reducers/userReducers'
 import { productDetailsReducer, productsReducer } from './reducers/productReducers'
+import { cartReducer, cartsReducer } from './reducers/cartReducers'
 
 const middleware = [thunk]
 
 const reducer = combineReducers({
     user:userReducer,
     products:productsReducer,
-    productDetails:productDetailsReducer
+    productDetails:productDetailsReducer,
+    carts:cartsReducer,
+    cart:cartReducer
 })
 
 const store = createStore(

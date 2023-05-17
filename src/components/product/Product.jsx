@@ -23,16 +23,30 @@ import ProgressBar from "@ramonak/react-progress-bar";
 import "./Product.css";
 import { useDispatch, useSelector } from "react-redux";
 import { productDetails } from "../../actions/productActions";
+import { addToCart } from "../../actions/cartActions";
 
 const Product = () => {
+
+  const [quantity, setQuantity] = useState(1);
+
   const { id } = useParams();
   const dispatch = useDispatch();
 
   const { loading, product } = useSelector((state) => state.productDetails);
+  const { user } = useSelector((state) => state.user);
 
   useEffect(() => {
     dispatch(productDetails(id));
   }, []);
+
+  const quantityHandler = (e) => {
+    setQuantity(e.target.value)
+  }
+
+  const addToBagHandler = () => {
+    console.log(user)
+    dispatch(addToCart({ user: user._id, product: id, quantity }));
+  };
 
   const womens = [
     <div className="womenBox">
@@ -170,7 +184,7 @@ const Product = () => {
                     </div>
 
                     <div>
-                      <p>
+                      <div>
                         <p className="text9 mb-2">Specifications</p>
                         <div className="specificationBox">
                           <div>
@@ -192,7 +206,7 @@ const Product = () => {
                             <p className="text7 mb-2">Casual</p>
                           </div>
                         </div>
-                      </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -201,11 +215,9 @@ const Product = () => {
 
             <div className="rightSide">
               <div style={{ height: "820px" }}>
-                <p className="productName">
-                  {product.name}
-                </p>
+                <p className="productName">{product.name}</p>
 
-                <p className="productPrice">
+                <div className="productPrice">
                   <span>₹{product.price}</span>
                   <span>
                     MRP&nbsp;<span>₹{product.mrp}</span>
@@ -214,28 +226,64 @@ const Product = () => {
                   <div className="allCenter">
                     <span>{product.ratings}</span>
                     <img src={Star1} alt="Star1" />
-                    <span>{product.numOfReviews/1000}k Ratings</span>
+                    <span>{product.numOfReviews / 1000}k Ratings</span>
                   </div>
 
                   <button>
                     <img src={WishlistIcon2} alt="" />
                   </button>
-                </p>
+                </div>
 
                 <p>inclusive of all taxes</p>
 
                 <div className="productSize">
-                  <p className="text12">
+                  <div className="text12">
                     SIZE&nbsp;&nbsp;&nbsp;
                     <Link to="/">SIZE CHART &nbsp;&rsaquo;</Link>
-                  </p>
+                  </div>
                   <div>
-                    <button className={product.sizes.includes("xs") ? "" : "sizeNotAvailable"}>XS</button>
-                    <button className={product.sizes.includes("s") ? "" : "sizeNotAvailable"}>S</button>
-                    <button className={product.sizes.includes("m") ? "" : "sizeNotAvailable"}>M</button>
-                    <button className={product.sizes.includes("l") ? "" : "sizeNotAvailable"}>L</button>
-                    <button className={product.sizes.includes("xl") ? "" : "sizeNotAvailable"}>XL</button>
-                    <button className={product.sizes.includes("xxl") ? "" : "sizeNotAvailable"}>XXL</button>
+                    <button
+                      className={
+                        product.sizes.includes("xs") ? "" : "sizeNotAvailable"
+                      }
+                    >
+                      XS
+                    </button>
+                    <button
+                      className={
+                        product.sizes.includes("s") ? "" : "sizeNotAvailable"
+                      }
+                    >
+                      S
+                    </button>
+                    <button
+                      className={
+                        product.sizes.includes("m") ? "" : "sizeNotAvailable"
+                      }
+                    >
+                      M
+                    </button>
+                    <button
+                      className={
+                        product.sizes.includes("l") ? "" : "sizeNotAvailable"
+                      }
+                    >
+                      L
+                    </button>
+                    <button
+                      className={
+                        product.sizes.includes("xl") ? "" : "sizeNotAvailable"
+                      }
+                    >
+                      XL
+                    </button>
+                    <button
+                      className={
+                        product.sizes.includes("xxl") ? "" : "sizeNotAvailable"
+                      }
+                    >
+                      XXL
+                    </button>
                   </div>
                 </div>
 
@@ -268,16 +316,18 @@ const Product = () => {
                   </div>
                 </div>
 
-                <select name="" id="">
-                  <option value="QTY:1">QTY:1</option>
-                  <option value="QTY:2">QTY:2</option>
-                  <option value="QTY:3">QTY:3</option>
+                <select onChange={quantityHandler} name="" id="">
+                  <option value={1}>QTY:1</option>
+                  <option value={2}>QTY:2</option>
+                  <option value={3}>QTY:3</option>
                 </select>
 
                 <Link to="/productCustomization" className="costomizeBtn">
                   CUSTOMIZE
                 </Link>
-                <button className="addToBagBtn">ADD TO BAG</button>
+                <button onClick={addToBagHandler} className="addToBagBtn">
+                  ADD TO BAG
+                </button>
               </div>
 
               <div className="mt-4 ratingsAndReviews">
@@ -287,7 +337,7 @@ const Product = () => {
                   <img src={Star1} alt="Star1" />
                 </p>
 
-                <p>{product.numOfReviews/1000}k Verified Buyers</p>
+                <p>{product.numOfReviews / 1000}k Verified Buyers</p>
 
                 <div>
                   <div>

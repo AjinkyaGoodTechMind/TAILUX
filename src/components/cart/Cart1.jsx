@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import Navbar from "../layout/navbar/Navbar";
 import Footer from "../layout/footer/Footer";
 
@@ -6,8 +6,22 @@ import CartItem1 from "../../assets/images/CartItem1.png";
 import Women2 from "../../assets/images/Women2.png";
 import "./Cart1.css";
 import HeadPhone from "../layout/HeadPhone";
+import { useDispatch, useSelector } from "react-redux";
+import { removeCart, userCarts } from "../../actions/cartActions";
 
 const Cart1 = () => {
+
+  const dispatch = useDispatch()
+  const { cartItems } = useSelector((state) => state.carts)
+
+  useEffect(() => {
+    dispatch(userCarts())
+  }, []);
+
+  const removeCartItem = (id) => {
+    dispatch(removeCart(id))
+  }
+
   return (
     <Fragment>
       <Navbar />
@@ -33,15 +47,15 @@ const Cart1 = () => {
             </div>
           </div>
 
-          <div className="deliveryBox">
-            <img src={CartItem1} alt="CartItem1" />
+          {cartItems.map((cartItem) => <div className="deliveryBox">
+            <img src={`http://localhost:5000/productImages/${cartItem.product.images[0]}`} alt="CartItem1" />
             <div>
-              <p className="text16">Party Wear Dress for Women</p>
-              <p>Pack of 1</p>
-              <p>₹2999</p>
+              <p className="text16">{cartItem.product.name}</p>
+              <p>Pack of {cartItem.quantity}</p>
+              <p>₹{cartItem.product.price}</p>
               <div>
                 <button>Add to Wishlist</button>
-                <button>Remove</button>
+                <button onClick={() => removeCartItem(cartItem._id)}>Remove</button>
               </div>
             </div>
 
@@ -49,7 +63,7 @@ const Cart1 = () => {
               <p>Delivery Expected by</p>
               <p>30th March, 2023</p>
             </div>
-          </div>
+          </div>)}
 
           <div className="deliveryBox">
             <img src={Women2} alt="Women2" />
