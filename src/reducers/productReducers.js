@@ -1,18 +1,32 @@
-import { ALL_PRODUCT_FAIL, ALL_PRODUCT_REQUEST, ALL_PRODUCT_SUCCESS, CERATE_PRODUCT_FAIL, CERATE_PRODUCT_SUCCESS, CLEAR_ERRORS, CREATE_PRODUCT_REQUEST, CREATE_PRODUCT_RESET, PRODUCT_DETAIL_FAIL, PRODUCT_DETAIL_REQUEST, PRODUCT_DETAIL_SUCCESS } from "../constants/productConstants"
+import { ALL_PRODUCT_FAIL, ALL_PRODUCT_REQUEST, ALL_PRODUCT_SUCCESS, CREATE_PRODUCT_FAIL, CREATE_PRODUCT_SUCCESS, CLEAR_ERRORS, CREATE_PRODUCT_REQUEST, CREATE_PRODUCT_RESET, DELETE_PRODUCT_REQUEST, DELETE_PRODUCT_SUCCESS, PRODUCT_DETAIL_FAIL, PRODUCT_DETAIL_REQUEST, PRODUCT_DETAIL_SUCCESS, UPDATE_PRODUCT_REQUEST, UPDATE_PRODUCT_SUCCESS, UPDATE_PRODUCT_FAIL, DELETE_PRODUCT_FAIL, UPDATE_PRODUCT_RESET, DELETE_PRODUCT_RESET } from "../constants/productConstants"
 
 
 export const productReducer = (state = {}, action) => {
     switch (action.type) {
         case CREATE_PRODUCT_REQUEST:
+        case UPDATE_PRODUCT_REQUEST:
+        case DELETE_PRODUCT_REQUEST:
             return {
                 loading: true
             }
-        case CERATE_PRODUCT_SUCCESS:
+        case CREATE_PRODUCT_SUCCESS:
             return {
                 loading: false,
                 productCreated: action.payload
             }
-        case CERATE_PRODUCT_FAIL:
+        case UPDATE_PRODUCT_SUCCESS:
+            return {
+                loading: false,
+                productUpdated: action.payload
+            }
+        case DELETE_PRODUCT_SUCCESS:
+            return {
+                loading: false,
+                productDeleted: action.payload
+            }
+        case CREATE_PRODUCT_FAIL:
+        case UPDATE_PRODUCT_FAIL:
+        case DELETE_PRODUCT_FAIL:
             return {
                 loading: false,
                 error: action.payload
@@ -21,6 +35,16 @@ export const productReducer = (state = {}, action) => {
             return {
                 ...state,
                 productCreated: false
+            }
+        case UPDATE_PRODUCT_RESET:
+            return {
+                ...state,
+                productUpdated: false
+            }
+        case DELETE_PRODUCT_RESET:
+            return {
+                ...state,
+                productDeleted: false
             }
         case CLEAR_ERRORS:
             return {

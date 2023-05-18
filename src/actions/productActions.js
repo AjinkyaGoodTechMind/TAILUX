@@ -1,4 +1,4 @@
-import { ALL_PRODUCT_FAIL, ALL_PRODUCT_REQUEST, ALL_PRODUCT_SUCCESS, CERATE_PRODUCT_FAIL, CERATE_PRODUCT_SUCCESS, CREATE_PRODUCT_REQUEST, PRODUCT_DETAIL_FAIL, PRODUCT_DETAIL_REQUEST, PRODUCT_DETAIL_SUCCESS } from "../constants/productConstants"
+import { ALL_PRODUCT_FAIL, ALL_PRODUCT_REQUEST, ALL_PRODUCT_SUCCESS, CREATE_PRODUCT_FAIL, CREATE_PRODUCT_SUCCESS, CREATE_PRODUCT_REQUEST, DELETE_PRODUCT_FAIL, DELETE_PRODUCT_REQUEST, DELETE_PRODUCT_SUCCESS, PRODUCT_DETAIL_FAIL, PRODUCT_DETAIL_REQUEST, PRODUCT_DETAIL_SUCCESS, UPDATE_PRODUCT_FAIL, UPDATE_PRODUCT_REQUEST, UPDATE_PRODUCT_SUCCESS } from "../constants/productConstants"
 import axios from 'axios'
 
 
@@ -12,11 +12,11 @@ export const createProduct = (productDetails) => async (dispatch) => {
 
         const { data } = await axios.post(`http://localhost:5000/api/product/new`, productDetails, config)
 
-        dispatch({ type: CERATE_PRODUCT_SUCCESS, payload: data.success })
+        dispatch({ type: CREATE_PRODUCT_SUCCESS, payload: data.success })
 
     } catch (error) {
         dispatch({
-            type: CERATE_PRODUCT_FAIL,
+            type: CREATE_PRODUCT_FAIL,
             payload: error.response.data.error
         })
     }
@@ -49,6 +49,42 @@ export const productDetails = (id) => async (dispatch) => {
         dispatch({
             type: PRODUCT_DETAIL_FAIL,
             payload: error.response.data.message
+        })
+    }
+}
+
+// 4. Update Product --Admin
+export const updateProduct = (id, productDetails) => async (dispatch) => {
+    try {
+        dispatch({ type: UPDATE_PRODUCT_REQUEST })
+
+        const config = { headers: { "content-type": "multipart/form-data" } }
+
+        const { data } = await axios.patch(`http://localhost:5000/api/product/${id}`, productDetails, config)
+
+        dispatch({ type: UPDATE_PRODUCT_SUCCESS, payload: data.success })
+
+    } catch (error) {
+        dispatch({
+            type: UPDATE_PRODUCT_FAIL,
+            payload: error.response.data.error
+        })
+    }
+}
+
+// 4. DELETE Product --Admin
+export const deleteProduct = (id) => async (dispatch) => {
+    try {
+        dispatch({ type: DELETE_PRODUCT_REQUEST })
+
+        const { data } = await axios.delete(`http://localhost:5000/api/product/${id}`)
+
+        dispatch({ type: DELETE_PRODUCT_SUCCESS, payload: data.success })
+
+    } catch (error) {
+        dispatch({
+            type: DELETE_PRODUCT_FAIL,
+            payload: error.response.data.error
         })
     }
 }
