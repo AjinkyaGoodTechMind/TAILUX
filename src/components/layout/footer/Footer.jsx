@@ -18,33 +18,37 @@ const Footer = () => {
         <div className="contactUs">
           <p>Contact Us</p>
           <p>+910000000000</p>
-          <p>
+          <a  href="mailto:tailux@gmail.com">
             Wirte to: <br />
             tailux@gmail.com
-          </p>
-          <p>Help</p>
+          </a>
+          <Link to="/">Help</Link>
         </div>
 
         <div className="orders">
           <p>Orders</p>
-          <p>Customized Products</p>
-          <p>Payments & Shipping</p>
-          <p>Returns & Refunds</p>
-          <p>Privacy Policy</p>
+          <Link to="/">Customized Products</Link>
+          <Link to="/">Payments & Shipping</Link>
+          <Link to="/">Returns & Refunds</Link>
+          <Link to="/">Privacy Policy</Link>
         </div>
 
         <div className="about">
           <p>About</p>
-          <p>How customization works</p>
-          <p>Size Charts</p>
-          <p>How to measure</p>
-          <p>Customer Reviews</p>
+          <Link to="/">How customization works</Link>
+          <Link to="/">Size Charts</Link>
+          <Link to="/">How to measure</Link>
+          <Link to="/">Customer Reviews</Link>
         </div>
 
         <div className="socialMedia">
           <div>
             <Link to="/">
-              <img className="facebookIcon" src={FacebookIcon} alt="FacebookIcon" />
+              <img
+                className="facebookIcon"
+                src={FacebookIcon}
+                alt="FacebookIcon"
+              />
             </Link>
             <Link to="/">
               <img src={InstaIcon} alt="InstaIcon" />
