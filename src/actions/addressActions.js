@@ -23,7 +23,7 @@ export const userAddresses = () => async (dispatch) => {
     try {
         dispatch({ type: USER_ADDRESSES_REQUEST })
 
-        const { data } = await axios.post('http://localhost:5000/api/addresses')
+        const { data } = await axios.get('http://localhost:5000/api/addresses')
 
         dispatch({ type: USER_ADDRESSES_SUCCESS, payload: data.addresses })
 
@@ -40,7 +40,7 @@ export const updateAddress = (id, addressDetails) => async (dispatch) => {
     try {
         dispatch({ type: UPDATE_ADDRESS_REQUEST })
 
-        const { data } = await axios.delete(`http://localhost:5000/api/address/${id}`, addressDetails)
+        const { data } = await axios.patch(`http://localhost:5000/api/address/${id}`, addressDetails)
 
         dispatch({ type: UPDATE_ADDRESS_SUCCESS, payload: data.success })
 
@@ -52,12 +52,12 @@ export const updateAddress = (id, addressDetails) => async (dispatch) => {
     }
 }
 
-// 2. Delete Address
+// 4. Delete Address
 export const deleteAddress = (id) => async (dispatch) => {
     try {
         dispatch({ type: DELETE_ADDRESS_REQUEST })
 
-        const { data } = await axios.patch(`http://localhost:5000/api/addresses/${id}`)
+        const { data } = await axios.delete(`http://localhost:5000/api/addresses/${id}`)
 
         dispatch({ type: DELETE_ADDRESS_SUCCESS, payload: data.success })
 
