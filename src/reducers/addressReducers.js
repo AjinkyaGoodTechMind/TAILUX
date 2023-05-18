@@ -44,6 +44,10 @@ export const addressReducer = (state = {}, action) => {
                 ...state,
                 error: null
             }
+        default:
+            return {
+                ...state
+            }
     }
 }
 
@@ -67,6 +71,10 @@ export const addressesReducer = (state = {}, action) => {
             return {
                 ...state,
                 error: null
+            }
+        default:
+            return {
+                ...state
             }
     }
 }

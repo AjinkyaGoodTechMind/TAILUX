@@ -43,6 +43,10 @@ export const sizeReducer = (state = {}, action) => {
                 ...state,
                 error: null
             }
+        default:
+            return {
+                ...state
+            }
     }
 }
 
@@ -66,6 +70,10 @@ export const sizesReducer = (state = {}, action) => {
             return {
                 ...state,
                 error: null
+            }
+        default:
+            return {
+                ...state
             }
     }
 }

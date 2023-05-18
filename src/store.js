@@ -4,7 +4,9 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { userReducer } from './reducers/userReducers'
 import { productDetailsReducer, productReducer, productsReducer } from './reducers/productReducers'
 import { cartReducer, cartsReducer } from './reducers/cartReducers'
-import { addressReducer } from './reducers/addressReducers'
+import { addressReducer, addressesReducer } from './reducers/addressReducers'
+import { sizeReducer, sizesReducer } from './reducers/sizeReducers'
+import { orderReducer, ordersReducer } from './reducers/orderReducers'
 
 const middleware = [thunk]
 
@@ -15,7 +17,12 @@ const reducer = combineReducers({
     productDetails: productDetailsReducer,
     carts: cartsReducer,
     cart: cartReducer,
-    address: addressReducer
+    address: addressReducer,
+    addresses: addressesReducer,
+    size: sizeReducer,
+    sizes: sizesReducer,
+    order: orderReducer,
+    orders: ordersReducer
 })
 
 const store = createStore(

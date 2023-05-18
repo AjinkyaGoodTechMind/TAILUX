@@ -18,14 +18,14 @@ export const createSize = (sizeDetails) => async (dispatch) => {
     }
 }
 
-// 2. Get User Sizees
+// 2. Get User Sizes
 export const userSizes = () => async (dispatch) => {
     try {
         dispatch({ type: USER_SIZES_REQUEST })
 
         const { data } = await axios.get('http://localhost:5000/api/sizes')
 
-        dispatch({ type: USER_SIZES_SUCCESS, payload: data.addresses })
+        dispatch({ type: USER_SIZES_SUCCESS, payload: data.sizes })
 
     } catch (error) {
         dispatch({
