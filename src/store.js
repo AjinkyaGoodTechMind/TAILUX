@@ -7,6 +7,7 @@ import { cartReducer, cartsReducer } from './reducers/cartReducers'
 import { addressReducer, addressesReducer } from './reducers/addressReducers'
 import { sizeReducer, sizesReducer } from './reducers/sizeReducers'
 import { orderReducer, ordersReducer } from './reducers/orderReducers'
+import { carouselReducer } from './reducers/carouselReducers'
 
 const middleware = [thunk]
 
@@ -22,7 +23,8 @@ const reducer = combineReducers({
     size: sizeReducer,
     sizes: sizesReducer,
     order: orderReducer,
-    orders: ordersReducer
+    orders: ordersReducer,
+    carousel: carouselReducer
 })
 
 const store = createStore(
