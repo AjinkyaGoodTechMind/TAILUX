@@ -29,22 +29,24 @@ import Footer from "../layout/footer/Footer";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 import "../home/Home.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { allProducts } from "../../actions/productActions";
-import { allCarousel } from "../../actions/carouselActions";
+import { categoryCarousel } from "../../actions/carouselActions";
 
-const Kids = () => {
+const Category = () => {
   const { loading, products } = useSelector((state) => state.products);
-  const { carousels } = useSelector((state) => state.carousels)
+  const { carousel } = useSelector((state) => state.carousel)
   const dispatch = useDispatch();
 
-  const kidCarousel = carousels ? carousels.filter((carousel) => carousel.category === "kid")[0].carouselImages[0] : ""
+  const { categoryName } = useParams()
+
+  useEffect(() => {
+    dispatch(categoryCarousel(categoryName))
+  }, [categoryName]);
 
   useEffect(() => {
     dispatch(allProducts());
-    dispatch(allCarousel())
-    // console.log(products)
   }, []);
 
   const deals = [
@@ -240,7 +242,7 @@ const Kids = () => {
     <Fragment>
       <Navbar />
 
-      {/* Kids Carousel */}
+      {/* Women Carousel */}
       <div className="carousel">
         <Carousel
           showThumbs={false}
@@ -250,13 +252,13 @@ const Kids = () => {
           infiniteLoop
         >
           <div>
-            <img src={`http://localhost:5000/carouselImages/${kidCarousel}`} alt="CarouselImage1" />
+            <img src={carousel ? `http://localhost:5000/carouselImages/${carousel.carouselImages[0]}` : ""} alt="CarouselImage1" />
           </div>
           <div>
-            <img src={`http://localhost:5000/carouselImages/${kidCarousel}`} alt="CarouselImage2" />
+            <img src={carousel ? `http://localhost:5000/carouselImages/${carousel.carouselImages[0]}` : ""} alt="CarouselImage2" />
           </div>
           <div>
-            <img src={`http://localhost:5000/carouselImages/${kidCarousel}`} alt="CarouselImage3" />
+            <img src={carousel ? `http://localhost:5000/carouselImages/${carousel.carouselImages[0]}` : ""} alt="CarouselImage3" />
           </div>
         </Carousel>
       </div>
@@ -329,7 +331,7 @@ const Kids = () => {
           />
         </div>
 
-        {/* Kids Slider */}
+        {/* Women Slider */}
         <div>
           <p className="heading1">NEW ARRIVALS- MEN</p>
           <AliceCarousel
@@ -374,4 +376,4 @@ const Kids = () => {
   );
 };
 
-export default Kids;
+export default Category;

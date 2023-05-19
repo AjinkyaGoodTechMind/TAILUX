@@ -19,13 +19,13 @@ const Navbar = () => {
         </Link>
         <div className="categoryLink">
           <div>
-            <Link to="/men">MEN</Link>
+            <Link to="/category/men">MEN</Link>
           </div>
           <div>
-            <Link to="/women">WOMEN</Link>
+            <Link to="/category/women">WOMEN</Link>
           </div>
           <div>
-            <Link to="/kids">KIDS</Link>
+            <Link to="/category/kid">KIDS</Link>
           </div>
           <div className="TailuXStudioLink">
             <Link to="/tailuxStudio">TailuX Studio</Link>

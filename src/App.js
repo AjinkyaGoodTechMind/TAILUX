@@ -21,9 +21,7 @@ import Mens from "./StudioPage/Mens";
 import ProductCustomization from "./components/product/ProductCustomization";
 import { useDispatch } from "react-redux";
 import { loadUser } from "./actions/userActions";
-import Men from "./components/category/men";
-import Women from "./components/category/women";
-import Kids from "./components/category/Kid";
+import Category from "./components/category/category";
 
 function App() {
   const dispatch = useDispatch()
@@ -35,26 +33,24 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/otpPage" element={<OtpPage />} />
-        <Route path="/register" element={<CreateAccount />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/resetPassword" element={<ResetPassword />} />
-        <Route path="/resetPasswordOtp" element={<ResetPasswordOtp />} />
-        <Route path="/productCustomization" element={<ProductCustomization />} />
-        <Route path="/setPassword" element={<SetPassword />} />
-        <Route path="/product/:id" element={<Product />} />
-        <Route path="/tailuxStudio" element={<Step1 />} />
-        <Route path="/step2" element={<Step2 />} />
-        <Route path="/step3" element={<Step3 />} />
-        <Route path="/step4a" element={<Step4a />} />
-        <Route path="/step4b" element={<Step4b />} />
-        <Route path="/step5" element={<Step5 />} />
-        <Route path="/cart" element={<Cart1 />} />
-        <Route path="/mens" element={<Mens />} />
-        <Route path="/men" element={<Men />} />
-        <Route path="/women" element={<Women />} />
-        <Route path="/kids" element={<Kids />} />
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/otpPage" element={<OtpPage />} />
+        <Route exact path="/register" element={<CreateAccount />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/resetPassword" element={<ResetPassword />} />
+        <Route exact path="/resetPasswordOtp" element={<ResetPasswordOtp />} />
+        <Route exact path="/productCustomization" element={<ProductCustomization />} />
+        <Route exact path="/setPassword" element={<SetPassword />} />
+        <Route exact path="/product/:id" element={<Product />} />
+        <Route exact path="/tailuxStudio" element={<Step1 />} />
+        <Route exact path="/step2" element={<Step2 />} />
+        <Route exact path="/step3" element={<Step3 />} />
+        <Route exact path="/step4a" element={<Step4a />} />
+        <Route exact path="/step4b" element={<Step4b />} />
+        <Route exact path="/step5" element={<Step5 />} />
+        <Route exact path="/cart" element={<Cart1 />} />
+        <Route exact path="/mens" element={<Mens />} />
+        <Route exact path="/category/:categoryName" element={<Category />} />
       </Routes>
     </BrowserRouter>
   );
