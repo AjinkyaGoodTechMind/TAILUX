@@ -32,13 +32,18 @@ import "../home/Home.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { allProducts } from "../../actions/productActions";
+import { allCarousel } from "../../actions/carouselActions";
 
 const Women = () => {
   const { loading, products } = useSelector((state) => state.products);
+  const { carousels } = useSelector((state) => state.carousels)
   const dispatch = useDispatch();
+
+  const womenCarousel = carousels ? carousels.filter((carousel) => carousel.category === "women")[0].carouselImages[0] : ""
 
   useEffect(() => {
     dispatch(allProducts());
+    dispatch(allCarousel())
     // console.log(products)
   }, []);
 
@@ -245,13 +250,13 @@ const Women = () => {
           infiniteLoop
         >
           <div>
-            <img src={CarouselImage1} alt="CarouselImage1" />
+            <img src={`http://localhost:5000/carouselImages/${womenCarousel}`} alt="CarouselImage1" />
           </div>
           <div>
-            <img src={CarouselImage2} alt="CarouselImage2" />
+            <img src={`http://localhost:5000/carouselImages/${womenCarousel}`} alt="CarouselImage2" />
           </div>
           <div>
-            <img src={CarouselImage3} alt="CarouselImage3" />
+            <img src={`http://localhost:5000/carouselImages/${womenCarousel}`} alt="CarouselImage3" />
           </div>
         </Carousel>
       </div>

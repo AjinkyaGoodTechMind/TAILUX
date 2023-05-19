@@ -14,16 +14,18 @@ const Navbar = () => {
   return (
     <div className="nav">
       <div className="d-flex">
+        <Link to='/'>
         <img className="navLogo me-5" src={Logo} alt="Tailux" />
+        </Link>
         <div className="categoryLink">
           <div>
-            <Link to="/">MEN</Link>
+            <Link to="/men">MEN</Link>
           </div>
           <div>
-            <Link to="/">WOMEN</Link>
+            <Link to="/women">WOMEN</Link>
           </div>
           <div>
-            <Link to="/">KIDS</Link>
+            <Link to="/kids">KIDS</Link>
           </div>
           <div className="TailuXStudioLink">
             <Link to="/tailuxStudio">TailuX Studio</Link>

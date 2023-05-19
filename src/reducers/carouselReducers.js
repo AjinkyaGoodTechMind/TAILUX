@@ -31,9 +31,10 @@ export const carouselReducer = (state = {}, action) => {
 }
 
 export const carouselsReducer = (state = {}, action) => {
-    switch (action.payload) {
+    switch (action.type) {
         case ALL_CAROUSEL_REQUEST:
             return {
+                ...state,
                 loading: true
             }
         case ALL_CAROUSEL_SUCCESS:
@@ -43,6 +44,7 @@ export const carouselsReducer = (state = {}, action) => {
             }
         case ALL_CAROUSEL_FAIL:
             return {
+                ...state,
                 loading: false,
                 error: action.payload
             }

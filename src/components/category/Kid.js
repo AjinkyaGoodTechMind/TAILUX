@@ -32,13 +32,18 @@ import "../home/Home.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { allProducts } from "../../actions/productActions";
+import { allCarousel } from "../../actions/carouselActions";
 
 const Kids = () => {
   const { loading, products } = useSelector((state) => state.products);
+  const { carousels } = useSelector((state) => state.carousels)
   const dispatch = useDispatch();
+
+  const kidCarousel = carousels ? carousels.filter((carousel) => carousel.category === "kid")[0].carouselImages[0] : ""
 
   useEffect(() => {
     dispatch(allProducts());
+    dispatch(allCarousel())
     // console.log(products)
   }, []);
 
@@ -70,22 +75,22 @@ const Kids = () => {
   ];
 
   const womens = [
-    ...products.map((product) => 
-    <div className="womenBox">
-          <Link to={`product/${product._id}`}>
-            <img
-              src={`http://localhost:5000/productImages/${product.images[0]}`}
-              alt={product.images[0]}
-            />
-          </Link>
-          <div>
-            <p className="text4">{product.name}</p>
-            {/* <p className="text4">Georgette Dress</p> */}
-            <p className="text4">
-              <span>₹{product.price}</span> <span>₹{product.mrp}</span>
-            </p>
-          </div>
-    </div>)
+    ...products.map((product) =>
+      <div className="womenBox">
+        <Link to={`product/${product._id}`}>
+          <img
+            src={`http://localhost:5000/productImages/${product.images[0]}`}
+            alt={product.images[0]}
+          />
+        </Link>
+        <div>
+          <p className="text4">{product.name}</p>
+          {/* <p className="text4">Georgette Dress</p> */}
+          <p className="text4">
+            <span>₹{product.price}</span> <span>₹{product.mrp}</span>
+          </p>
+        </div>
+      </div>)
     // <div className="womenBox">
     //   <img src={Women2} alt="Women2" />
     //   <div>
@@ -245,13 +250,13 @@ const Kids = () => {
           infiniteLoop
         >
           <div>
-            <img src={CarouselImage1} alt="CarouselImage1" />
+            <img src={`http://localhost:5000/carouselImages/${kidCarousel}`} alt="CarouselImage1" />
           </div>
           <div>
-            <img src={CarouselImage2} alt="CarouselImage2" />
+            <img src={`http://localhost:5000/carouselImages/${kidCarousel}`} alt="CarouselImage2" />
           </div>
           <div>
-            <img src={CarouselImage3} alt="CarouselImage3" />
+            <img src={`http://localhost:5000/carouselImages/${kidCarousel}`} alt="CarouselImage3" />
           </div>
         </Carousel>
       </div>
