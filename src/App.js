@@ -21,6 +21,9 @@ import Mens from "./StudioPage/Mens";
 import ProductCustomization from "./components/product/ProductCustomization";
 import { useDispatch } from "react-redux";
 import { loadUser } from "./actions/userActions";
+import Men from "./components/category/men";
+import Women from "./components/category/women";
+import Kids from "./components/category/Kid";
 
 function App() {
   const dispatch = useDispatch()
@@ -49,6 +52,9 @@ function App() {
         <Route path="/step5" element={<Step5 />} />
         <Route path="/cart" element={<Cart1 />} />
         <Route path="/mens" element={<Mens />} />
+        <Route path="/men" element={<Men />} />
+        <Route path="/women" element={<Women />} />
+        <Route path="/kids" element={<Kids />} />
       </Routes>
     </BrowserRouter>
   );
