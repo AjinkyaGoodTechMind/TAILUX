@@ -32,7 +32,7 @@ import "../home/Home.css";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { allProducts } from "../../actions/productActions";
-import { categoryCarousel } from "../../actions/carouselActions";
+import { categoryCarousel } from "../../actions/page/carouselActions";
 
 const Category = () => {
   const { loading, products } = useSelector((state) => state.products);
