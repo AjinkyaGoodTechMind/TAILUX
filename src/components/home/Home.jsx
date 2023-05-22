@@ -69,124 +69,129 @@ const Home = () => {
     </div>,
   ];
 
-  const womens = [
-    ...products.map((product) => 
-    <div className="womenBox">
-          <Link to={`product/${product._id}`}>
-            <img
-              src={`http://localhost:5000/productImages/${product.images[0]}`}
-              alt={product.images[0]}
-            />
-          </Link>
-          <div>
-            <p className="text4">{product.name}</p>
-            {/* <p className="text4">Georgette Dress</p> */}
-            <p className="text4">
-              <span>₹{product.price}</span> <span>₹{product.mrp}</span>
-            </p>
-          </div>
-    </div>)
-    // <div className="womenBox">
-    //   <img src={Women2} alt="Women2" />
-    //   <div>
-    //     <p className="text4">Landscape Print</p>
-    //     <p className="text4">Belted Shirtdress</p>
-    //     <p className="text4">
-    //       <span>₹1999</span> <span>₹1999</span>
-    //     </p>
-    //   </div>
-    // </div>,
-    // <div className="womenBox">
-    //   <img src={Women3} alt="Women3" />
-    //   <div>
-    //     <p className="text4">Lattice Floral Print</p>
-    //     <p className="text4">Cotton Linen Dress</p>
-    //     <p className="text4">
-    //       <span>₹1999</span> <span>₹1999</span>
-    //     </p>
-    //   </div>
-    // </div>,
-    // <div className="womenBox">
-    //   <img src={Women4} alt="Women4" />
-    //   <div>
-    //     <p className="text4">Shadow Ombre Print</p>
-    //     <p className="text4">Georgette Skirt</p>
-    //     <p className="text4">
-    //       <span>₹1999</span> <span>₹1999</span>
-    //     </p>
-    //   </div>
-    // </div>,
-    // <div className="womenBox">
-    //   <img src={Women1} alt="Women1" />
-    //   <div>
-    //     <p className="text4">Plunge Floral Print</p>
-    //     <p className="text4">Georgette Dress</p>
-    //     <p className="text4">
-    //       <span>₹1999</span> <span>₹1999</span>
-    //     </p>
-    //   </div>
-    // </div>,
-    // <div className="womenBox">
-    //   <img src={Women2} alt="Women2" />
-    //   <div>
-    //     <p className="text4">Plunge Floral Print</p>
-    //     <p className="text4">Georgette Dress</p>
-    //     <p className="text4">
-    //       <span>₹1999</span> <span>₹1999</span>
-    //     </p>
-    //   </div>
-    // </div>,
-    // <div className="womenBox">
-    //   <img src={Women2} alt="Women2" />
-    //   <div>
-    //     <p className="text4">Plunge Floral Print</p>
-    //     <p className="text4">Georgette Dress</p>
-    //     <p className="text4">
-    //       <span>₹1999</span> <span>₹1999</span>
-    //     </p>
-    //   </div>
-    // </div>,
-    // <div className="womenBox">
-    //   <img src={Women2} alt="Women2" />
-    //   <div>
-    //     <p className="text4">Plunge Floral Print</p>
-    //     <p className="text4">Georgette Dress</p>
-    //     <p className="text4">
-    //       <span>₹1999</span> <span>₹1999</span>
-    //     </p>
-    //   </div>
-    // </div>,
-    // <div className="womenBox">
-    //   <img src={Women2} alt="Women2" />
-    //   <div>
-    //     <p className="text4">Plunge Floral Print</p>
-    //     <p className="text4">Georgette Dress</p>
-    //     <p className="text4">
-    //       <span>₹1999</span> <span>₹1999</span>
-    //     </p>
-    //   </div>
-    // </div>,
-    // <div className="womenBox">
-    //   <img src={Women2} alt="Women2" />
-    //   <div>
-    //     <p className="text4">Plunge Floral Print</p>
-    //     <p className="text4">Georgette Dress</p>
-    //     <p className="text4">
-    //       <span>₹1999</span> <span>₹1999</span>
-    //     </p>
-    //   </div>
-    // </div>,
-    // <div className="womenBox">
-    //   <img src={Women2} alt="Women2" />
-    //   <div>
-    //     <p className="text4">Plunge Floral Print</p>
-    //     <p className="text4">Georgette Dress</p>
-    //     <p className="text4">
-    //       <span>₹1999</span> <span>₹1999</span>
-    //     </p>
-    //   </div>
-    // </div>,
-  ];
+  const womens = products.map((product, key) => (
+    <div key={key} className="womenBox">
+      <Link to={`/product/${product._id}`}>
+        <img
+          src={`http://localhost:5000/productImages/${product.images[0]}`}
+          alt={product.images[0]}
+        />
+      </Link>
+      <div>
+        <p className="text4">{product.name}</p>
+        {/* <p className="text4">Georgette Dress</p> */}
+        <p className="text4">
+          <span>
+            ₹
+            {Math.floor(
+              product.price - (product.price * product.discount) / 100
+            )}
+          </span>{" "}
+          <span>₹{product.price}</span>
+        </p>
+      </div>
+    </div>
+  ));
+  // <div className="womenBox">
+  //   <img src={Women2} alt="Women2" />
+  //   <div>
+  //     <p className="text4">Landscape Print</p>
+  //     <p className="text4">Belted Shirtdress</p>
+  //     <p className="text4">
+  //       <span>₹1999</span> <span>₹1999</span>
+  //     </p>
+  //   </div>
+  // </div>,
+  // <div className="womenBox">
+  //   <img src={Women3} alt="Women3" />
+  //   <div>
+  //     <p className="text4">Lattice Floral Print</p>
+  //     <p className="text4">Cotton Linen Dress</p>
+  //     <p className="text4">
+  //       <span>₹1999</span> <span>₹1999</span>
+  //     </p>
+  //   </div>
+  // </div>,
+  // <div className="womenBox">
+  //   <img src={Women4} alt="Women4" />
+  //   <div>
+  //     <p className="text4">Shadow Ombre Print</p>
+  //     <p className="text4">Georgette Skirt</p>
+  //     <p className="text4">
+  //       <span>₹1999</span> <span>₹1999</span>
+  //     </p>
+  //   </div>
+  // </div>,
+  // <div className="womenBox">
+  //   <img src={Women1} alt="Women1" />
+  //   <div>
+  //     <p className="text4">Plunge Floral Print</p>
+  //     <p className="text4">Georgette Dress</p>
+  //     <p className="text4">
+  //       <span>₹1999</span> <span>₹1999</span>
+  //     </p>
+  //   </div>
+  // </div>,
+  // <div className="womenBox">
+  //   <img src={Women2} alt="Women2" />
+  //   <div>
+  //     <p className="text4">Plunge Floral Print</p>
+  //     <p className="text4">Georgette Dress</p>
+  //     <p className="text4">
+  //       <span>₹1999</span> <span>₹1999</span>
+  //     </p>
+  //   </div>
+  // </div>,
+  // <div className="womenBox">
+  //   <img src={Women2} alt="Women2" />
+  //   <div>
+  //     <p className="text4">Plunge Floral Print</p>
+  //     <p className="text4">Georgette Dress</p>
+  //     <p className="text4">
+  //       <span>₹1999</span> <span>₹1999</span>
+  //     </p>
+  //   </div>
+  // </div>,
+  // <div className="womenBox">
+  //   <img src={Women2} alt="Women2" />
+  //   <div>
+  //     <p className="text4">Plunge Floral Print</p>
+  //     <p className="text4">Georgette Dress</p>
+  //     <p className="text4">
+  //       <span>₹1999</span> <span>₹1999</span>
+  //     </p>
+  //   </div>
+  // </div>,
+  // <div className="womenBox">
+  //   <img src={Women2} alt="Women2" />
+  //   <div>
+  //     <p className="text4">Plunge Floral Print</p>
+  //     <p className="text4">Georgette Dress</p>
+  //     <p className="text4">
+  //       <span>₹1999</span> <span>₹1999</span>
+  //     </p>
+  //   </div>
+  // </div>,
+  // <div className="womenBox">
+  //   <img src={Women2} alt="Women2" />
+  //   <div>
+  //     <p className="text4">Plunge Floral Print</p>
+  //     <p className="text4">Georgette Dress</p>
+  //     <p className="text4">
+  //       <span>₹1999</span> <span>₹1999</span>
+  //     </p>
+  //   </div>
+  // </div>,
+  // <div className="womenBox">
+  //   <img src={Women2} alt="Women2" />
+  //   <div>
+  //     <p className="text4">Plunge Floral Print</p>
+  //     <p className="text4">Georgette Dress</p>
+  //     <p className="text4">
+  //       <span>₹1999</span> <span>₹1999</span>
+  //     </p>
+  //   </div>
+  // </div>
 
   const fabrics = [
     <div className="fabricBox">

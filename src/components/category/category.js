@@ -61,9 +61,9 @@ const Category = () => {
         <img src={`http://localhost:5000/dealImages/${dealImage}`} alt={dealImage} />
       </div>) : []
 
-  const womens = products.map((product) =>
-    <div className="womenBox">
-      <Link to={`product/${product._id}`}>
+  const womens = products.map((product, key) =>
+    <div key={key} className="womenBox">
+      <Link to={`/product/${product._id}`}>
         <img
           src={`http://localhost:5000/productImages/${product.images[0]}`}
           alt={product.images[0]}
@@ -73,7 +73,7 @@ const Category = () => {
         <p className="text4">{product.name}</p>
         {/* <p className="text4">Georgette Dress</p> */}
         <p className="text4">
-          <span>₹{product.price}</span> <span>₹{product.mrp}</span>
+          <span>₹{product.price - product.price * product.discount / 100}</span> <span>₹{product.price}</span>
         </p>
       </div>
     </div>)
@@ -206,19 +206,6 @@ const Category = () => {
         {/* Women Slider */}
         <div>
           <p className="heading1">NEW ARRIVALS- WOMEN</p>
-          <AliceCarousel
-            mouseTracking
-            items={womens}
-            slideBy="page"
-            autoWidth
-            disableButtonsControls
-            disableDotsControls
-          />
-        </div>
-
-        {/* Women Slider */}
-        <div>
-          <p className="heading1">NEW ARRIVALS- MEN</p>
           <AliceCarousel
             mouseTracking
             items={womens}

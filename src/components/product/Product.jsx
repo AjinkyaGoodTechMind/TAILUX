@@ -122,20 +122,25 @@ const Product = () => {
     // renderItem: this.myRenderItem.bind(this),
 
     items: product
-      ? [
-          {
-            original: `http://localhost:5000/productImages/${product.images[0]}`,
-            thumbnail: `http://localhost:5000/productImages/${product.images[0]}`,
-          },
-          {
-            original: `http://localhost:5000/productImages/${product.images[0]}`,
-            thumbnail: `http://localhost:5000/productImages/${product.images[0]}`,
-          },
-          {
-            original: `http://localhost:5000/productImages/${product.images[0]}`,
-            thumbnail: `http://localhost:5000/productImages/${product.images[0]}`,
-          },
-        ]
+      ? // [
+        //     {
+        //       original: `http://localhost:5000/productImages/${product.images[0]}`,
+        //       thumbnail: `http://localhost:5000/productImages/${product.images[0]}`,
+        //     },
+        //     {
+        //       original: `http://localhost:5000/productImages/${product.images[0]}`,
+        //       thumbnail: `http://localhost:5000/productImages/${product.images[0]}`,
+        //     },
+        //     {
+        //       original: `http://localhost:5000/productImages/${product.images[0]}`,
+        //       thumbnail: `http://localhost:5000/productImages/${product.images[0]}`,
+        //     },
+        //   ]
+
+        product.images.map((image) => ({
+          original: `http://localhost:5000/productImages/${product.images[0]}`,
+          thumbnail: `http://localhost:5000/productImages/${product.images[0]}`,
+        }))
       : [],
   };
 
@@ -225,9 +230,14 @@ const Product = () => {
                 <p className="productName">{product.name}</p>
 
                 <div className="productPrice">
-                  <span>₹{product.price}</span>
                   <span>
-                    MRP&nbsp;<span>₹{product.mrp}</span>
+                    ₹
+                    {Math.floor(
+                      product.price - (product.price * product.discount) / 100
+                    )}
+                  </span>
+                  <span>
+                    MRP&nbsp;<span>₹{product.price}</span>
                   </span>
 
                   <div className="allCenter">
