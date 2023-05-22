@@ -33,167 +33,50 @@ import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { allProducts } from "../../actions/productActions";
 import { categoryCarousel } from "../../actions/page/carouselActions";
+import { categoryDeal } from "../../actions/page/dealActions";
+import { categoryTrending } from "../../actions/page/trendingActions";
 
 const Category = () => {
   const { loading, products } = useSelector((state) => state.products);
   const { carousel } = useSelector((state) => state.carousel)
+  const { deal } = useSelector((state) => state.deal)
+  const { trending } = useSelector((state) => state.trending)
   const dispatch = useDispatch();
 
   const { categoryName } = useParams()
 
   useEffect(() => {
     dispatch(categoryCarousel(categoryName))
+    dispatch(categoryDeal(categoryName))
+    dispatch(categoryTrending(categoryName))
   }, [categoryName]);
 
   useEffect(() => {
     dispatch(allProducts());
   }, []);
 
-  const deals = [
-    <div className="dealBox">
-      <img src={fotor1} alt="fotor1" />
-    </div>,
-    <div className="dealBox">
-      <img src={fotor2} alt="fotor2" />
-    </div>,
-    <div className="dealBox">
-      <img src={fotor3} alt="fotor3" />
-    </div>,
-    <div className="dealBox">
-      <img src={fotor4} alt="fotor4" />
-    </div>,
-    <div className="dealBox">
-      <img src={fotor1} alt="fotor1" />
-    </div>,
-    <div className="dealBox">
-      <img src={fotor1} alt="fotor1" />
-    </div>,
-    <div className="dealBox">
-      <img src={fotor1} alt="fotor1" />
-    </div>,
-    <div className="dealBox">
-      <img src={fotor1} alt="fotor1" />
-    </div>,
-  ];
+  const deals =
+    deal ? deal.dealImages.map((dealImage, key) =>
+      <div key={key} className="dealBox">
+        <img src={`http://localhost:5000/dealImages/${dealImage}`} alt={dealImage} />
+      </div>) : []
 
-  const womens = [
-    ...products.map((product) =>
-      <div className="womenBox">
-        <Link to={`product/${product._id}`}>
-          <img
-            src={`http://localhost:5000/productImages/${product.images[0]}`}
-            alt={product.images[0]}
-          />
-        </Link>
-        <div>
-          <p className="text4">{product.name}</p>
-          {/* <p className="text4">Georgette Dress</p> */}
-          <p className="text4">
-            <span>₹{product.price}</span> <span>₹{product.mrp}</span>
-          </p>
-        </div>
-      </div>)
-    // <div className="womenBox">
-    //   <img src={Women2} alt="Women2" />
-    //   <div>
-    //     <p className="text4">Landscape Print</p>
-    //     <p className="text4">Belted Shirtdress</p>
-    //     <p className="text4">
-    //       <span>₹1999</span> <span>₹1999</span>
-    //     </p>
-    //   </div>
-    // </div>,
-    // <div className="womenBox">
-    //   <img src={Women3} alt="Women3" />
-    //   <div>
-    //     <p className="text4">Lattice Floral Print</p>
-    //     <p className="text4">Cotton Linen Dress</p>
-    //     <p className="text4">
-    //       <span>₹1999</span> <span>₹1999</span>
-    //     </p>
-    //   </div>
-    // </div>,
-    // <div className="womenBox">
-    //   <img src={Women4} alt="Women4" />
-    //   <div>
-    //     <p className="text4">Shadow Ombre Print</p>
-    //     <p className="text4">Georgette Skirt</p>
-    //     <p className="text4">
-    //       <span>₹1999</span> <span>₹1999</span>
-    //     </p>
-    //   </div>
-    // </div>,
-    // <div className="womenBox">
-    //   <img src={Women1} alt="Women1" />
-    //   <div>
-    //     <p className="text4">Plunge Floral Print</p>
-    //     <p className="text4">Georgette Dress</p>
-    //     <p className="text4">
-    //       <span>₹1999</span> <span>₹1999</span>
-    //     </p>
-    //   </div>
-    // </div>,
-    // <div className="womenBox">
-    //   <img src={Women2} alt="Women2" />
-    //   <div>
-    //     <p className="text4">Plunge Floral Print</p>
-    //     <p className="text4">Georgette Dress</p>
-    //     <p className="text4">
-    //       <span>₹1999</span> <span>₹1999</span>
-    //     </p>
-    //   </div>
-    // </div>,
-    // <div className="womenBox">
-    //   <img src={Women2} alt="Women2" />
-    //   <div>
-    //     <p className="text4">Plunge Floral Print</p>
-    //     <p className="text4">Georgette Dress</p>
-    //     <p className="text4">
-    //       <span>₹1999</span> <span>₹1999</span>
-    //     </p>
-    //   </div>
-    // </div>,
-    // <div className="womenBox">
-    //   <img src={Women2} alt="Women2" />
-    //   <div>
-    //     <p className="text4">Plunge Floral Print</p>
-    //     <p className="text4">Georgette Dress</p>
-    //     <p className="text4">
-    //       <span>₹1999</span> <span>₹1999</span>
-    //     </p>
-    //   </div>
-    // </div>,
-    // <div className="womenBox">
-    //   <img src={Women2} alt="Women2" />
-    //   <div>
-    //     <p className="text4">Plunge Floral Print</p>
-    //     <p className="text4">Georgette Dress</p>
-    //     <p className="text4">
-    //       <span>₹1999</span> <span>₹1999</span>
-    //     </p>
-    //   </div>
-    // </div>,
-    // <div className="womenBox">
-    //   <img src={Women2} alt="Women2" />
-    //   <div>
-    //     <p className="text4">Plunge Floral Print</p>
-    //     <p className="text4">Georgette Dress</p>
-    //     <p className="text4">
-    //       <span>₹1999</span> <span>₹1999</span>
-    //     </p>
-    //   </div>
-    // </div>,
-    // <div className="womenBox">
-    //   <img src={Women2} alt="Women2" />
-    //   <div>
-    //     <p className="text4">Plunge Floral Print</p>
-    //     <p className="text4">Georgette Dress</p>
-    //     <p className="text4">
-    //       <span>₹1999</span> <span>₹1999</span>
-    //     </p>
-    //   </div>
-    // </div>,
-  ];
+  const womens = products.map((product) =>
+    <div className="womenBox">
+      <Link to={`product/${product._id}`}>
+        <img
+          src={`http://localhost:5000/productImages/${product.images[0]}`}
+          alt={product.images[0]}
+        />
+      </Link>
+      <div>
+        <p className="text4">{product.name}</p>
+        {/* <p className="text4">Georgette Dress</p> */}
+        <p className="text4">
+          <span>₹{product.price}</span> <span>₹{product.mrp}</span>
+        </p>
+      </div>
+    </div>)
 
   const fabrics = [
     <div className="fabricBox">
@@ -251,15 +134,17 @@ const Category = () => {
           autoPlay
           infiniteLoop
         >
-          <div>
-            <img src={carousel ? `http://localhost:5000/carouselImages/${carousel.carouselImages[0]}` : ""} alt="CarouselImage1" />
-          </div>
-          <div>
+          {carousel ? carousel.carouselImages.map((carouselImage, key) =>
+            <div key={key}>
+              <img src={`http://localhost:5000/carouselImages/${carouselImage}`} alt="CarouselImage1" />
+            </div>
+          ) : ""}
+          {/* <div>
             <img src={carousel ? `http://localhost:5000/carouselImages/${carousel.carouselImages[0]}` : ""} alt="CarouselImage2" />
           </div>
           <div>
             <img src={carousel ? `http://localhost:5000/carouselImages/${carousel.carouselImages[0]}` : ""} alt="CarouselImage3" />
-          </div>
+          </div> */}
         </Carousel>
       </div>
 
@@ -286,7 +171,7 @@ const Category = () => {
           >
             <Masonry gutter="40px">
               <div className="seasonalBox">
-                <img src={Rectangle14} alt="Rectangle14" />
+                <img src={trending ? `http://localhost:5000/trendingImages/${trending.trendingImages[0]}` : ""} alt="Rectangle14" />
                 <div>
                   <p>
                     DESIGNER <br /> WEAR
@@ -296,7 +181,7 @@ const Category = () => {
               </div>
               <div>
                 <div className="seasonalBox mb-4">
-                  <img src={Rectangle15} alt="Rectangle15" />
+                  <img src={trending ? `http://localhost:5000/trendingImages/${trending.trendingImages[1]}` : ""} alt="Rectangle15" />
                   <div>
                     <p>
                       PRINTED <br /> TREND
@@ -305,7 +190,7 @@ const Category = () => {
                   </div>
                 </div>
                 <div className="seasonalBox">
-                  <img src={Rectangle16} alt="Rectangle16" />
+                  <img src={trending ? `http://localhost:5000/trendingImages/${trending.trendingImages[2]}` : ""} alt="Rectangle16" />
                   <div>
                     <p>
                       PANTS <br /> WITH <br /> PATTERNS

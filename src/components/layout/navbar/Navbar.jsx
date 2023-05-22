@@ -25,7 +25,7 @@ const Navbar = () => {
             <Link to="/category/women">WOMEN</Link>
           </div>
           <div>
-            <Link to="/category/kid">KIDS</Link>
+            <Link to="/category/kids">KIDS</Link>
           </div>
           <div className="TailuXStudioLink">
             <Link to="/tailuxStudio">TailuX Studio</Link>
