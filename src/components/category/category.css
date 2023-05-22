@@ -1,0 +1,79 @@
+.shopByCategory {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.shopByCategory > .tShirt {
+  background-image: url("../../assets/Mens.png");
+}
+
+.shopByCategory > .jacket {
+  background-image: url("../../assets/Jacket.png");
+}
+
+.shopByCategory > div {
+  width: 240px;
+  height: 240px;
+  object-fit: contain;
+  background-size: contain;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.shopByCategory > div > p {
+  background: #d9d9d9;
+  border-radius: 0px 0px 11px 11px;
+  width: 97%;
+  text-align: center;
+  font-family: "Plus Jakarta Sans";
+  font-size: 20px;
+  line-height: 24px;
+  padding: 8px 0;
+  margin: 0 3px 0 3px;
+}
+
+.shopByOffer {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.shopByOffer > div {
+  width: 240px;
+  height: 240px;
+  background: #e4e4e4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  /* transform: matrix(-1, 0, 0, 1, 0, 0); */
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.shopByOffer > div > p:first-child {
+  font-weight: 800;
+  font-size: 45px;
+  line-height: 55px;
+}
+
+.shopByOffer > div > p:last-child {
+  font-size: 22px;
+  line-height: 26px;
+}
+
+.popularSearches p,
+.onlineShopping p {
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 500;
+}
+
+.popularSearches > p:first-child,
+.onlineShopping > p:first-child {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 15px 0 10px 0;
+}
