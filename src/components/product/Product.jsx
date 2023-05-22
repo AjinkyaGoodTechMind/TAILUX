@@ -339,7 +339,7 @@ const Product = () => {
                   <option value={3}>QTY:3</option>
                 </select>
 
-                <Link to="/productCustomization" className="costomizeBtn">
+                <Link to={`/productCustomization/${id}`} className="costomizeBtn">
                   CUSTOMIZE
                 </Link>
                 <button onClick={addToBagHandler} className="addToBagBtn">

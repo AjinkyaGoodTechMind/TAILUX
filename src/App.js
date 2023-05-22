@@ -22,6 +22,8 @@ import ProductCustomization from "./components/product/ProductCustomization";
 import { useDispatch } from "react-redux";
 import { loadUser } from "./actions/userActions";
 import Category from "./components/category/category";
+import Cart2 from "./components/cart/Cart2";
+import Cart3 from "./components/cart/Cart3";
 
 function App() {
   const dispatch = useDispatch()
@@ -39,7 +41,7 @@ function App() {
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/resetPassword" element={<ResetPassword />} />
         <Route exact path="/resetPasswordOtp" element={<ResetPasswordOtp />} />
-        <Route exact path="/productCustomization" element={<ProductCustomization />} />
+        <Route exact path="/productCustomization/:id" element={<ProductCustomization />} />
         <Route exact path="/setPassword" element={<SetPassword />} />
         <Route exact path="/product/:id" element={<Product />} />
         <Route exact path="/tailuxStudio" element={<Step1 />} />
@@ -49,6 +51,8 @@ function App() {
         <Route exact path="/step4b" element={<Step4b />} />
         <Route exact path="/step5" element={<Step5 />} />
         <Route exact path="/cart" element={<Cart1 />} />
+        <Route exact path="/cart2" element={<Cart2 />} />
+        <Route exact path="/cart3" element={<Cart3 />} />
         <Route exact path="/mens" element={<Mens />} />
         <Route exact path="/category/:categoryName" element={<Category />} />
       </Routes>

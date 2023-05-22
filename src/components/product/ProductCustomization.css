@@ -125,14 +125,14 @@
   padding: 8px 0 5px 0;
 }
 
-.ProductCustomizeContainer
+/* .ProductCustomizeContainer
   .productDetails
   .productSize
   > div
   > button:first-child {
   border: 1.5px solid #bebebe;
   color: #bebebe;
-}
+} */
 
 .ProductCustomizeContainer .productDetails .productSize > div > button {
   border-radius: 100%;
@@ -140,6 +140,11 @@
   height: 35px;
   border: 1.5px solid #000000;
   font-size: 14px;
+}
+
+.productSize > div > .sizeNotAvailable {
+  border: 1.5px solid #bebebe !important;
+  color: #bebebe;
 }
 
 .ProductCustomizeContainer .productDetails select {
