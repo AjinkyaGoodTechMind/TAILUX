@@ -9,8 +9,8 @@ import Women3 from "../../assets/images/Women3.png";
 import Women4 from "../../assets/images/Women4.png";
 
 import Person1 from "../../assets/images/Person1.svg";
-import Person2 from "../../assets/images/Person2.svg";
-import Person3 from "../../assets/images/Person3.svg";
+// import Person2 from "../../assets/images/Person2.svg";
+// import Person3 from "../../assets/images/Person3.svg";
 
 import WishlistIcon2 from "../../assets/images/WishlistIcon2.svg";
 import Star1 from "../../assets/images/Star1.svg";
@@ -36,20 +36,21 @@ const ProductCustomization = () => {
   const dispatch = useDispatch();
 
   const { loading, product } = useSelector((state) => state.productDetails);
-  const { user, isAuthenticated } = useSelector((state) => state.user);
+  const { user, isAuthenticated, userLoading = loading } = useSelector(
+    (state) => state.user
+  );
   const { cartAdded } = useSelector((state) => state.cart);
   const { sizes } = useSelector((state) => state.sizes);
 
   useEffect(() => {
-    if (!isAuthenticated) {
-      alert("Login to access this resource");
+    if (!isAuthenticated && userLoading === false) {
       navigate(`/product/${id}`);
+      alert("Login to access this resource");
     }
     dispatch(productDetails(id));
     dispatch(userSizes());
   }, []);
 
-  const selectSize = () => {};
   useEffect(() => {
     if (cartAdded) {
       alert("Product Added To Cart");
@@ -163,7 +164,7 @@ const ProductCustomization = () => {
                 <div>
                   <p className="productName">{product.name}</p>
 
-                  <p className="productPrice">
+                  <div className="productPrice">
                     <span>
                       {Math.floor(
                         product.price - (product.price * product.discount) / 100
@@ -178,7 +179,7 @@ const ProductCustomization = () => {
                       <img src={Star1} alt="Star1" />
                       <span>{product.numOfReviews / 1000}k Ratings</span>
                     </div>
-                  </p>
+                  </div>
 
                   <p>inclusive of all taxes</p>
 
@@ -289,29 +290,27 @@ const ProductCustomization = () => {
                     </div>
 
                     <div>
-                      <p>
-                        <p className="text9 mb-2">Specifications</p>
-                        <div className="specificationBox">
-                          <div>
-                            <p className="text8">Sleeve Length</p>
-                            <p className="text7 mb-2">Long Sleeves</p>
-                            <p className="text8">Collar</p>
-                            <p className="text7">Spread Collar</p>
-                          </div>
-                          <div>
-                            <p className="text8">Fit</p>
-                            <p className="text7 mb-2">Regular Fit</p>
-                            <p className="text8">Length</p>
-                            <p className="text7 mb-2">Regular</p>
-                          </div>
-                          <div>
-                            <p className="text8">Pattern Type</p>
-                            <p className="text7 mb-2">Solid</p>
-                            <p className="text8">Occasion</p>
-                            <p className="text7 mb-2">Casual</p>
-                          </div>
+                      <p className="text9 mb-2">Specifications</p>
+                      <div className="specificationBox">
+                        <div>
+                          <p className="text8">Sleeve Length</p>
+                          <p className="text7 mb-2">Long Sleeves</p>
+                          <p className="text8">Collar</p>
+                          <p className="text7">Spread Collar</p>
                         </div>
-                      </p>
+                        <div>
+                          <p className="text8">Fit</p>
+                          <p className="text7 mb-2">Regular Fit</p>
+                          <p className="text8">Length</p>
+                          <p className="text7 mb-2">Regular</p>
+                        </div>
+                        <div>
+                          <p className="text8">Pattern Type</p>
+                          <p className="text7 mb-2">Solid</p>
+                          <p className="text8">Occasion</p>
+                          <p className="text7 mb-2">Casual</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

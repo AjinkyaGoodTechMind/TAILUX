@@ -3,14 +3,14 @@ import { CATEGORY_TRENDING_FAIL, CATEGORY_TRENDING_REQUEST, CATEGORY_TRENDING_SU
 
 
 // 1. Create New Trending
-export const newTrending = (data) => async (dispatch) => {
+export const newTrending = (trendingData) => async (dispatch) => {
     try {
 
         dispatch({ type: NEW_TRENDING_REQUEST })
 
         const config = { headers: { "content-type": "multipart/form-data" } }
 
-        const { data } = await axios.post('http://localhost:5000/api/trending/new', data, config)
+        const { data } = await axios.post('http://localhost:5000/api/trending/new', trendingData, config)
 
         dispatch({
             type: NEW_TRENDING_SUCCESS,
@@ -46,14 +46,14 @@ export const categoryTrending = (categoryName) => async (dispatch) => {
 }
 
 // 3. Update Trending
-export const updateTrending = (id, data) => async (dispatch) => {
+export const updateTrending = (id, trendingData) => async (dispatch) => {
     try {
 
         dispatch({ type: UPDATE_TRENDING_REQUEST })
 
         const config = { headers: { "content-type": "multipart/form-data" } }
 
-        const { data } = await axios.patch(`http:localhost:5000/api/trending/${id}`, data, config)
+        const { data } = await axios.patch(`http:localhost:5000/api/trending/${id}`, trendingData, config)
 
         dispatch({ type: UPDATE_TRENDING_SUCCESS, payload: data.success })
 

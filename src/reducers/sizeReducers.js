@@ -23,6 +23,21 @@ export const sizeReducer = (state = {}, action) => {
                 loading: false,
                 sizeDeleted: action.payload
             }
+        case NEW_SIZE_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+        case UPDATE_SIZE_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+        case DELETE_SIZE_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
         case NEW_SIZE_RESET:
             return {
                 ...state,

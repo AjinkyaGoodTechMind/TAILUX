@@ -18,7 +18,7 @@ const Cart2 = () => {
 
   const { addresses } = useSelector((state) => state.addresses);
   const { cartItems } = useSelector((state) => state.carts);
-  const { order } = useSelector((state) => state.order);
+  // const { order } = useSelector((state) => state.order);
 
   useEffect(() => {
     dispatch(userCarts());

@@ -2,8 +2,8 @@ import React, { Fragment, useEffect } from "react";
 import Navbar from "../layout/navbar/Navbar";
 import Footer from "../layout/footer/Footer";
 
-import CartItem1 from "../../assets/images/CartItem1.png";
-import Women2 from "../../assets/images/Women2.png";
+// import CartItem1 from "../../assets/images/CartItem1.png";
+// import Women2 from "../../assets/images/Women2.png";
 import "./Cart1.css";
 import HeadPhone from "../layout/HeadPhone";
 import { useDispatch, useSelector } from "react-redux";

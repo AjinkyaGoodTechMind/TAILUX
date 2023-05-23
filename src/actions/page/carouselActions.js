@@ -3,14 +3,14 @@ import { CATEGORY_CAROUSEL_FAIL, CATEGORY_CAROUSEL_REQUEST, CATEGORY_CAROUSEL_SU
 
 
 // 1. Create New Carousel
-export const newCarousel = (data) => async (dispatch) => {
+export const newCarousel = (carouselData) => async (dispatch) => {
     try {
 
         dispatch({ type: NEW_CAROUSEL_REQUEST })
 
         const config = { headers: { "content-type": "multipart/form-data" } }
 
-        const { data } = await axios.post('http://localhost:5000/api/carousel/new', data, config)
+        const { data } = await axios.post('http://localhost:5000/api/carousel/new', carouselData, config)
 
         dispatch({
             type: NEW_CAROUSEL_SUCCESS,
@@ -46,14 +46,14 @@ export const categoryCarousel = (categoryName) => async (dispatch) => {
 }
 
 // 3. Update Carousel
-export const updateCarousel = (id, data) => async (dispatch) => {
+export const updateCarousel = (id, carouselDetails) => async (dispatch) => {
     try {
 
         dispatch({ type: UPDATE_CAROUSEL_REQUEST })
 
         const config = { headers: { "content-type": "multipart/form-data" } }
 
-        const { data } = await axios.patch(`http:localhost:5000/api/carousel/${id}`, data, config)
+        const { data } = await axios.patch(`http:localhost:5000/api/carousel/${id}`, carouselDetails, config)
 
         dispatch({ type: UPDATE_CAROUSEL_SUCCESS, payload: data.success })
 

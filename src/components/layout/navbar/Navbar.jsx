@@ -9,7 +9,7 @@ import "./Navbar.css";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  const { isAuthenticated, loading } = useSelector((state) => state.user);
+  const { isAuthenticated } = useSelector((state) => state.user);
 
   return (
     <div className="nav">

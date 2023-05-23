@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 import FacebookIcon from "../../../assets/images/FacebookIcon.svg";
 import InstaIcon from "../../../assets/images/InstaIcon.svg";

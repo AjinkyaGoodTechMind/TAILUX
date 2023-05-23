@@ -2,8 +2,8 @@ import React, { Fragment, useEffect, useState } from "react";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import Navbar from "../layout/navbar/Navbar";
-import Women5 from "../../assets/images/Women5.png";
-import { Carousel } from "react-responsive-carousel";
+// import Women5 from "../../assets/images/Women5.png";
+// import { Carousel } from "react-responsive-carousel";
 import WishlistIcon2 from "../../assets/images/WishlistIcon2.svg";
 import { Link, useParams } from "react-router-dom";
 import Footer from "../layout/footer/Footer";
@@ -34,7 +34,7 @@ const Product = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-  const { loading, product } = useSelector((state) => state.productDetails);
+  const { product } = useSelector((state) => state.productDetails);
   const { user, isAuthenticated } = useSelector((state) => state.user);
   const { cartAdded } = useSelector((state) => state.cart);
 

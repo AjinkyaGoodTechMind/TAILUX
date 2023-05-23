@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/home/Home";
 import "./App.css";
-import LogInSignUp1 from "./components/user/LogInSignUp1";
+// import LogInSignUp1 from "./components/user/LogInSignUp1";
 import OtpPage from "./components/user/OtpPage";
 import CreateAccount from "./components/user/CreateAccount";
 import Login from "./components/user/Login";
@@ -29,7 +29,7 @@ import { CLEAR_ERRORS } from "./constants/userConstants";
 function App() {
   const dispatch = useDispatch()
 
-  const { error, loading } = useSelector((state) => state.user)
+  const { error } = useSelector((state) => state.user)
 
   useEffect(() => {
 

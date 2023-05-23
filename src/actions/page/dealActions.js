@@ -3,14 +3,14 @@ import { CATEGORY_DEAL_FAIL, CATEGORY_DEAL_REQUEST, CATEGORY_DEAL_SUCCESS, DELET
 
 
 // 1. Create New Deal
-export const newDeal = (data) => async (dispatch) => {
+export const newDeal = (dealData) => async (dispatch) => {
     try {
 
         dispatch({ type: NEW_DEAL_REQUEST })
 
         const config = { headers: { "content-type": "multipart/form-data" } }
 
-        const { data } = await axios.post('http://localhost:5000/api/deal/new', data, config)
+        const { data } = await axios.post('http://localhost:5000/api/deal/new', dealData, config)
 
         dispatch({
             type: NEW_DEAL_SUCCESS,
@@ -46,14 +46,14 @@ export const categoryDeal = (categoryName) => async (dispatch) => {
 }
 
 // 3. Update Deal
-export const updateDeal = (id, data) => async (dispatch) => {
+export const updateDeal = (id, dealData) => async (dispatch) => {
     try {
 
         dispatch({ type: UPDATE_DEAL_REQUEST })
 
         const config = { headers: { "content-type": "multipart/form-data" } }
 
-        const { data } = await axios.patch(`http:localhost:5000/api/deal/${id}`, data, config)
+        const { data } = await axios.patch(`http:localhost:5000/api/deal/${id}`, dealData, config)
 
         dispatch({ type: UPDATE_DEAL_SUCCESS, payload: data.success })
 
