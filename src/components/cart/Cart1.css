@@ -11,8 +11,8 @@
   padding: 50px 30px;
 }
 
-.cart1Container > .priceDetails{
-    height: fit-content;
+.cart1Container > .priceDetails {
+  height: fit-content;
 }
 
 .cart1Container > .deliveryDetails > div:first-child {
@@ -37,12 +37,12 @@
   width: 120px;
 }
 
-.cart1Container > .deliveryDetails > .outOfStockBox > div > P,
+.cart1Container > .deliveryDetails > .outOfStockBox > div > p,
 .cart1Container > .deliveryDetails > .deliveryBox > div:nth-child(2) > p {
   padding-bottom: 8px;
 }
 
-.cart1Container > .deliveryDetails > .outOfStockBox > div > P:nth-child(2),
+.cart1Container > .deliveryDetails > .outOfStockBox > div > p:nth-child(2),
 .cart1Container
   > .deliveryDetails
   > .deliveryBox
@@ -68,7 +68,7 @@
   font-weight: 500;
 }
 
-.cart1Container > .deliveryDetails > .outOfStockBox > div > P:nth-child(3) {
+.cart1Container > .deliveryDetails > .outOfStockBox > div > p:nth-child(3) {
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
@@ -76,7 +76,7 @@
   padding-bottom: 12px;
 }
 
-.cart1Container > .deliveryDetails > .deliveryBox > div > P:nth-child(3),
+.cart1Container > .deliveryDetails > .deliveryBox > div > p:nth-child(3),
 .cart1Container > .deliveryDetails > .deliveryBox > div:last-child > p {
   font-weight: 700;
   font-size: 18px;
@@ -94,7 +94,10 @@
   background: #000000;
   border-radius: 7px;
   width: 100%;
-  color: white;
   padding: 8px;
   margin-top: 30px;
+}
+
+.cart1Container > .priceDetails > button > a {
+  color: white;
 }

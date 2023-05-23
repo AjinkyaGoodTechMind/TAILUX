@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import Navbar from "../layout/navbar/Navbar";
 import Footer from "../layout/footer/Footer";
 import HeadPhone from "../layout/HeadPhone";
@@ -8,8 +8,45 @@ import PhonePay from "../../assets/images/PhonePay.svg";
 import Paytm from "../../assets/images/Paytm.svg";
 import GooglePay from "../../assets/images/GooglePay.svg";
 import Card1 from "../../assets/images/Card1.png";
+import PriceDetails from "./PriceDetails";
+import { useDispatch, useSelector } from "react-redux";
+import { updateOrder, userOrders } from "../../actions/orderActions";
+import { removeCart, userCarts } from "../../actions/cartActions";
+import { UPDATE_ORDER_RESET } from "../../constants/orderConstants";
+import { REMOVE_CART_RESET } from "../../constants/cartConstants";
 
 const Cart3 = () => {
+  const dispatch = useDispatch();
+
+  const { orders } = useSelector((state) => state.orders);
+  const { orderUpdated } = useSelector((state) => state.order);
+  const { cartItems } = useSelector((state) => state.carts);
+
+  useEffect(() => {
+    dispatch(userOrders());
+    dispatch(userCarts());
+  }, []);
+
+  useEffect(() => {
+    if (orderUpdated) {
+      alert("Order Success!");
+
+      cartItems.forEach((cartItem) => {
+        dispatch(removeCart(cartItem._id));
+      });
+
+      dispatch({ type: REMOVE_CART_RESET });
+
+      dispatch({ type: UPDATE_ORDER_RESET });
+    }
+  }, [orderUpdated]);
+
+  const paymentFun = () => {
+    const id = orders[orders.length - 1]._id;
+
+    dispatch(updateOrder(id, { paymentInfo: { id: "paymentId" } }));
+  };
+
   return (
     <Fragment>
       <Navbar />
@@ -111,27 +148,10 @@ const Cart3 = () => {
         </div>
 
         <div className="priceDetails">
-          <p className="text15 pb-4">PRICE DETAILS</p>
-          <div className="allCenter py-1">
-            <p className="text16">Price (2)</p>
-            <p className="text16">₹3999</p>
-          </div>
-          <div className="allCenter py-1">
-            <p className="text16">Discount</p>
-            <p className="text16">₹999</p>
-          </div>
-          <div className="allCenter py-1">
-            <p className="text16">Delivery Charges</p>
-            <p className="text16">₹99</p>
-          </div>
-          <div className="allCenter pt-4 pb-2">
-            <p className="text15">Total Amount</p>
-            <p className="text15">₹4098</p>
-          </div>
-          <p className="text16 py-1" style={{ color: "#00AD3B" }}>
-            You’ll save 999 on this order
-          </p>
-          <button className="placeOrderBtn text15">PROCEED TO PAYMENT</button>
+          <PriceDetails />
+          <button onClick={paymentFun} className="placeOrderBtn text15">
+            PROCEED TO PAYMENT
+          </button>
         </div>
       </div>
       <Footer />
