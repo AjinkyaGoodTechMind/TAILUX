@@ -19,18 +19,30 @@ import Step5 from "./StudioPage/Step5";
 import Cart1 from "./components/cart/Cart1";
 import Mens from "./StudioPage/Mens";
 import ProductCustomization from "./components/product/ProductCustomization";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loadUser } from "./actions/userActions";
 import Category from "./components/category/category";
 import Cart2 from "./components/cart/Cart2";
 import Cart3 from "./components/cart/Cart3";
+import { CLEAR_ERRORS } from "./constants/userConstants";
 
 function App() {
   const dispatch = useDispatch()
 
+  const { error, loading } = useSelector((state) => state.user)
+
   useEffect(() => {
+
     dispatch(loadUser())
+
   }, []);
+
+  useEffect(() => {
+    if (error) {
+      alert(error)
+      dispatch({ type: CLEAR_ERRORS })
+    }
+  }, [error]);
 
   return (
     <BrowserRouter>

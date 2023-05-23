@@ -138,7 +138,6 @@
   border-radius: 100%;
   width: 35px;
   height: 35px;
-  border: 1.5px solid #000000;
   font-size: 14px;
 }
 
@@ -182,44 +181,50 @@
   justify-content: space-between;
 }
 
-.ProductCustomizeContainer .costomizeBox {
+.ProductCustomizeContainer .customizeBox {
   padding: 20px;
 }
 
-.ProductCustomizeContainer .costomizeBox > p:first-child {
+.ProductCustomizeContainer .customizeBox > p:first-child {
   font-weight: 700;
   font-size: 20px;
   line-height: 25px;
 }
 
-.ProductCustomizeContainer .costomizeBox > p:nth-child(2) {
+.ProductCustomizeContainer .customizeBox > p:nth-child(2) {
   font-size: 12px;
   line-height: 15px;
   color: #8f8f8f;
 }
 
-.ProductCustomizeContainer .costomizeBox .savedSizes {
+.ProductCustomizeContainer .customizeBox .savedSizes {
   display: flex;
   column-gap: 20px;
   align-items: center;
 }
 
-.ProductCustomizeContainer .costomizeBox .savedSizes img {
+.ProductCustomizeContainer .customizeBox .savedSizes img {
   width: 70px;
+  cursor: pointer;
+  border-radius: 100%;
 }
 
-.ProductCustomizeContainer .costomizeBox .savedSizes > div > p {
+.ProductCustomizeContainer .customizeBox .savedSizes .customSizeSelected {
+  border: 2px solid #0094ff;
+}
+
+.ProductCustomizeContainer .customizeBox .savedSizes > div > p {
   text-align: center;
 }
 
-.ProductCustomizeContainer .costomizeBox .savedSizes > div:last-child {
+.ProductCustomizeContainer .customizeBox .savedSizes > div:last-child {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .ProductCustomizeContainer
-  .costomizeBox
+  .customizeBox
   .savedSizes
   > div:last-child
   > p:nth-child(1) {
@@ -235,43 +240,43 @@
   justify-content: center;
 }
 
-.ProductCustomizeContainer .costomizeBox .selectColor {
+.ProductCustomizeContainer .customizeBox .selectColor {
   padding-top: 15px;
 }
 
-.ProductCustomizeContainer .costomizeBox .selectColor {
+.ProductCustomizeContainer .customizeBox .selectColor {
   display: flex;
   column-gap: 15px;
   padding: 8px 0 5px 0;
 }
 
-.ProductCustomizeContainer .costomizeBox .selectColor > button {
+.ProductCustomizeContainer .customizeBox .selectColor > button {
   border-radius: 100%;
   width: 35px;
   height: 35px;
   font-size: 14px;
 }
 
-.ProductCustomizeContainer .costomizeBox .selectColor > button:first-child {
+.ProductCustomizeContainer .customizeBox .selectColor > button:first-child {
   background: #0c302c;
 }
-.ProductCustomizeContainer .costomizeBox .selectColor > button:nth-child(2) {
+.ProductCustomizeContainer .customizeBox .selectColor > button:nth-child(2) {
   background: #172323;
 }
-.ProductCustomizeContainer .costomizeBox .selectColor > button:nth-child(3) {
+.ProductCustomizeContainer .customizeBox .selectColor > button:nth-child(3) {
   background: #ae1e1e;
 }
-.ProductCustomizeContainer .costomizeBox .selectColor > button:nth-child(4) {
+.ProductCustomizeContainer .customizeBox .selectColor > button:nth-child(4) {
   background: #bc473e;
 }
-.ProductCustomizeContainer .costomizeBox .selectColor > button:nth-child(5) {
+.ProductCustomizeContainer .customizeBox .selectColor > button:nth-child(5) {
   background: #f9f6f4;
 }
-.ProductCustomizeContainer .costomizeBox .selectColor > button:nth-child(s6) {
+.ProductCustomizeContainer .customizeBox .selectColor > button:nth-child(s6) {
   background: #212549;
 }
 
-.ProductCustomizeContainer .costomizeBox .addToBagBtn {
+.ProductCustomizeContainer .customizeBox .addToBagBtn {
   background: #000000;
   border-radius: 5px;
   font-family: "Plus Jakarta Sans";
@@ -285,18 +290,23 @@
   padding: 10px;
 }
 
-.ProductCustomizeContainer .costomizeBox > p:nth-child(8) {
+.productSize .sizeSelected,
+.selectColor .colorSelected {
+  border: 2px solid #0094ff;
+}
+
+.ProductCustomizeContainer .customizeBox > p:nth-child(8) {
   font-size: 18px;
   line-height: 24px;
   font-weight: 800;
 }
 
-.ProductCustomizeContainer .costomizeBox > p:nth-child(9) {
+.ProductCustomizeContainer .customizeBox > p:nth-child(9) {
   font-size: 11px;
   line-height: 13px;
 }
 
-.ProductCustomizeContainer .costomizeBox > .openInTailuxStudioBtn {
+.ProductCustomizeContainer .customizeBox > .openInTailuxStudioBtn {
   font-weight: 700;
   font-size: 18px;
   line-height: 22px;
@@ -309,13 +319,13 @@
   margin: 20px 0;
 }
 
-.ProductCustomizeContainer .costomizeBox > p:nth-last-child(1) {
+.ProductCustomizeContainer .customizeBox > p:nth-last-child(1) {
   font-size: 14px;
   line-height: 16px;
   text-align: justify;
 }
 
-.ProductCustomizeContainer .costomizeBox > p:nth-last-child(2) {
+.ProductCustomizeContainer .customizeBox > p:nth-last-child(2) {
   font-size: 16px;
   line-height: 20px;
   text-align: justify;

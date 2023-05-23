@@ -125,9 +125,9 @@
   padding: 8px 0 5px 0;
 }
 
-.productSize > div > .sizeNotAvailable {
-  border: 1.5px solid #bebebe;
-  color: #bebebe;
+.productSize .sizeSelected,
+.productColor .colorSelected {
+  border: 2px solid #0094ff;
 }
 
 .productSize > div > button,
@@ -135,7 +135,6 @@
   border-radius: 100%;
   width: 35px;
   height: 35px;
-  border: 1.5px solid #000000;
   font-size: 14px;
 }
 
@@ -295,8 +294,12 @@
   display: block;
 }
 
-.image-gallery-thumbnails-wrapper.left .image-gallery-thumbnails .image-gallery-thumbnail,
-.image-gallery-thumbnails-wrapper.right .image-gallery-thumbnails .image-gallery-thumbnail {
+.image-gallery-thumbnails-wrapper.left
+  .image-gallery-thumbnails
+  .image-gallery-thumbnail,
+.image-gallery-thumbnails-wrapper.right
+  .image-gallery-thumbnails
+  .image-gallery-thumbnail {
   width: 250px;
 }
 

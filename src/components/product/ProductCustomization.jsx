@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import Navbar from "../layout/navbar/Navbar";
 import Footer from "../layout/footer/Footer";
 import AliceCarousel from "react-alice-carousel";
@@ -19,8 +19,16 @@ import "./ProductCustomization.css";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { productDetails } from "../../actions/productActions";
+import { userSizes } from "../../actions/sizeActions";
+import { ADD_TO_CART_RESET } from "../../constants/cartConstants";
+import { addToCart } from "../../actions/cartActions";
 
 const ProductCustomization = () => {
+  const [quantity, setQuantity] = useState(1);
+  const [size, setSize] = useState();
+  const [color, setColor] = useState();
+  const [customSize, setCustomSize] = useState();
+
   const { id } = useParams();
 
   const dispatch = useDispatch();
@@ -28,25 +36,36 @@ const ProductCustomization = () => {
   const { loading, product } = useSelector((state) => state.productDetails);
   const { user } = useSelector((state) => state.user);
   const { cartAdded } = useSelector((state) => state.cart);
+  const { sizes } = useSelector((state) => state.sizes);
 
   useEffect(() => {
     dispatch(productDetails(id));
+    dispatch(userSizes());
   }, []);
 
-  // useEffect(() => {
-  //   if (cartAdded) {
-  //     alert("Product Added To Cart");
-  //     dispatch({ type: ADD_TO_CART_RESET });
-  //   }
-  // }, [cartAdded]);
+  const selectSize = () => {};
+  useEffect(() => {
+    if (cartAdded) {
+      alert("Product Added To Cart");
+      dispatch({ type: ADD_TO_CART_RESET });
+    }
+  }, [cartAdded]);
 
-  // const quantityHandler = (e) => {
-  //   setQuantity(e.target.value);
-  // };
-
-  // const addToBagHandler = () => {
-  //   dispatch(addToCart({ user: user._id, product: id, quantity }));
-  // };
+  const addToBagHandler = () => {
+    if (!size) return alert("Please select product size");
+    if (!customSize) return alert("Please select your custom size");
+    if (!color) return alert("Please select product color");
+    dispatch(
+      addToCart({
+        user: user._id,
+        product: id,
+        quantity,
+        size,
+        color,
+        customSize,
+      })
+    );
+  };
 
   const womens = [
     <div className="womenBox">
@@ -153,10 +172,14 @@ const ProductCustomization = () => {
                   <p>inclusive of all taxes</p>
 
                   <div>
-                    <select name="" id="">
-                      <option value="QTY:1">QTY:1</option>
-                      <option value="QTY:2">QTY:2</option>
-                      <option value="QTY:3">QTY:3</option>
+                    <select
+                      onChange={(e) => setQuantity(e.target.value)}
+                      name=""
+                      id=""
+                    >
+                      <option value={1}>QTY:1</option>
+                      <option value={2}>QTY:2</option>
+                      <option value={3}>QTY:3</option>
                     </select>
 
                     <img src={WishlistIcon2} alt="WishlistIcon2" />
@@ -168,46 +191,44 @@ const ProductCustomization = () => {
                     </p>
                     <div>
                       <button
-                        className={
-                          product.sizes.includes("xs") ? "" : "sizeNotAvailable"
-                        }
+                        onClick={() => setSize("xs")}
+                        disabled={!product.sizes.includes("xs")}
+                        className={size === "xs" ? "sizeSelected" : ""}
                       >
                         XS
                       </button>
                       <button
-                        className={
-                          product.sizes.includes("s") ? "" : "sizeNotAvailable"
-                        }
+                        onClick={() => setSize("s")}
+                        disabled={!product.sizes.includes("s")}
+                        className={size === "s" ? "sizeSelected" : ""}
                       >
                         S
                       </button>
                       <button
-                        className={
-                          product.sizes.includes("m") ? "" : "sizeNotAvailable"
-                        }
+                        onClick={() => setSize("m")}
+                        disabled={!product.sizes.includes("m")}
+                        className={size === "m" ? "sizeSelected" : ""}
                       >
                         M
                       </button>
                       <button
-                        className={
-                          product.sizes.includes("l") ? "" : "sizeNotAvailable"
-                        }
+                        onClick={() => setSize("l")}
+                        disabled={!product.sizes.includes("l")}
+                        className={size === "l" ? "sizeSelected" : ""}
                       >
                         L
                       </button>
                       <button
-                        className={
-                          product.sizes.includes("xl") ? "" : "sizeNotAvailable"
-                        }
+                        onClick={() => setSize("xl")}
+                        disabled={!product.sizes.includes("xl")}
+                        className={size === "xl" ? "sizeSelected" : ""}
                       >
                         XL
                       </button>
                       <button
-                        className={
-                          product.sizes.includes("xxl")
-                            ? ""
-                            : "sizeNotAvailable"
-                        }
+                        onClick={() => setSize("xxl")}
+                        disabled={!product.sizes.includes("xxl")}
+                        className={size === "xxl" ? "sizeSelected" : ""}
                       >
                         XXL
                       </button>
@@ -285,24 +306,35 @@ const ProductCustomization = () => {
               </div>
             </div>
 
-            <div className="costomizeBox">
+            <div className="customizeBox">
               <p>Customized Size and Fitting</p>
               <p>Select from a saved size or add new size</p>
               <p className="text13">Saved Sizes</p>
 
               <div className="savedSizes">
-                <div>
-                  <img src={Person1} alt="Person1" />
-                  <p className="text14">Manju</p>
-                </div>
-                <div>
+                {sizes
+                  ? sizes.map((size) => (
+                      <div>
+                        <img
+                          onClick={() => setCustomSize(size._id)}
+                          src={Person1}
+                          alt="Person1"
+                          className={
+                            customSize === size._id ? "customSizeSelected" : ""
+                          }
+                        />
+                        <p className="text14">{size.name}</p>
+                      </div>
+                    ))
+                  : ""}
+                {/* <div>
                   <img src={Person2} alt="Person2" />
                   <p className="text14">Anju</p>
                 </div>
                 <div>
                   <img src={Person3} alt="Person3" />
                   <p className="text14">Anjali</p>
-                </div>
+                </div> */}
                 <div>
                   <p>+</p>
                   <p className="text14">add new size</p>
@@ -312,15 +344,35 @@ const ProductCustomization = () => {
               <p className="text13">Select Colors</p>
 
               <div className="selectColor">
-                <button></button>
-                <button></button>
-                <button></button>
-                <button></button>
-                <button></button>
-                <button></button>
+                <button
+                  onClick={() => setColor("gray")}
+                  className={color === "gray" ? "colorSelected" : ""}
+                ></button>
+                <button
+                  onClick={() => setColor("black")}
+                  className={color === "black" ? "colorSelected" : ""}
+                ></button>
+                <button
+                  onClick={() => setColor("red")}
+                  className={color === "red" ? "colorSelected" : ""}
+                ></button>
+                <button
+                  onClick={() => setColor("orage")}
+                  className={color === "orage" ? "colorSelected" : ""}
+                ></button>
+                <button
+                  onClick={() => setColor("white")}
+                  className={color === "white" ? "colorSelected" : ""}
+                ></button>
+                <button
+                  onClick={() => setColor("blue")}
+                  className={color === "blue" ? "colorSelected" : ""}
+                ></button>
               </div>
 
-              <button className="addToBagBtn">ADD TO BAG</button>
+              <button onClick={addToBagHandler} className="addToBagBtn">
+                ADD TO BAG
+              </button>
 
               <p>Want to Customize more?</p>
 

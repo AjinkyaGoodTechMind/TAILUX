@@ -28,6 +28,8 @@ import { ADD_TO_CART_RESET } from "../../constants/cartConstants";
 
 const Product = () => {
   const [quantity, setQuantity] = useState(1);
+  const [size, setSize] = useState();
+  const [color, setColor] = useState();
 
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -47,12 +49,10 @@ const Product = () => {
     }
   }, [cartAdded]);
 
-  const quantityHandler = (e) => {
-    setQuantity(e.target.value);
-  };
-
   const addToBagHandler = () => {
-    dispatch(addToCart({ user: user._id, product: id, quantity }));
+    if (!size) return alert("Please select product size");
+    if (!color) return alert("Please select product color");
+    dispatch(addToCart({ user: user._id, product: id, quantity, size, color }));
   };
 
   const womens = [
@@ -260,44 +260,44 @@ const Product = () => {
                   </div>
                   <div>
                     <button
-                      className={
-                        product.sizes.includes("xs") ? "" : "sizeNotAvailable"
-                      }
+                      onClick={() => setSize("xs")}
+                      disabled={!product.sizes.includes("xs")}
+                      className={size === "xs" ? "sizeSelected" : ""}
                     >
                       XS
                     </button>
                     <button
-                      className={
-                        product.sizes.includes("s") ? "" : "sizeNotAvailable"
-                      }
+                      onClick={() => setSize("s")}
+                      disabled={!product.sizes.includes("s")}
+                      className={size === "s" ? "sizeSelected" : ""}
                     >
                       S
                     </button>
                     <button
-                      className={
-                        product.sizes.includes("m") ? "" : "sizeNotAvailable"
-                      }
+                      onClick={() => setSize("m")}
+                      disabled={!product.sizes.includes("m")}
+                      className={size === "m" ? "sizeSelected" : ""}
                     >
                       M
                     </button>
                     <button
-                      className={
-                        product.sizes.includes("l") ? "" : "sizeNotAvailable"
-                      }
+                      onClick={() => setSize("l")}
+                      disabled={!product.sizes.includes("l")}
+                      className={size === "l" ? "sizeSelected" : ""}
                     >
                       L
                     </button>
                     <button
-                      className={
-                        product.sizes.includes("xl") ? "" : "sizeNotAvailable"
-                      }
+                      onClick={() => setSize("xl")}
+                      disabled={!product.sizes.includes("xl")}
+                      className={size === "xl" ? "sizeSelected" : ""}
                     >
                       XL
                     </button>
                     <button
-                      className={
-                        product.sizes.includes("xxl") ? "" : "sizeNotAvailable"
-                      }
+                      onClick={() => setSize("xxl")}
+                      disabled={!product.sizes.includes("xxl")}
+                      className={size === "xxl" ? "sizeSelected" : ""}
                     >
                       XXL
                     </button>
@@ -324,22 +324,47 @@ const Product = () => {
                 <div className="productColor">
                   <p className="text12">COLOR</p>
                   <div>
-                    <button></button>
-                    <button></button>
-                    <button></button>
-                    <button></button>
-                    <button></button>
-                    <button></button>
+                    <button
+                      onClick={() => setColor("gray")}
+                      className={color === "gray" ? "colorSelected" : ""}
+                    ></button>
+                    <button
+                      onClick={() => setColor("black")}
+                      className={color === "black" ? "colorSelected" : ""}
+                    ></button>
+                    <button
+                      onClick={() => setColor("red")}
+                      className={color === "red" ? "colorSelected" : ""}
+                    ></button>
+                    <button
+                      onClick={() => setColor("orage")}
+                      className={color === "orage" ? "colorSelected" : ""}
+                    ></button>
+                    <button
+                      onClick={() => setColor("white")}
+                      className={color === "white" ? "colorSelected" : ""}
+                    ></button>
+                    <button
+                      onClick={() => setColor("blue")}
+                      className={color === "blue" ? "colorSelected" : ""}
+                    ></button>
                   </div>
                 </div>
 
-                <select onChange={quantityHandler} name="" id="">
+                <select
+                  onChange={(e) => setQuantity(e.target.value)}
+                  name=""
+                  id=""
+                >
                   <option value={1}>QTY:1</option>
                   <option value={2}>QTY:2</option>
                   <option value={3}>QTY:3</option>
                 </select>
 
-                <Link to={`/productCustomization/${id}`} className="costomizeBtn">
+                <Link
+                  to={`/productCustomization/${id}`}
+                  className="costomizeBtn"
+                >
                   CUSTOMIZE
                 </Link>
                 <button onClick={addToBagHandler} className="addToBagBtn">
