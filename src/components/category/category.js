@@ -58,13 +58,13 @@ const Category = () => {
 
   const deals = deal
     ? deal.dealImages.map((dealImage, key) => (
-        <div key={key} className="dealBox">
-          <img
-            src={`http://localhost:5000/dealImages/${dealImage}`}
-            alt={dealImage}
-          />
-        </div>
-      ))
+      <div key={key} className="dealBox">
+        <img
+          src={`http://localhost:5000/dealImages/${dealImage}`}
+          alt={dealImage}
+        />
+      </div>
+    ))
     : [];
 
   const womens = products.map((product, key) => (
@@ -146,13 +146,13 @@ const Category = () => {
         >
           {carousel
             ? carousel.carouselImages.map((carouselImage, key) => (
-                <div key={key}>
-                  <img
-                    src={`http://localhost:5000/carouselImages/${carouselImage}`}
-                    alt="CarouselImage1"
-                  />
-                </div>
-              ))
+              <div key={key}>
+                <img
+                  src={`http://localhost:5000/carouselImages/${carouselImage}`}
+                  alt="CarouselImage1"
+                />
+              </div>
+            ))
             : ""}
           {/* <div>
             <img src={carousel ? `http://localhost:5000/carouselImages/${carousel.carouselImages[0]}` : ""} alt="CarouselImage2" />
@@ -361,7 +361,7 @@ const Category = () => {
 
           <div className="onlineShopping">
             <p>ONLINE SHOPPING FOR MEN: OPTIONS UNLIMITED</p>
-            <p>
+            <div>
               At Myntra, our online shopping fashion for men collection features
               plenty of options to create multiple outfits. At our men’s online
               shop we have brought together an exhaustive range of products from
@@ -403,7 +403,7 @@ const Category = () => {
                   one roof!
                 </li>
               </ul>
-            </p>
+            </div>
           </div>
         </div>
       </div>

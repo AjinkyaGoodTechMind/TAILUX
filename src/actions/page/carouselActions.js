@@ -20,7 +20,7 @@ export const newCarousel = (data) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: NEW_CAROUSEL_FAIL,
-            payload: error.response.message.error
+            payload: error.response.data.message
         })
     }
 }
@@ -33,14 +33,14 @@ export const categoryCarousel = (categoryName) => async (dispatch) => {
         dispatch({ type: CATEGORY_CAROUSEL_REQUEST })
 
         const { data } = await axios.get(`http://localhost:5000/api/carousel/category/${categoryName}`)
-console.log(data)
+
         dispatch({ type: CATEGORY_CAROUSEL_SUCCESS, payload: data.carousel })
 
     } catch (error) {
-        console.log(error)
+
         dispatch({
             type: CATEGORY_CAROUSEL_FAIL,
-            payload: error.response.message.error
+            payload: error.response.data.message
         })
     }
 }
@@ -60,7 +60,7 @@ export const updateCarousel = (id, data) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: UPDATE_CAROUSEL_FAIL,
-            payload: error.response.message.error
+            payload: error.response.data.message
         })
     }
 }
@@ -71,14 +71,14 @@ export const deleteCarousel = (id) => async (dispatch) => {
 
         dispatch({ type: DELETE_CAROUSEL_REQUEST })
 
-        const { data } = await axios.patch(`http:localhost:5000/api/carousel/${id}` )
+        const { data } = await axios.patch(`http:localhost:5000/api/carousel/${id}`)
 
         dispatch({ type: DELETE_CAROUSEL_SUCCESS, payload: data.success })
 
     } catch (error) {
         dispatch({
             type: DELETE_CAROUSEL_FAIL,
-            payload: error.response.message.error
+            payload: error.response.data.message
         })
     }
 }

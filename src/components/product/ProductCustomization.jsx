@@ -16,7 +16,7 @@ import WishlistIcon2 from "../../assets/images/WishlistIcon2.svg";
 import Star1 from "../../assets/images/Star1.svg";
 
 import "./ProductCustomization.css";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { productDetails } from "../../actions/productActions";
 import { userSizes } from "../../actions/sizeActions";
@@ -29,16 +29,22 @@ const ProductCustomization = () => {
   const [color, setColor] = useState();
   const [customSize, setCustomSize] = useState();
 
+  const navigate = useNavigate();
+
   const { id } = useParams();
 
   const dispatch = useDispatch();
 
   const { loading, product } = useSelector((state) => state.productDetails);
-  const { user } = useSelector((state) => state.user);
+  const { user, isAuthenticated } = useSelector((state) => state.user);
   const { cartAdded } = useSelector((state) => state.cart);
   const { sizes } = useSelector((state) => state.sizes);
 
   useEffect(() => {
+    if (!isAuthenticated) {
+      alert("Login to access this resource");
+      navigate(`/product/${id}`);
+    }
     dispatch(productDetails(id));
     dispatch(userSizes());
   }, []);
@@ -48,6 +54,10 @@ const ProductCustomization = () => {
     if (cartAdded) {
       alert("Product Added To Cart");
       dispatch({ type: ADD_TO_CART_RESET });
+      setSize();
+      setCustomSize();
+      setColor();
+      setQuantity(1);
     }
   }, [cartAdded]);
 
@@ -55,6 +65,7 @@ const ProductCustomization = () => {
     if (!size) return alert("Please select product size");
     if (!customSize) return alert("Please select your custom size");
     if (!color) return alert("Please select product color");
+
     dispatch(
       addToCart({
         user: user._id,
@@ -176,6 +187,7 @@ const ProductCustomization = () => {
                       onChange={(e) => setQuantity(e.target.value)}
                       name=""
                       id=""
+                      value={quantity}
                     >
                       <option value={1}>QTY:1</option>
                       <option value={2}>QTY:2</option>
@@ -313,8 +325,8 @@ const ProductCustomization = () => {
 
               <div className="savedSizes">
                 {sizes
-                  ? sizes.map((size) => (
-                      <div>
+                  ? sizes.map((size, key) => (
+                      <div key={key}>
                         <img
                           onClick={() => setCustomSize(size._id)}
                           src={Person1}

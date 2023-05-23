@@ -35,7 +35,7 @@ const Product = () => {
   const dispatch = useDispatch();
 
   const { loading, product } = useSelector((state) => state.productDetails);
-  const { user } = useSelector((state) => state.user);
+  const { user, isAuthenticated } = useSelector((state) => state.user);
   const { cartAdded } = useSelector((state) => state.cart);
 
   useEffect(() => {
@@ -46,12 +46,18 @@ const Product = () => {
     if (cartAdded) {
       alert("Product Added To Cart");
       dispatch({ type: ADD_TO_CART_RESET });
+      setSize();
+      setColor();
+      setQuantity(1);
     }
   }, [cartAdded]);
 
   const addToBagHandler = () => {
+    if (!isAuthenticated) return alert("Login First");
+
     if (!size) return alert("Please select product size");
     if (!color) return alert("Please select product color");
+
     dispatch(addToCart({ user: user._id, product: id, quantity, size, color }));
   };
 
@@ -355,6 +361,7 @@ const Product = () => {
                   onChange={(e) => setQuantity(e.target.value)}
                   name=""
                   id=""
+                  value={quantity}
                 >
                   <option value={1}>QTY:1</option>
                   <option value={2}>QTY:2</option>

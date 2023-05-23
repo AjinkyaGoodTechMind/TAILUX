@@ -62,13 +62,13 @@ export const logout = () => async (dispatch) => {
 }
 
 // 5. Update Profile
-export const updateProfile = (id) => async (dispatch) => {
+export const updateProfile = (id, userDetail) => async (dispatch) => {
 
     try {
 
         dispatch({ type: UPDATE_PROFILE_REQUEST })
 
-        const { data } = await axios.patch(`http://localhost:5000/api/user/${id}`)
+        const { data } = await axios.patch(`http://localhost:5000/api/user/${id}`, userDetail)
 
         dispatch({ type: UPDATE_PROFILE_SUCCESS, payload: data.success })
     } catch (error) {

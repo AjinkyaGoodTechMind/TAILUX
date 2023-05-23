@@ -21,6 +21,7 @@ const Cart3 = () => {
   const { orders } = useSelector((state) => state.orders);
   const { orderUpdated } = useSelector((state) => state.order);
   const { cartItems } = useSelector((state) => state.carts);
+  const { cartRemoved } = useSelector((state) => state.cart);
 
   useEffect(() => {
     dispatch(userOrders());
@@ -35,11 +36,12 @@ const Cart3 = () => {
         dispatch(removeCart(cartItem._id));
       });
 
-      dispatch({ type: REMOVE_CART_RESET });
-
       dispatch({ type: UPDATE_ORDER_RESET });
     }
-  }, [orderUpdated]);
+    if (cartRemoved) {
+      dispatch({ type: REMOVE_CART_RESET });
+    }
+  }, [orderUpdated, cartRemoved]);
 
   const paymentFun = () => {
     const id = orders[orders.length - 1]._id;

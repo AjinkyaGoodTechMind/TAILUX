@@ -20,7 +20,7 @@ export const newDeal = (data) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: NEW_DEAL_FAIL,
-            payload: error.response.message.error
+            payload: error.response.data.message
         })
     }
 }
@@ -33,14 +33,14 @@ export const categoryDeal = (categoryName) => async (dispatch) => {
         dispatch({ type: CATEGORY_DEAL_REQUEST })
 
         const { data } = await axios.get(`http://localhost:5000/api/deal/category/${categoryName}`)
-        console.log(data)
+
         dispatch({ type: CATEGORY_DEAL_SUCCESS, payload: data.deal })
 
     } catch (error) {
-        console.log(error)
+
         dispatch({
             type: CATEGORY_DEAL_FAIL,
-            payload: error.response.message.error
+            payload: error.response.data.message
         })
     }
 }
@@ -60,7 +60,7 @@ export const updateDeal = (id, data) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: UPDATE_DEAL_FAIL,
-            payload: error.response.message.error
+            payload: error.response.data.message
         })
     }
 }
@@ -78,7 +78,7 @@ export const deleteDeal = (id) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: DELETE_DEAL_FAIL,
-            payload: error.response.message.error
+            payload: error.response.data.message
         })
     }
 }

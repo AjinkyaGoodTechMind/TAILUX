@@ -39,7 +39,7 @@ function App() {
 
   useEffect(() => {
     if (error) {
-      alert(error)
+      alert('Please Login to access all Resources')
       dispatch({ type: CLEAR_ERRORS })
     }
   }, [error]);

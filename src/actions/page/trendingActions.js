@@ -20,7 +20,7 @@ export const newTrending = (data) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: NEW_TRENDING_FAIL,
-            payload: error.response.message.error
+            payload: error.response.data.message
         })
     }
 }
@@ -33,14 +33,14 @@ export const categoryTrending = (categoryName) => async (dispatch) => {
         dispatch({ type: CATEGORY_TRENDING_REQUEST })
 
         const { data } = await axios.get(`http://localhost:5000/api/trending/category/${categoryName}`)
-        console.log(data)
+
         dispatch({ type: CATEGORY_TRENDING_SUCCESS, payload: data.trending })
 
     } catch (error) {
-        console.log(error)
+
         dispatch({
             type: CATEGORY_TRENDING_FAIL,
-            payload: error.response.message.error
+            payload: error.response.data.message
         })
     }
 }
@@ -60,7 +60,7 @@ export const updateTrending = (id, data) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: UPDATE_TRENDING_FAIL,
-            payload: error.response.message.error
+            payload: error.response.data.message
         })
     }
 }
@@ -78,7 +78,7 @@ export const deleteTrending = (id) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: DELETE_TRENDING_FAIL,
-            payload: error.response.message.error
+            payload: error.response.data.message
         })
     }
 }
