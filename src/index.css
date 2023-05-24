@@ -22,3 +22,8 @@ img{
 div, p{
   color:black
 }
+
+a {
+  text-decoration: none !important;
+  color:black;
+}

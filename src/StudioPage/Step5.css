@@ -1,0 +1,22 @@
+.carousel-Collar1 .collarBox > div {
+  width: 142px;
+  height: 142px;
+  background: #e4e4e4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.carousel-Collar1 .collarBox > div img {
+  width: 70px;
+}
+
+.carousel-Collar1 .collarBox > p {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 8px 0;
+}

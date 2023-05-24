@@ -9,6 +9,11 @@ import "./Studio.css";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import FormStepper from "./FormStepper";
+
+import Collar1 from "../assets/images/Collar1.svg";
+
+import "./Step5.css";
 
 export default function Step5() {
   const navigate = useNavigate();
@@ -17,108 +22,116 @@ export default function Step5() {
   const settings = {
     dots: false,
     infinite: false,
-    speed: 500,
-    slidesToShow: 9,
+    // speed: 500,
+    slidesToShow: 7,
     slidesToScroll: 3,
   };
+
   return (
     <div id="Step-All-StudioPage">
       <Navbar />
       <Banner />
       <Tag />
-      <div id="e"></div>
+      <FormStepper active={4} />
       <div id="Content">
-        <h1 className="Content-h1">Last step, Add detailing to your Item.</h1>
-        <h3 className="Content-h3">Collar style</h3>
-        <div
-          className="carousel-collar"
-          style={{
-            height: "20vh",
-          }}
-        >
+        <h3 className="Content-h1">Last step, Add detailing to your Item.</h3>
+        <h5 className="Content-h3">Collar style</h5>
+        <div className="carousel-Collar1">
           <Slider {...settings}>
-            <div className="carousel__item">
-              <div id="collar-img-holder">
-                <span className="collar-step">style 1</span>
+            <div className="collarBox">
+              <div>
+                <img draggable={false} src={Collar1} alt="Collar1" />
               </div>
+              <p>style 1</p>
             </div>
-            <div className="carousel__item">
-              <div id="collar-img-holder">
-                <span className="collar-step">style 1</span>
+            <div className="collarBox">
+              <div>
+                <img draggable={false} src={Collar1} alt="Collar1" />
               </div>
+              <p>style 1</p>
             </div>
-            <div className="carousel__item">
-              <div id="collar-img-holder">
-                <span className="collar-step">style 1</span>
+            <div className="collarBox">
+              <div>
+                <img draggable={false} src={Collar1} alt="Collar1" />
               </div>
+              <p>style 1</p>
             </div>
-            <div className="carousel__item">
-              <div id="collar-img-holder">
-                <span className="collar-step">style 1</span>
+            <div className="collarBox">
+              <div>
+                <img draggable={false} src={Collar1} alt="Collar1" />
               </div>
+              <p>style 1</p>
             </div>
-            <div className="carousel__item">
-              <div id="collar-img-holder">
-                <span className="collar-step">style 1</span>
+            <div className="collarBox">
+              <div>
+                <img draggable={false} src={Collar1} alt="Collar1" />
               </div>
+              <p>style 1</p>
             </div>
-            <div className="carousel__item">
-              <div id="collar-img-holder">
-                <span className="collar-step">style 1</span>
+            <div className="collarBox">
+              <div>
+                <img draggable={false} src={Collar1} alt="Collar1" />
               </div>
+              <p>style 1</p>
             </div>
-            <div className="carousel__item"></div>
-            <div className="carousel__item"></div>
-            <div className="carousel__item"></div>
           </Slider>
         </div>
-        <h3 className="Content-h3">Buttons style</h3>
-        <div className="carousel-collar">
+        <h5 className="Content-h3">Buttons style</h5>
+        <div className="carousel-Collar1">
           <Slider {...settings}>
-            <div className="carousel__item">
-              <div id="collar-img-holder">
-                <span className="collar-step">style 1</span>
+            <div className="collarBox">
+              <div>
+                <img draggable={false} src={Collar1} alt="Collar1" />
               </div>
+              <p>style 1</p>
             </div>
-            <div className="carousel__item">
-              <div id="collar-img-holder">
-                <span className="collar-step">style 1</span>
+            <div className="collarBox">
+              <div>
+                <img draggable={false} src={Collar1} alt="Collar1" />
               </div>
+              <p>style 1</p>
             </div>
-            <div className="carousel__item">
-              <div id="collar-img-holder">
-                <span className="collar-step">style 1</span>
+            <div className="collarBox">
+              <div>
+                <img draggable={false} src={Collar1} alt="Collar1" />
               </div>
+              <p>style 1</p>
             </div>
-            <div className="carousel__item">
-              <div id="collar-img-holder">
-                <span className="collar-step">style 1</span>
+            <div className="collarBox">
+              <div>
+                <img draggable={false} src={Collar1} alt="Collar1" />
               </div>
+              <p>style 1</p>
             </div>
-            <div className="carousel__item">
-              <div id="collar-img-holder">
-                <span className="collar-step">style 1</span>
+            <div className="collarBox">
+              <div>
+                <img draggable={false} src={Collar1} alt="Collar1" />
               </div>
+              <p>style 1</p>
             </div>
-            <div className="carousel__item">
-              <div id="collar-img-holder">
-                <span className="collar-step">style 1</span>
+            <div className="collarBox">
+              <div>
+                <img draggable={false} src={Collar1} alt="Collar1" />
               </div>
+              <p>style 1</p>
             </div>
-            <div className="carousel__item">
-              <div id="collar-img-holder">
-                <span className="collar-step">style 1</span>
+            <div className="collarBox">
+              <div>
+                <img draggable={false} src={Collar1} alt="Collar1" />
               </div>
+              <p>style 1</p>
             </div>
-            <div className="carousel__item">
-              <div id="collar-img-holder">
-                <span className="collar-step">style 1</span>
+            <div className="collarBox">
+              <div>
+                <img draggable={false} src={Collar1} alt="Collar1" />
               </div>
+              <p>style 1</p>
             </div>
-            <div className="carousel__item">
-              <div id="collar-img-holder">
-                <span className="collar-step">style 1</span>
+            <div className="collarBox">
+              <div>
+                <img draggable={false} src={Collar1} alt="Collar1" />
               </div>
+              <p>style 1</p>
             </div>
           </Slider>
         </div>
