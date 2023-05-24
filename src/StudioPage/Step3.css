@@ -1,0 +1,68 @@
+.StudioPage-Select-Color {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.StudioPage-Select-Color > button {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  border: 1px solid #717171;
+  border-radius: 7px;
+}
+
+.StudioPage-Select-Color > button:nth-child(1) {
+    background: #790000;
+  }
+  .StudioPage-Select-Color > button:nth-child(2) {
+    background: #5a3c00;
+  }
+  .StudioPage-Select-Color > button:nth-child(3) {
+    background: #003f79;
+  }
+  .StudioPage-Select-Color > button:nth-child(4) {
+    background: #303030;
+  }
+  .StudioPage-Select-Color > button:nth-child(5) {
+    background: #4b0079;
+  }
+  .StudioPage-Select-Color > button:nth-child(6) {
+    background: #000000;
+  }
+  .StudioPage-Select-Color > button:nth-child(7) {
+    background: #582500;
+  }
+  .StudioPage-Select-Color > button:nth-child(8) {
+    background: #114508;
+  }
+  .StudioPage-Select-Color > button:nth-child(9) {
+    background: #630101;
+  }
+  .StudioPage-Select-Color > button:nth-child(10) {
+    background: #630101;
+  }
+  .StudioPage-Select-Color > button:nth-child(11) {
+    background: #114508;
+  }
+  .StudioPage-Select-Color > button:nth-child(12) {
+    background: #582500;
+  }
+  .StudioPage-Select-Color > button:nth-child(13) {
+    background: #000000;
+  }
+  .StudioPage-Select-Color > button:nth-child(14) {
+    background: #4b0079;
+  }
+  .StudioPage-Select-Color > button:nth-child(15) {
+    background: #303030;
+  }
+  .StudioPage-Select-Color > button:nth-child(16) {
+    background: #003f79;
+  }
+  .StudioPage-Select-Color > button:nth-child(17) {
+    background: #5a3c00;
+  }
+  .StudioPage-Select-Color > button:nth-child(18) {
+    background: #790000;
+  }

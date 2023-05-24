@@ -91,7 +91,7 @@ function Step2() {
       </div>
 
       <div className="Buttons">
-        <button id="previous" onClick={() => Previous("/")}>
+        <button id="previous" onClick={() => Previous("/tailuxStudio")}>
           Previous
         </button>
         <button id="next" onClick={() => navigate("/step3")}>
