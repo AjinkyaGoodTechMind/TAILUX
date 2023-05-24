@@ -1,0 +1,42 @@
+#banner {
+  width: 100%;
+  position: relative;
+  /* margin-top: 40px; */
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(90deg, #8b00cd 1.56%, #002093 98.5%);
+}
+
+.tagpunch {
+  width: 40%;
+  height: 11vh;
+  margin-left: 6%;
+  background: url("../../assets/tagLine.png") no-repeat;
+  background-size: 100% 100%;
+}
+.companyBrand > p {
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fdfeff;
+}
+
+#white {
+  width: 8%;
+  height: 8em;
+  background: url("../../assets/white.png") no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.border {
+  width: 5px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.37);
+  border-radius: 15px;
+  border: none !important;
+}

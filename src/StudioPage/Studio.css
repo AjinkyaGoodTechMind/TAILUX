@@ -98,14 +98,24 @@ a {
   font-weight: 700;
   font-size: 20px;
   z-index: 7;
-  background: linear-gradient(90deg, #000000 2.24%, #777777 51.81%, #000000 92.63%);
+  background: linear-gradient(
+    90deg,
+    #000000 2.24%,
+    #777777 51.81%,
+    #000000 92.63%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 #tailuxStudio:hover {
-  background: linear-gradient(90deg, #0f0559 2.24%, #3464df 51.81%, #0f0559 92.63%);
+  background: linear-gradient(
+    90deg,
+    #0f0559 2.24%,
+    #3464df 51.81%,
+    #0f0559 92.63%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -213,87 +223,11 @@ a {
 
 /* ------------Banner-------------- */
 
-#banner {
-  width: 100%;
-  position: relative;
-  /* margin-top: 40px; */
-  height: 180px;
-  display: flex;
-  justify-content: center;
-  justify-content: space-around;
-  align-items: center;
-  background: linear-gradient(90deg, #8b00cd 1.56%, #002093 98.5%);
-}
-.tagpunch,
-.companyBrand {
-  width: 30%;
-  height: 15vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #ffffff;
-  font-family: "Plus Jakarta Sans";
-  font-weight: 700;
-}
-
-.tagpunch {
-  font-stretch: expanded;
-  font-size: 2.5%;
-  font-weight: 700;
-  text-align: center;
-  letter-spacing: 0.5em;
-  text-transform: uppercase;
-  color: #ffffff;
-}
-
-.tagpunch {
-  width: 40%;
-  height: 11vh;
-  margin-left: 6%;
-  /* margin-right: 6%; */
-  background: url("../assets/tagLine.png") no-repeat;
-  background-size: 100% 100%;
-}
-.companyBrand {
-  width: 374px;
-  height: 76px;
-  font-size: 45px;
-  font-weight: 700;
-  text-align: center;
-  text-transform: uppercase;
-  color: #ffffff;
-}
-#white {
-  width: 10%;
-  height: 8em;
-  background: url("../assets/white.png") no-repeat;
-  background-position: center;
-  background-size: contain;
-}
-
-.Line {
-  width: 90%;
-  height: 10vh;
-  background: #ffffff;
-  border-radius: 2px;
-}
-
-.border {
-  width: 5px;
-  height: 97px;
-  left: 950px;
-  top: 192px;
-
-  background: rgba(255, 255, 255, 0.37);
-  border-radius: 15px;
-}
-
 /* -----------tag------------ */
 
 .punch {
   position: relative;
-  width: 90%;
+  /* width: 90%; */
   margin: 30px;
   color: #000000;
   display: flex;
@@ -303,22 +237,28 @@ a {
   line-height: 4em;
 }
 
-.punch b {
-  font-size: 70px;
+.punch > p:first-child {
+  font-size: 50px;
   font-family: "Plus Jakarta Sans";
   font-style: normal;
-  height: 90px;
   font-weight: 800;
-  margin-top: 2vh;
+  margin-top: 1.5vh;
+  margin-bottom: 5px;
   text-align: center;
-  background: linear-gradient(90.14deg, #ff7a00 32.72%, #ff00f5 50.9%, #0047ff 68.35%);
+  background: linear-gradient(
+    90.14deg,
+    #ff7a00 32.72%,
+    #ff00f5 50.9%,
+    #0047ff 68.35%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
 }
-.punch p {
-  font-size: 40px;
+
+.punch > p:last-child {
+  font-size: 30px;
   font-weight: 200;
   font-family: "Plus Jakarta Sans";
   color: #636363;
@@ -327,66 +267,9 @@ a {
   margin-bottom: 4vh;
 }
 
-/* -------Steps Png -------- */
-
-#StudioPage-Step-1,
-#StudioPage-Step-2,
-#StudioPage-Step-3,
-#StudioPage-Step-4,
-#e {
-  position: relative;
+.formStepper {
   width: 80%;
-  height: 90px;
-  margin: 40px;
-}
-#StudioPage-Step-1 {
-  background: url("../assets/step.png") no-repeat;
-  background-position: center;
-  background-size: 100% 90%;
-}
-#StudioPage-Step-2 {
-  background: url("../assets/step2.png") no-repeat;
-  background-position: center;
-  background-size: 100% 90%;
-}
-#StudioPage-Step-3 {
-  background: url("../assets/step3.png") no-repeat;
-  background-position: center;
-  background-size: 100% 90%;
-}
-#StudioPage-Step-4 {
-  background: url("../assets/step4.png") no-repeat;
-  background-position: center;
-  background-size: 100% 90%;
-}
-#e {
-  background: url("../assets/step5.png") no-repeat;
-  background-position: center;
-  background-size: 100% 90%;
-}
-
-/*------------Content---------------*/
-
-#Content {
-  position: relative;
-  width: 80%;
-
-  display: flex;
-  flex-direction: column;
-}
-.Content-h1,
-.Content-h3 {
-  font-family: "Plus Jakarta Sans";
-  color: #000000;
-}
-.Content-h1 {
-  font-weight: 900;
-  margin-top: 5vh;
-}
-.Content-h3 {
-  position: relative;
-
-  margin-top: 30px;
+  margin: 10px 0;
 }
 
 /* --------------------------------------------------------------------------- */
@@ -467,8 +350,7 @@ a {
 
 .Buttons {
   position: relative;
-
-  margin: 100px;
+  margin: 50px;
   width: 38%;
   display: flex;
   justify-content: space-around;
@@ -480,14 +362,14 @@ a {
 
 #next {
   position: relative;
-  width: 200px;
-  height: 70px;
-  background: #282727;
+  width: 180px;
+  height: 55px;
+  background: black;
   border-radius: 7px;
   font-family: "Plus Jakarta Sans";
   font-style: normal;
   font-weight: 400;
-  font-size: 30px;
+  font-size: 25px;
   color: #ffffff;
   border: none;
   cursor: pointer;
@@ -512,29 +394,12 @@ a {
   margin: 12px;
 }
 
-#Naming-Design {
+/* #Naming-Design {
   width: 100%;
   margin-top: 4vh;
   font-weight: 400;
   font-family: "Plus Jakarta Sans";
-}
-#NameDesign {
-  width: 15%;
-  height: 3vh;
-  margin-top: 20px;
-  padding: 12px;
-  border-style: none;
-  border-bottom: 1px solid #a5a5a5;
-}
-
-#Step1-button {
-  width: 6%;
-  height: 4vh;
-  margin-top: 2vh;
-  color: #ffffff;
-  background: #b7b7b7;
-  border-style: none;
-}
+} */
 
 .Search-Button {
   flex-direction: row;
@@ -551,10 +416,12 @@ a {
   justify-self: center;
   padding: 15px;
 }
+
 .items label {
   display: flex;
   padding: 10px;
 }
+
 .items label span {
   font-size: 0.8%;
   margin-left: 1%;
@@ -722,7 +589,11 @@ a {
   justify-content: center;
   align-items: center;
   background: rgb(69, 69, 71);
-  background: linear-gradient(0deg, rgba(12, 12, 12, 0.789) 15%, rgba(31, 32, 32, 0) 80%);
+  background: linear-gradient(
+    0deg,
+    rgba(12, 12, 12, 0.789) 15%,
+    rgba(31, 32, 32, 0) 80%
+  );
 }
 .StudioPage-2-img-slide div h1 {
   font-family: "Plus Jakarta Sans";

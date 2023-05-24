@@ -1,6 +1,5 @@
 import Banner from "../components/studio/Banner";
 import Tag from "../components/studio/Tag";
-import Content from "../components/studio/Content";
 import Navbar from "../components/layout/navbar/Navbar";
 import Footer from "../components/layout/footer/Footer";
 
