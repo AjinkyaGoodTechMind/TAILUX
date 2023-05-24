@@ -44,28 +44,28 @@ const Home = () => {
 
   const deals = [
     <div className="dealBox">
-      <img src={fotor1} alt="fotor1" />
+      <img draggable={false} src={fotor1} alt="fotor1" />
     </div>,
     <div className="dealBox">
-      <img src={fotor2} alt="fotor2" />
+      <img draggable={false} src={fotor2} alt="fotor2" />
     </div>,
     <div className="dealBox">
-      <img src={fotor3} alt="fotor3" />
+      <img draggable={false} src={fotor3} alt="fotor3" />
     </div>,
     <div className="dealBox">
-      <img src={fotor4} alt="fotor4" />
+      <img draggable={false} src={fotor4} alt="fotor4" />
     </div>,
     <div className="dealBox">
-      <img src={fotor1} alt="fotor1" />
+      <img draggable={false} src={fotor1} alt="fotor1" />
     </div>,
     <div className="dealBox">
-      <img src={fotor1} alt="fotor1" />
+      <img draggable={false} src={fotor1} alt="fotor1" />
     </div>,
     <div className="dealBox">
-      <img src={fotor1} alt="fotor1" />
+      <img draggable={false} src={fotor1} alt="fotor1" />
     </div>,
     <div className="dealBox">
-      <img src={fotor1} alt="fotor1" />
+      <img draggable={false} src={fotor1} alt="fotor1" />
     </div>,
   ];
 

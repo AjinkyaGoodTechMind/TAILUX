@@ -3,17 +3,66 @@
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap");
 
-/* Body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+#Step-All-StudioPage {
   width: 100%;
-  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-} */
+}
+
+#Content {
+  width: 85%;
+}
+
+.formStepper {
+  width: 85%;
+  margin: 10px 0;
+}
+
+.Content-h1,
+.Content-h3 {
+  font-weight: 600;
+}
+.Content-h1 {
+  font-weight: 900;
+  margin-top: 5vh;
+}
+
+.Content-h3 {
+  position: relative;
+  margin-top: 30px;
+}
+
+.Buttons {
+  margin: 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  z-index: 1;
+}
+
+#next,
+#previous {
+  width: 180px;
+  height: 55px;
+  background: black;
+  border-radius: 7px;
+  font-size: 25px;
+  color: #ffffff;
+  border: none;
+  letter-spacing: 0.1em;
+  margin: 0 20px;
+}
+
+#previous {
+  background: #909090;
+}
+
+.StudioPage-Select-Color {
+  width: 100%;
+}
 
 /* ************************components******************************* */
 
@@ -267,24 +316,9 @@ a {
   margin-bottom: 4vh;
 }
 
-.formStepper {
-  width: 80%;
-  margin: 10px 0;
-}
-
 /* --------------------------------------------------------------------------- */
 
 /* -------Step-1-StudioPage--------- */
-#Step-All-StudioPage {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
 #Select-product {
   margin-top: 18vh;
@@ -346,40 +380,6 @@ a {
 
 .down-item-1 {
   top: 2.5vh;
-}
-
-.Buttons {
-  position: relative;
-  margin: 50px;
-  width: 38%;
-  display: flex;
-  justify-content: space-around;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  z-index: 1;
-}
-
-#next,
-#previous {
-  position: relative;
-  width: 180px;
-  height: 55px;
-  background: black;
-  border-radius: 7px;
-  font-family: "Plus Jakarta Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 25px;
-  color: #ffffff;
-  border: none;
-  cursor: pointer;
-  letter-spacing: 0.1em;
-  margin: 12px;
-}
-
-#previous {
-  background: #909090;
 }
 
 .Search-Button {
@@ -528,28 +528,6 @@ a {
   align-items: center;
   font-family: "plus Jakarta Sans";
 }
-
-/* #Shift {
-  margin-top: 20vh;
-} */
-
-.StudioPage-Select-Color {
-  width: 100%;
-  height: 30vh;
-}
-/* table {
-  width: 100%;
-  height: 100%;
-}
-table tr {
-  height: 8vh;
-  margin: 100px;
-  border-bottom: 1px solid #a5a5a5;
-} */
-
-/* table tr td{
-  background: #0f0559;
-} */
 
 .color {
   width: 70%;

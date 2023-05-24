@@ -6,7 +6,7 @@ import Footer from "../components/layout/footer/Footer";
 import { useNavigate } from "react-router-dom";
 import FormStepper from "./FormStepper";
 import "./Step3.css";
-import "./Step1.css";
+import "./Studio.css";
 
 export default function Step3() {
   const navigate = useNavigate();
@@ -76,14 +76,4 @@ export default function Step3() {
       <Footer />
     </div>
   );
-}
-
-function handleClick(event) {
-  const element = event.target;
-  element.style.outline = "6px solid";
-}
-
-function handleDoubleClick(event) {
-  const element = event.target;
-  element.style.outline = "none";
 }

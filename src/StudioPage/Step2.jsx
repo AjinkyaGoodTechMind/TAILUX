@@ -8,11 +8,11 @@ import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import FormStepper from "./FormStepper";
-import "./Step1.css";
 import Fabric1 from "../assets/images/Fabric1.png";
 import Fabric2 from "../assets/images/Fabric2.png";
-import Fabric3 from "../assets/images/Fabric3.png";
 import AliceCarousel from "react-alice-carousel";
+import "./Studio.css";
+import "./Step2.css";
 
 function Step2() {
   const navigate = useNavigate();
@@ -57,10 +57,8 @@ function Step2() {
       {/* Stepper */}
       <FormStepper active={1} />
 
-      <div id="Content">
-        <h3 id="Shift" className="Content-h1">
-          Select Fabric for Formal Shirt
-        </h3>
+      <div id="step2Content">
+        <h3 className="Content-h1">Select Fabric for Formal Shirt</h3>
         <h5 className="Content-h3">Choose Fabric</h5>
 
         {/* Fabric Sliider */}
