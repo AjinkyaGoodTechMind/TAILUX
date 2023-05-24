@@ -5,89 +5,89 @@ import Footer from "../components/layout/footer/Footer";
 
 import { useNavigate } from "react-router-dom";
 import React from "react";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import FormStepper from "./FormStepper";
+import "./Step1.css";
+import Fabric1 from "../assets/images/Fabric1.png";
+import Fabric2 from "../assets/images/Fabric2.png";
+import Fabric3 from "../assets/images/Fabric3.png";
+import AliceCarousel from "react-alice-carousel";
 
 function Step2() {
-  const settings = {
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    arrows: false,
-  };
-
   const navigate = useNavigate();
   const Previous = useNavigate();
+
+  const fabrics = [
+    <div className="fabricBox">
+      <img src={Fabric1} draggable="false" alt="Fabric1" />
+      <p>BROCADE SILK</p>
+    </div>,
+    <div className="fabricBox">
+      <img src={Fabric2} draggable="false" alt="Fabric2" />
+      <p>CHINNAMON CHIFFON</p>
+    </div>,
+    <div className="fabricBox">
+      <img src={Fabric1} draggable="false" alt="Fabric1" />
+      <p>BROCADE SILK</p>
+    </div>,
+    <div className="fabricBox">
+      <img src={Fabric2} draggable="false" alt="Fabric2" />
+      <p>CHINNAMON CHIFFON</p>
+    </div>,
+    <div className="fabricBox">
+      <img src={Fabric1} draggable="false" alt="Fabric1" />
+      <p>BROCADE SILK</p>
+    </div>,
+    <div className="fabricBox">
+      <img src={Fabric2} draggable="false" alt="Fabric2" />
+      <p>CHINNAMON CHIFFON</p>
+    </div>,
+    <div className="fabricBox">
+      <img src={Fabric1} draggable="false" alt="Fabric1" />
+      <p>BROCADE SILK</p>
+    </div>,
+  ];
+
   return (
     <div id="Step-All-StudioPage">
       <Navbar />
       <Banner />
       <Tag />
-      <div id="StudioPage-Step-2"></div>
+      {/* Stepper */}
+      <FormStepper active={1} />
+
       <div id="Content">
-        <h1 id="Shift" className="Content-h1">
+        <h3 id="Shift" className="Content-h1">
           Select Fabric for Formal Shirt
-        </h1>
-        <h3 className="Content-h3">Choose Fabric</h3>
+        </h3>
+        <h5 className="Content-h3">Choose Fabric</h5>
 
-        <Slider {...settings}>
-          <div>
-            <div className="StudioPage-2-img-slide img-a">
-              <div>
-                <h1>BROCADE SILK</h1>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div className="StudioPage-2-img-slide img-b">
-              <div>
-                <h1>CHINNAMON CHIFFON</h1>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div className="StudioPage-2-img-slide img-c">
-              <div>
-                <h1>CORDURY</h1>
-              </div>
-            </div>
-          </div>
-          <div>
-            <img src="https://via.placeholder.com/500x250?text=Slide+4" alt="Slide 4" />
-          </div>
-        </Slider>
+        {/* Fabric Sliider */}
+        <div>
+          <AliceCarousel
+            mouseTracking
+            items={fabrics}
+            slideBy="page"
+            autoWidth
+            disableButtonsControls
+            disableDotsControls
+          />
+        </div>
 
-        <h3 className="Content-h3">Choose Pattern</h3>
+        <h5 className="Content-h3">Choose Pattern</h5>
 
-        <Slider {...settings}>
-          <div>
-            <div className="StudioPage-2-img-slide img-a">
-              <div>
-                <h1>BROCADE SILK</h1>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div className="StudioPage-2-img-slide img-b">
-              <div>
-                <h1>CHINNAMON CHIFFON</h1>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div className="StudioPage-2-img-slide img-c">
-              <div>
-                <h1>CORDURY</h1>
-              </div>
-            </div>
-          </div>
-          <div>
-            <img src="https://via.placeholder.com/500x250?text=Slide+4" alt="Slide 4" />
-          </div>
-        </Slider>
+        {/* Fabric Sliider */}
+        <div>
+          <AliceCarousel
+            mouseTracking
+            items={fabrics}
+            slideBy="page"
+            autoWidth
+            disableButtonsControls
+            disableDotsControls
+          />
+        </div>
       </div>
 
       <div className="Buttons">

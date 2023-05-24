@@ -73,6 +73,7 @@ const Home = () => {
     <div key={key} className="womenBox">
       <Link to={`/product/${product._id}`}>
         <img
+          draggable="false"
           src={`http://localhost:5000/productImages/${product.images[0]}`}
           alt={product.images[0]}
         />
