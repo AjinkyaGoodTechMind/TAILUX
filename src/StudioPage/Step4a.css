@@ -1,0 +1,174 @@
+.mySizesContainer .sizeBox {
+  background: #ffffff;
+  border: 1px solid #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+  width: 350px;
+  padding: 20px;
+  position: relative;
+}
+
+.mySizesContainer > div {
+  margin: 20px;
+  display: flex;
+  column-gap: 20px;
+}
+
+.mySizesContainer .sizeBox > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.mySizesContainer .sizeBox > div:first-child div {
+  width: 140px;
+  height: 140px;
+  background: #e8e8e8;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 25px;
+  border-radius: 100%;
+  margin: 10px 0 15px 0;
+}
+
+.mySizesContainer .sizeBox > img {
+  width: 12px;
+}
+
+.mySizesContainer .sizeBox .shirtSizeBox,
+.mySizesContainer .sizeBox .pantSizeBox {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.mySizesContainer .sizeBox .shirtSizeBox input,
+.mySizesContainer .sizeBox .pantSizeBox input {
+  width: 40px;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 2px 4px;
+  line-height: 14px;
+  color: #ababab;
+  background-color: white;
+  border: none;
+  margin-left: 10px;
+  outline: none;
+}
+
+.mySizesContainer .sizeBox .shirtSizeBox label,
+.mySizesContainer .sizeBox .pantSizeBox label {
+  width: 40%;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  color: #484848;
+}
+
+.mySizesContainer .sizeBox .shirtSizeBox > div:last-child label,
+.mySizesContainer .sizeBox .pantSizeBox > div:last-child label {
+  width: 65%;
+}
+
+.mySizesContainer .sizeBox .shirtSizeBox > div,
+.mySizesContainer .sizeBox .pantSizeBox > div {
+  width: 50%;
+}
+
+.mySizesContainer .sizeBox > button:nth-child(6) {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  border: none;
+  background: white;
+}
+
+.mySizesContainer .sizeBox img[alt="DeleteIcon1"] {
+  width: 20px;
+}
+
+.mySizesContainer .sizeBox img[alt="EditIcon1"] {
+  width: 15px;
+  align-self: flex-end;
+}
+
+.mySizesContainer .sizeBox > div:nth-child(7) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mySizesContainer .sizeBox > div:nth-child(7) > button {
+  background: #838383;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 18px;
+  color: #ffffff;
+  padding: 15px;
+  column-gap: 10px;
+  margin-top: 25px;
+  border: none;
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mySizesContainer .sizeBox > div:nth-child(7) > button:last-child {
+  background-color: #000000;
+}
+
+.mySizesContainer .sizeBox > div:last-child {
+  display: flex;
+  column-gap: 20px;
+}
+
+.mySizesContainer .sizeBox > div:last-child > button {
+  background: #000000;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 18px;
+  color: #ffffff;
+  padding: 15px;
+  margin-top: 25px;
+  border: none;
+  width: 50%;
+}
+
+.mySizesContainer .sizeBox > div:last-child > button:last-child {
+  background: #a5a5a5;
+}
+
+.mySizesContainer .sizeBox > button:nth-last-child(2) > img {
+  width: 16px;
+}
+
+.mySizesContainer > div > .newSizeBox {
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mySizesContainer > div > .newSizeBox > .newSizeBtn {
+  background: #ebebeb;
+  border-radius: 100%;
+  border: none;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 50px;
+}
+
+.mySizesContainer > div > .newSizeBox > p {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 18px;
+  padding: 10px 0;
+}
