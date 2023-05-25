@@ -277,7 +277,7 @@ const Home = () => {
         </div>
 
         {/* Masonry */}
-        <div className="seasonalWear px-4">
+        <div className="seasonalWear"  style={{marginRight:"20px"}}>
           <p className="heading1">SEASONAL DESIGNER WEAR</p>
           <ResponsiveMasonry
             columnsCount={2}

@@ -1,8 +1,7 @@
-#Content > select {
+#Content select {
   font-size: 18px;
   width: fit-content;
   padding: 7px 15px;
-  margin-top: 5px;
 }
 
 input[id="NameDesign"] {

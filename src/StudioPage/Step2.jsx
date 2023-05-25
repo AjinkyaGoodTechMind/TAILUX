@@ -12,7 +12,6 @@ import Fabric1 from "../assets/images/Fabric1.png";
 import Fabric2 from "../assets/images/Fabric2.png";
 import AliceCarousel from "react-alice-carousel";
 import "./Studio.css";
-import "./Step2.css";
 
 function Step2() {
   const navigate = useNavigate();

@@ -180,7 +180,7 @@ const Category = () => {
         </div>
 
         {/* Masonry */}
-        <div className="seasonalWear px-4">
+        <div className="seasonalWear" style={{ marginRight: "20px" }}>
           <p className="heading1">SEASONAL DESIGNER WEAR</p>
           <ResponsiveMasonry
             columnsCount={2}
@@ -242,7 +242,7 @@ const Category = () => {
         </div>
 
         {/* Women Slider */}
-        <div>
+        <div style={{ marginRight: "20px" }}>
           <p className="heading1">SHOP BY CATEGORY</p>
           <div className="shopByCategory">
             <div className="tShirt">
@@ -260,9 +260,17 @@ const Category = () => {
             <div className="jacket">
               <p>Jackets</p>
             </div>
+            <div className="jacket">
+              <p>Jackets</p>
+            </div>
+          </div>
 
+          <div className="shopByCategory">
             <div className="tShirt">
               <p>T-Shirts</p>
+            </div>
+            <div className="jacket">
+              <p>Jackets</p>
             </div>
             <div className="jacket">
               <p>Jackets</p>
@@ -280,9 +288,13 @@ const Category = () => {
         </div>
 
         {/* shop by offer */}
-        <div>
+        <div style={{ marginRight: "20px" }}>
           <p className="heading1">SHOP BY OFFER</p>
           <div className="shopByOffer">
+            <div>
+              <p>30%</p>
+              <p>OFF</p>
+            </div>
             <div>
               <p>30%</p>
               <p>OFF</p>
@@ -332,7 +344,7 @@ const Category = () => {
           />
         </div>
 
-        <div>
+        <div style={{ marginRight: "20px" }}>
           <div className="popularSearches">
             <p>POPULAR SEARCHES</p>
             <p>
