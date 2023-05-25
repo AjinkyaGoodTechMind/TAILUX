@@ -5,13 +5,18 @@
   font-family: "Plus Jakarta Sans";
 }
 
-P{
+#root {
+  width: 100%;
+  overflow: hidden;
+}
+
+p {
   margin-bottom: 0 !important;
 }
 
-img{
+img {
   /* pointer-events: none; */
-  width:100%;
+  width: 100%;
 }
 
 /* For Home carousel */
@@ -19,11 +24,12 @@ img{
   background-color: transparent;
 }
 
-div, p{
-  color:black
+div,
+p {
+  color: black;
 }
 
 a {
   text-decoration: none !important;
-  color:black;
+  color: black;
 }

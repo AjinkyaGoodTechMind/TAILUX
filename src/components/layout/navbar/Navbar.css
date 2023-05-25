@@ -9,6 +9,7 @@
   position: sticky;
   top: 0;
   z-index: 200;
+  flex-wrap: nowrap;
 }
 
 /* nav a,
@@ -19,7 +20,7 @@ nav div {
 
 .nav .navLogo {
   width: 90px;
-  margin-left: 40px;
+  margin: 0 40px;
 }
 
 .nav .categoryLink {
@@ -51,12 +52,13 @@ nav div {
   -webkit-text-fill-color: transparent;
 }
 
-.nav > .searchBar {
+.nav .searchBar {
   display: flex;
   align-items: center;
+  margin: 20px;
 }
 
-.nav > .searchBar > input {
+.nav .searchBar > input {
   border: none;
   background: rgba(237, 237, 237, 0.62);
   backdrop-filter: blur(60px);
@@ -66,24 +68,25 @@ nav div {
   font-size: 14px;
   color: #7a7a7a;
   font-family: "Plus Jakarta Sans";
-  width: 550px;
+  width: 450px;
   outline: none;
   box-sizing: border-box;
 }
 
-.nav > .searchBar > input:focus {
+.nav .searchBar > input:focus {
   border: 1px solid rgba(0, 0, 0, 0.4);
 }
 
-.nav > .searchBar > img {
+.nav .searchBar > img {
   transform: translateX(30px);
   z-index: 2;
   width: 18px;
 }
 
-.nav > .rightSide {
+.nav .rightSide {
   display: flex;
   align-items: flex-end;
+  padding-right: 20px;
 }
 
 .nav > .rightSide > div > a {
@@ -118,4 +121,41 @@ nav div {
   font-size: 16px;
   font-weight: 700;
   font-family: "Plus Jakarta Sans";
+}
+
+@media (min-width: 1024px) and (max-width: 1140px) {
+  .nav > .rightSide {
+    width: 60%;
+  }
+
+  .nav .searchBar {
+    width: 65%;
+  }
+
+  .nav .searchBar > input {
+    width: 100%;
+  }
+
+  .nav .navLogo {
+    margin: 0 0 0 20px;
+  }
+}
+
+@media (min-width: 1140px) and (max-width: 1440px) {
+  .nav > .rightSide {
+    width: 55%;
+  }
+
+  .nav .searchBar {
+    width: 65%;
+    margin-left: 10%;
+  }
+
+  .nav .searchBar > input {
+    width: 100%;
+  }
+
+  .nav .navLogo {
+    margin: 0 0 0 20px;
+  }
 }

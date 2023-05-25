@@ -14,8 +14,8 @@ const Navbar = () => {
   return (
     <div className="nav">
       <div className="d-flex">
-        <Link to='/'>
-        <img className="navLogo me-5" src={Logo} alt="Tailux" />
+        <Link to="/">
+          <img className="navLogo" src={Logo} alt="Tailux" />
         </Link>
         <div className="categoryLink">
           <div>
@@ -33,12 +33,13 @@ const Navbar = () => {
         </div>
       </div>
 
+      <div className="rightSide">
+
       <div className="searchBar">
         <img src={SearchIcon} alt="" />
         <input type="text" placeholder="Search for products, brands and more" />
       </div>
 
-      <div className="rightSide">
         {isAuthenticated ? (
           <>
             <div>
