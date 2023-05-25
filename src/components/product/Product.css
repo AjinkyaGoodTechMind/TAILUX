@@ -7,7 +7,7 @@
   grid-template-columns: 3fr 2fr;
   border-bottom: 2px solid #c5c5c5;
   padding-bottom: 30px;
-  gap: 15px;
+  gap: 20px;
 }
 
 .productContainer > div:nth-child(2) {
@@ -236,6 +236,7 @@
 .productContainer .aboutProduct > div > div {
   display: grid;
   grid-template-columns: 2fr 3fr;
+  gap: 15px;
 }
 
 .productContainer .aboutProduct .specificationBox {

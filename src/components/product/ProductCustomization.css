@@ -173,6 +173,7 @@
 
 .ProductCustomizeContainer .aboutProduct > div > div {
   display: grid;
+  gap: 15px;
   grid-template-columns: 2fr 3fr;
 }
 
