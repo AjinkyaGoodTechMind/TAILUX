@@ -1,7 +1,6 @@
 #banner {
   width: 100%;
   position: relative;
-  /* margin-top: 40px; */
   height: 180px;
   display: flex;
   justify-content: center;
@@ -15,7 +14,8 @@
   height: 11vh;
   margin-left: 6%;
   background: url("../../assets/tagLine.png") no-repeat;
-  background-size: 100% 100%;
+  background-size: contain;
+  background-position: center;
 }
 .companyBrand > p {
   font-size: 40px;
