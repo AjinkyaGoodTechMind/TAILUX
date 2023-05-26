@@ -1,8 +1,8 @@
 .homeMiddleContainer .shopByCategory {
-  display: flex;
+  display: grid;
   gap: 20px;
-  flex-wrap: wrap;
   margin-bottom: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
 .homeMiddleContainer .shopByCategory > .tShirt {
@@ -35,9 +35,9 @@
 }
 
 .homeMiddleContainer .shopByOffer {
-  display: flex;
+  display: grid;
   gap: 20px;
-  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
 .homeMiddleContainer .shopByOffer > div {
