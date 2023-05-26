@@ -58,14 +58,14 @@ const Category = () => {
 
   const deals = deal
     ? deal.dealImages.map((dealImage, key) => (
-      <div key={key} className="dealBox">
-        <img
-          draggable={false}
-          src={`http://localhost:5000/dealImages/${dealImage}`}
-          alt={dealImage}
-        />
-      </div>
-    ))
+        <div key={key} className="dealBox">
+          <img
+            draggable={false}
+            src={`http://localhost:5000/dealImages/${dealImage}`}
+            alt={dealImage}
+          />
+        </div>
+      ))
     : [];
 
   const womens = products.map((product, key) => (
@@ -148,13 +148,13 @@ const Category = () => {
         >
           {carousel
             ? carousel.carouselImages.map((carouselImage, key) => (
-              <div key={key}>
-                <img
-                  src={`http://localhost:5000/carouselImages/${carouselImage}`}
-                  alt="CarouselImage1"
-                />
-              </div>
-            ))
+                <div key={key}>
+                  <img
+                    src={`http://localhost:5000/carouselImages/${carouselImage}`}
+                    alt="CarouselImage1"
+                  />
+                </div>
+              ))
             : ""}
           {/* <div>
             <img src={carousel ? `http://localhost:5000/carouselImages/${carousel.carouselImages[0]}` : ""} alt="CarouselImage2" />
@@ -314,6 +314,19 @@ const Category = () => {
             <div>
               <p>30%</p>
               <p>OFF</p>
+            </div>
+          </div>
+        </div>
+
+        <div style={{ marginRight: "20px"}} >
+          <div className="tailuxStudioBanner">
+            <div className="bannerText" />
+            <div className="bannerBorder" />
+
+            <div>
+              <p>Try TailuX Studio Now</p>
+
+              <Link to="/tailuxStudio">start customizing</Link>
             </div>
           </div>
         </div>
