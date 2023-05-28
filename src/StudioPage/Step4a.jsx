@@ -14,6 +14,7 @@ import EditIcon1 from "../assets/images/EditIcon1.svg";
 import "./Step4a.css";
 import "./Studio.css";
 import FormStepper from "./FormStepper";
+import HeadPhone from "../components/layout/HeadPhone";
 
 export default function Step4b() {
   const navigate = useNavigate();
@@ -239,7 +240,7 @@ export default function Step4b() {
           Next
         </button>
       </div>
-
+      <HeadPhone />
       <Footer />
     </div>
   );

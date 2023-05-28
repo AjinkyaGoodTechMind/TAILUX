@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import FormStepper from "./FormStepper";
 import "./Studio.css";
 import "./Step1.css";
+import HeadPhone from "../components/layout/HeadPhone";
 
 function Step1() {
   const navigate = useNavigate();
@@ -55,6 +56,7 @@ function Step1() {
           NEXT
         </button>
       </div>
+      <HeadPhone />
       <Footer />
     </div>
   );

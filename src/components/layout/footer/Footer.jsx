@@ -18,7 +18,7 @@ const Footer = () => {
         <div className="contactUs">
           <p>Contact Us</p>
           <p>+910000000000</p>
-          <a  href="mailto:tailux@gmail.com">
+          <a href="mailto:tailux@gmail.com">
             Wirte to: <br />
             tailux@gmail.com
           </a>

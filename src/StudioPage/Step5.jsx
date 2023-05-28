@@ -14,6 +14,7 @@ import FormStepper from "./FormStepper";
 import Collar1 from "../assets/images/Collar1.svg";
 
 import "./Step5.css";
+import HeadPhone from "../components/layout/HeadPhone";
 
 export default function Step5() {
   const navigate = useNavigate();
@@ -144,6 +145,7 @@ export default function Step5() {
           Next
         </button>
       </div>
+      <HeadPhone />
       <Footer />
     </div>
   );

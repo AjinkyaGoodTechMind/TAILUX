@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import FormStepper from "./FormStepper";
 import "./Step3.css";
 import "./Studio.css";
+import HeadPhone from "../components/layout/HeadPhone";
 
 export default function Step3() {
   const navigate = useNavigate();
@@ -73,6 +74,7 @@ export default function Step3() {
           Next
         </button>
       </div>
+      <HeadPhone />
       <Footer />
     </div>
   );

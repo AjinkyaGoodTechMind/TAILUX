@@ -12,6 +12,7 @@ import Fabric1 from "../assets/images/Fabric1.png";
 import Fabric2 from "../assets/images/Fabric2.png";
 import AliceCarousel from "react-alice-carousel";
 import "./Studio.css";
+import HeadPhone from "../components/layout/HeadPhone";
 
 function Step2() {
   const navigate = useNavigate();
@@ -49,7 +50,7 @@ function Step2() {
   ];
 
   return (
-    <div id="Step-All-StudioPage">
+    <div id="Step-All-StudioPage" className="overflow-hidden">
       <Navbar />
       <Banner />
       <Tag />
@@ -95,6 +96,7 @@ function Step2() {
           Next
         </button>
       </div>
+      <HeadPhone/>
       <Footer />
     </div>
   );
