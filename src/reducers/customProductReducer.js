@@ -1,4 +1,4 @@
-import { DELETE_CUSTOM_PRODUCT_FAIL, DELETE_CUSTOM_PRODUCT_REQUEST, DELETE_CUSTOM_PRODUCT_RESET, DELETE_CUSTOM_PRODUCT_SUCCESS, NEW_CUSTOM_PRODUCT_FAIL, NEW_CUSTOM_PRODUCT_REQUEST, NEW_CUSTOM_PRODUCT_RESET, NEW_CUSTOM_PRODUCT_SUCCESS, UPDATE_CUSTOM_PRODUCT_FAIL, UPDATE_CUSTOM_PRODUCT_REQUEST, UPDATE_CUSTOM_PRODUCT_RESET, UPDATE_CUSTOM_PRODUCT_SUCCESS, USER_CUSTOM_PRODUCTS_FAIL, USER_CUSTOM_PRODUCTS_REQUEST, USER_CUSTOM_PRODUCTS_SUCCESS } from "../constants/customProductConstants";
+import { COLLECT_CUSTOM_PRODUCT_DATA, DELETE_CUSTOM_PRODUCT_FAIL, DELETE_CUSTOM_PRODUCT_REQUEST, DELETE_CUSTOM_PRODUCT_RESET, DELETE_CUSTOM_PRODUCT_SUCCESS, NEW_CUSTOM_PRODUCT_FAIL, NEW_CUSTOM_PRODUCT_REQUEST, NEW_CUSTOM_PRODUCT_RESET, NEW_CUSTOM_PRODUCT_SUCCESS, UPDATE_CUSTOM_PRODUCT_FAIL, UPDATE_CUSTOM_PRODUCT_REQUEST, UPDATE_CUSTOM_PRODUCT_RESET, UPDATE_CUSTOM_PRODUCT_SUCCESS, USER_CUSTOM_PRODUCTS_FAIL, USER_CUSTOM_PRODUCTS_REQUEST, USER_CUSTOM_PRODUCTS_SUCCESS } from "../constants/customProductConstants";
 
 
 export const customProductReducer = (state = {}, action) => {
@@ -76,6 +76,20 @@ export const customProductsReducer = (state = {}, action) => {
             return {
                 loading: false,
                 error: action.payload
+            }
+        default:
+            return {
+                ...state
+            }
+    }
+}
+
+export const collectCustomProductReducer = (state = { customProductData: {} }, action) => {
+    switch (action.type) {
+        case COLLECT_CUSTOM_PRODUCT_DATA:
+            return {
+                ...state,
+                customProductData: { ...state.customProductData, ...action.payload }
             }
         default:
             return {

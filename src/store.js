@@ -10,7 +10,7 @@ import { orderReducer, ordersReducer } from './reducers/orderReducers'
 import { carouselReducer } from './reducers/page/carouselReducers'
 import { dealReducer } from './reducers/page/dealReducers'
 import { trendingReducer } from './reducers/page/trendingReducers'
-import { customProductReducer, customProductsReducer } from './reducers/customProductReducer'
+import { collectCustomProductReducer, customProductReducer, customProductsReducer } from './reducers/customProductReducer'
 
 const middleware = [thunk]
 
@@ -31,7 +31,8 @@ const reducer = combineReducers({
     deal: dealReducer,
     trending: trendingReducer,
     customProduct: customProductReducer,
-    customProducts: customProductsReducer
+    customProducts: customProductsReducer,
+    collectCustomProductData: collectCustomProductReducer
 
 })
 
