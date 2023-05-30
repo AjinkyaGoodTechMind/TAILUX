@@ -32,7 +32,7 @@ import "../home/Home.css";
 import "./category.css";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { allProducts } from "../../actions/productActions";
+import { allProducts, productsByCategory } from "../../actions/productActions";
 import { categoryCarousel } from "../../actions/page/carouselActions";
 import { categoryDeal } from "../../actions/page/dealActions";
 import { categoryTrending } from "../../actions/page/trendingActions";
@@ -50,22 +50,19 @@ const Category = () => {
     dispatch(categoryCarousel(categoryName));
     dispatch(categoryDeal(categoryName));
     dispatch(categoryTrending(categoryName));
+    dispatch(productsByCategory(categoryName))
   }, [categoryName]);
-
-  useEffect(() => {
-    dispatch(allProducts());
-  }, []);
 
   const deals = deal
     ? deal.dealImages.map((dealImage, key) => (
-        <div key={key} className="dealBox">
-          <img
-            draggable={false}
-            src={`http://localhost:5000/dealImages/${dealImage}`}
-            alt={dealImage}
-          />
-        </div>
-      ))
+      <div key={key} className="dealBox">
+        <img
+          draggable={false}
+          src={`http://localhost:5000/dealImages/${dealImage}`}
+          alt={dealImage}
+        />
+      </div>
+    ))
     : [];
 
   const womens = products.map((product, key) => (
@@ -148,13 +145,13 @@ const Category = () => {
         >
           {carousel
             ? carousel.carouselImages.map((carouselImage, key) => (
-                <div key={key}>
-                  <img
-                    src={`http://localhost:5000/carouselImages/${carouselImage}`}
-                    alt="CarouselImage1"
-                  />
-                </div>
-              ))
+              <div key={key}>
+                <img
+                  src={`http://localhost:5000/carouselImages/${carouselImage}`}
+                  alt="CarouselImage1"
+                />
+              </div>
+            ))
             : ""}
           {/* <div>
             <img src={carousel ? `http://localhost:5000/carouselImages/${carousel.carouselImages[0]}` : ""} alt="CarouselImage2" />
@@ -318,7 +315,7 @@ const Category = () => {
           </div>
         </div>
 
-        <div style={{ marginRight: "20px"}} >
+        <div style={{ marginRight: "20px" }} >
           <div className="tailuxStudioBanner">
             <div className="bannerText" />
             <div className="bannerBorder" />

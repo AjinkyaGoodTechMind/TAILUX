@@ -1,4 +1,4 @@
-import { ALL_PRODUCT_FAIL, ALL_PRODUCT_REQUEST, ALL_PRODUCT_SUCCESS, CREATE_PRODUCT_FAIL, CREATE_PRODUCT_SUCCESS, CLEAR_ERRORS, CREATE_PRODUCT_REQUEST, CREATE_PRODUCT_RESET, DELETE_PRODUCT_REQUEST, DELETE_PRODUCT_SUCCESS, PRODUCT_DETAIL_FAIL, PRODUCT_DETAIL_REQUEST, PRODUCT_DETAIL_SUCCESS, UPDATE_PRODUCT_REQUEST, UPDATE_PRODUCT_SUCCESS, UPDATE_PRODUCT_FAIL, DELETE_PRODUCT_FAIL, UPDATE_PRODUCT_RESET, DELETE_PRODUCT_RESET } from "../constants/productConstants"
+import { ALL_PRODUCT_FAIL, ALL_PRODUCT_REQUEST, ALL_PRODUCT_SUCCESS, CREATE_PRODUCT_FAIL, CREATE_PRODUCT_SUCCESS, CLEAR_ERRORS, CREATE_PRODUCT_REQUEST, CREATE_PRODUCT_RESET, DELETE_PRODUCT_REQUEST, DELETE_PRODUCT_SUCCESS, PRODUCT_DETAIL_FAIL, PRODUCT_DETAIL_REQUEST, PRODUCT_DETAIL_SUCCESS, UPDATE_PRODUCT_REQUEST, UPDATE_PRODUCT_SUCCESS, UPDATE_PRODUCT_FAIL, DELETE_PRODUCT_FAIL, UPDATE_PRODUCT_RESET, DELETE_PRODUCT_RESET, PRODUCT_BY_CATEGORY_REQUEST, PRODUCT_BY_CATEGORY_SUCCESS, PRODUCT_BY_CATEGORY_FAIL } from "../constants/productConstants"
 
 
 export const productReducer = (state = {}, action) => {
@@ -61,6 +61,7 @@ export const productReducer = (state = {}, action) => {
 export const productsReducer = (state = { products: [] }, action) => {
     switch (action.type) {
         case ALL_PRODUCT_REQUEST:
+        case PRODUCT_BY_CATEGORY_REQUEST:
             return {
                 ...state,
                 loading: true
@@ -70,7 +71,18 @@ export const productsReducer = (state = { products: [] }, action) => {
                 loading: false,
                 products: action.payload.products
             }
+        case PRODUCT_BY_CATEGORY_SUCCESS:
+            return {
+                success: false,
+                products: action.payload
+            }
         case ALL_PRODUCT_FAIL:
+            return {
+                loading: false,
+                error: action.payload,
+                products: null
+            }
+        case PRODUCT_BY_CATEGORY_FAIL:
             return {
                 loading: false,
                 error: action.payload,

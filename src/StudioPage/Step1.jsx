@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Banner from "../components/studio/Banner";
 import Tag from "../components/studio/Tag";
 import Navbar from "../components/layout/navbar/Navbar";

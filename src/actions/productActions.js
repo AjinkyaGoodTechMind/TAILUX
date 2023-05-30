@@ -1,4 +1,4 @@
-import { ALL_PRODUCT_FAIL, ALL_PRODUCT_REQUEST, ALL_PRODUCT_SUCCESS, CREATE_PRODUCT_FAIL, CREATE_PRODUCT_SUCCESS, CREATE_PRODUCT_REQUEST, DELETE_PRODUCT_FAIL, DELETE_PRODUCT_REQUEST, DELETE_PRODUCT_SUCCESS, PRODUCT_DETAIL_FAIL, PRODUCT_DETAIL_REQUEST, PRODUCT_DETAIL_SUCCESS, UPDATE_PRODUCT_FAIL, UPDATE_PRODUCT_REQUEST, UPDATE_PRODUCT_SUCCESS } from "../constants/productConstants"
+import { ALL_PRODUCT_FAIL, ALL_PRODUCT_REQUEST, ALL_PRODUCT_SUCCESS, CREATE_PRODUCT_FAIL, CREATE_PRODUCT_SUCCESS, CREATE_PRODUCT_REQUEST, DELETE_PRODUCT_FAIL, DELETE_PRODUCT_REQUEST, DELETE_PRODUCT_SUCCESS, PRODUCT_DETAIL_FAIL, PRODUCT_DETAIL_REQUEST, PRODUCT_DETAIL_SUCCESS, UPDATE_PRODUCT_FAIL, UPDATE_PRODUCT_REQUEST, UPDATE_PRODUCT_SUCCESS, PRODUCT_BY_CATEGORY_REQUEST, PRODUCT_BY_CATEGORY_FAIL, PRODUCT_BY_CATEGORY_SUCCESS } from "../constants/productConstants"
 import axios from 'axios'
 
 
@@ -85,6 +85,23 @@ export const deleteProduct = (id) => async (dispatch) => {
         dispatch({
             type: DELETE_PRODUCT_FAIL,
             payload: error.response.data.error
+        })
+    }
+}
+
+// 5. Get Products by category
+export const productsByCategory = (category) => async (dispatch) => {
+    try {
+
+        dispatch({ type: PRODUCT_BY_CATEGORY_REQUEST })
+
+        const { data } = await axios.get(`http://localhost:5000/api/products/${category}`)
+
+        dispatch({ type: PRODUCT_BY_CATEGORY_SUCCESS, payload: data.products })
+
+    } catch (error) {
+        dispatch({
+            type: PRODUCT_BY_CATEGORY_FAIL, payload: error.response.data.message
         })
     }
 }

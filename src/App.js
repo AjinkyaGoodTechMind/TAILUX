@@ -14,7 +14,6 @@ import Step1 from "./StudioPage/Step1";
 import Step2 from "./StudioPage/Step2";
 import Step3 from "./StudioPage/Step3";
 import Step4a from "./StudioPage/Step4a";
-import Step4b from "./StudioPage/Step4b";
 import Step5 from "./StudioPage/Step5";
 import Cart1 from "./components/cart/Cart1";
 import Mens from "./StudioPage/Mens";
