@@ -1,0 +1,134 @@
+.stylesPreview > div:nth-child(3),
+.stylesPreview > div:nth-child(4) {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.stylesPreview > div:nth-child(5) {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 0 50px 0;
+}
+
+.stylesPreview > div:nth-child(5) button {
+  font-weight: 600;
+  font-size: 22px;
+  color: #ffffff;
+  background: #a5a5a5;
+  border-radius: 7px;
+  padding: 10px 30px;
+  letter-spacing: 0.1em;
+  border: none;
+}
+
+.stylesPreview > div:nth-child(5) > div > button:nth-child(2) {
+  background: #000000;
+  margin-left: 20px;
+}
+
+.stylesPreview > div:nth-child(3) > div,
+.stylesPreview > div:nth-child(4) > div {
+  border: 1px solid #afafaf;
+  border-radius: 20px;
+  padding: 20px 30px;
+}
+
+.stylesPreview .styleName {
+  font-weight: 600;
+}
+
+.stylesPreview > .previewHead {
+  margin-top: 20px;
+}
+
+.stylesPreview > .previewHead > span {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.stylesPreview .previewHead > span:nth-child(2) {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.stylesPreview .fabricPreview > div,
+.stylesPreview .patternPreview > div {
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 40.54%,
+      #000000 100%
+    ),
+    url("../assets/images/Fabric1.png");
+  width: 300px;
+  height: 165px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.stylesPreview .fabricPreview > div > p,
+.stylesPreview .patternPreview > div > p {
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 19px;
+  letter-spacing: 0.225em;
+  color: #ffffff;
+  padding: 10px 20px;
+}
+.stylesPreview .collarPreview > h5,
+.stylesPreview .collarPreview > p {
+  text-align: center;
+}
+
+.stylesPreview .collarPreview > p {
+  font-size: 14px;
+  line-height: 16px;
+  margin-top: 10px;
+}
+
+.stylesPreview .collarPreview > div {
+  background: #e4e4e4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 142px;
+  height: 142px;
+  border-radius: 100%;
+  background-image: url("../assets/images/Collar1.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.stylesPreview .colorPreview > div {
+  width: 142px;
+  height: 142px;
+  border: 1px solid #717171;
+  border-radius: 7px;
+  background: #790000;
+}
+
+.stylesPreview .sizePreview > div {
+  background: #e4e4e4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 142px;
+  height: 142px;
+  border-radius: 100%;
+  background-image: url("../assets/images/ProfileIcon2.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.stylesPreview .sizePreview > p {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 10px;
+}
+
+@media (min-width: 1024px) and (max-width: 1250px) {
+  .stylesPreview > div:nth-child(3),
+  .stylesPreview > div:nth-child(4) {
+    justify-content: space-between;
+  }
+}

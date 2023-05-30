@@ -25,6 +25,7 @@ import Category from "./components/category/category";
 import Cart2 from "./components/cart/Cart2";
 import Cart3 from "./components/cart/Cart3";
 import { CLEAR_ERRORS } from "./constants/userConstants";
+import FinalStep from "./StudioPage/FinalStep";
 
 function App() {
   const dispatch = useDispatch()
@@ -60,8 +61,8 @@ function App() {
         <Route exact path="/step2" element={<Step2 />} />
         <Route exact path="/step3" element={<Step3 />} />
         <Route exact path="/step4a" element={<Step4a />} />
-        <Route exact path="/step4b" element={<Step4b />} />
         <Route exact path="/step5" element={<Step5 />} />
+        <Route exact path="/finalStep" element={<FinalStep />} />
         <Route exact path="/cart" element={<Cart1 />} />
         <Route exact path="/cart2" element={<Cart2 />} />
         <Route exact path="/cart3" element={<Cart3 />} />

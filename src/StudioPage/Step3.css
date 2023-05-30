@@ -12,57 +12,39 @@
   border-radius: 7px;
 }
 
-.StudioPage-Select-Color > button:nth-child(1) {
+.StudioPage-Select-Color > button:nth-child(1),
+.StudioPage-Select-Color > button:nth-child(18) {
   background: #790000;
 }
-.StudioPage-Select-Color > button:nth-child(2) {
-  background: #5a3c00;
-}
-.StudioPage-Select-Color > button:nth-child(3) {
-  background: #003f79;
-}
-.StudioPage-Select-Color > button:nth-child(4) {
-  background: #303030;
-}
-.StudioPage-Select-Color > button:nth-child(5) {
-  background: #4b0079;
-}
-.StudioPage-Select-Color > button:nth-child(6) {
-  background: #000000;
-}
-.StudioPage-Select-Color > button:nth-child(7) {
-  background: #582500;
-}
-.StudioPage-Select-Color > button:nth-child(8) {
-  background: #114508;
-}
-.StudioPage-Select-Color > button:nth-child(9) {
-  background: #630101;
-}
-.StudioPage-Select-Color > button:nth-child(10) {
-  background: #630101;
-}
-.StudioPage-Select-Color > button:nth-child(11) {
-  background: #114508;
-}
-.StudioPage-Select-Color > button:nth-child(12) {
-  background: #582500;
-}
-.StudioPage-Select-Color > button:nth-child(13) {
-  background: #000000;
-}
-.StudioPage-Select-Color > button:nth-child(14) {
-  background: #4b0079;
-}
-.StudioPage-Select-Color > button:nth-child(15) {
-  background: #303030;
-}
-.StudioPage-Select-Color > button:nth-child(16) {
-  background: #003f79;
-}
+.StudioPage-Select-Color > button:nth-child(2),
 .StudioPage-Select-Color > button:nth-child(17) {
   background: #5a3c00;
 }
-.StudioPage-Select-Color > button:nth-child(18) {
-  background: #790000;
+.StudioPage-Select-Color > button:nth-child(3),
+.StudioPage-Select-Color > button:nth-child(16) {
+  background: #003f79;
+}
+.StudioPage-Select-Color > button:nth-child(4),
+.StudioPage-Select-Color > button:nth-child(15) {
+  background: #303030;
+}
+.StudioPage-Select-Color > button:nth-child(5),
+.StudioPage-Select-Color > button:nth-child(14) {
+  background: #4b0079;
+}
+.StudioPage-Select-Color > button:nth-child(6),
+.StudioPage-Select-Color > button:nth-child(13) {
+  background: #000000;
+}
+.StudioPage-Select-Color > button:nth-child(7),
+.StudioPage-Select-Color > button:nth-child(12) {
+  background: #582500;
+}
+.StudioPage-Select-Color > button:nth-child(8),
+.StudioPage-Select-Color > button:nth-child(11) {
+  background: #630101;
+}
+.StudioPage-Select-Color > button:nth-child(9),
+.StudioPage-Select-Color > button:nth-child(10) {
+  background: #114508;
 }

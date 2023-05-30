@@ -45,6 +45,7 @@ export default function Step5() {
     }
 
     dispatch(collectCustomProductData({ collarStyle, buttonsStyle }));
+    navigate("/FinalStep");
   };
 
   return (
