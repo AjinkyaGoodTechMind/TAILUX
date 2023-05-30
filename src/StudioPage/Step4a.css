@@ -98,7 +98,8 @@
   justify-content: space-between;
 }
 
-.mySizesContainer .sizeBox > div:nth-child(7) > button {
+.mySizesContainer .sizeBox .editBtn,
+.mySizesContainer .sizeBox .selectBtn {
   background: #838383;
   border-radius: 6px;
   font-weight: 600;
@@ -115,7 +116,7 @@
   align-items: center;
 }
 
-.mySizesContainer .sizeBox > div:nth-child(7) > button:last-child {
+.mySizesContainer .sizeBox .selectBtn {
   background-color: #000000;
 }
 
@@ -124,7 +125,8 @@
   column-gap: 20px;
 }
 
-.mySizesContainer .sizeBox > div:last-child > button {
+.mySizesContainer .sizeBox .cancelBtn,
+.mySizesContainer .sizeBox .saveBtn {
   background: #000000;
   border-radius: 6px;
   font-weight: 600;
@@ -137,7 +139,7 @@
   width: 50%;
 }
 
-.mySizesContainer .sizeBox > div:last-child > button:last-child {
+.mySizesContainer .sizeBox .cancelBtn {
   background: #a5a5a5;
 }
 
@@ -171,4 +173,17 @@
   font-size: 16px;
   line-height: 18px;
   padding: 10px 0;
+}
+
+.mySizesContainer .sizeBox .selectedBtn {
+  width: 100%;
+  background: #000000;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 18px;
+  color: #ffffff;
+  padding: 15px;
+  margin-top: 25px;
+  border: none;
 }

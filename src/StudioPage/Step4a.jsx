@@ -15,14 +15,20 @@ import "./Step4a.css";
 import "./Studio.css";
 import FormStepper from "./FormStepper";
 import HeadPhone from "../components/layout/HeadPhone";
+import { collectCustomProductData } from "../actions/customProductActions";
+import { useDispatch } from "react-redux";
 
 export default function Step4b() {
   const navigate = useNavigate();
   const Previous = useNavigate();
+
+  const dispatch = useDispatch();
+
   const Step4B = useNavigate();
 
   const [state, setState] = useState(true);
   const [inputStyle, setInputStyle] = useState();
+  const [size, setSize] = useState();
 
   const editSizesFun = () => {
     setState(false);
@@ -42,6 +48,15 @@ export default function Step4b() {
   const sizesCancelFun = () => {
     setState(true);
     setInputStyle();
+  };
+
+  const submitData = () => {
+    if (!size) {
+      return alert("Select a size");
+    }
+
+    dispatch(collectCustomProductData({ size }));
+    navigate("/step5");
   };
 
   return (
@@ -204,24 +219,42 @@ export default function Step4b() {
                   <img src={DeleteIcon1} alt="DeleteIcon1" />
                 </button>
 
-                <div>
-                  <button
-                    style={state ? {} : { display: "none" }}
-                    onClick={editSizesFun}
-                  >
-                    Edit
-                    <img src={EditIcon1} alt="EditIcon1" />
-                  </button>
+                {!size && (
+                  <div style={state ? {} : { display: "none" }}>
+                    <button className="editBtn" onClick={editSizesFun}>
+                      Edit
+                      <img src={EditIcon1} alt="EditIcon1" />
+                    </button>
 
-                  <button style={state ? {} : { display: "none" }}>
-                    select
-                  </button>
+                    <button
+                      className="selectBtn"
+                      onClick={() => setSize("size1")}
+                    >
+                      Select
+                    </button>
+                  </div>
+                )}
+
+                <div
+                  style={
+                    size === "size1"
+                      ? { display: "block" }
+                      : { display: "none" }
+                  }
+                >
+                  <button className="selectedBtn">Selected</button>
                 </div>
 
-                <div style={state ? { display: "none" } : {}}>
-                  <button onClick={saveSizeFun}>Save</button>
-                  <button onClick={sizesCancelFun}>Cancel</button>
-                </div>
+                {!size && (
+                  <div style={state ? { display: "none" } : {}}>
+                    <button className="saveBtn" onClick={saveSizeFun}>
+                      Save
+                    </button>
+                    <button className="cancelBtn" onClick={sizesCancelFun}>
+                      Cancel
+                    </button>
+                  </div>
+                )}
               </div>
 
               <div className="newSizeBox">
@@ -236,7 +269,7 @@ export default function Step4b() {
         <button id="previous" onClick={() => Previous("/step3")}>
           Previous
         </button>
-        <button id="next" onClick={() => navigate("/step5")}>
+        <button id="next" onClick={submitData}>
           Next
         </button>
       </div>
