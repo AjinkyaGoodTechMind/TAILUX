@@ -22,6 +22,7 @@ import { productDetails } from "../../actions/productActions";
 import { userSizes } from "../../actions/sizeActions";
 import { ADD_TO_CART_RESET } from "../../constants/cartConstants";
 import { addToCart } from "../../actions/cartActions";
+import { collectCustomProductData } from "../../actions/customProductActions";
 
 const ProductCustomization = () => {
   const [quantity, setQuantity] = useState(1);
@@ -77,6 +78,15 @@ const ProductCustomization = () => {
         customSize,
       })
     );
+  };
+
+  const customiseProduct = () => {
+    dispatch(
+      collectCustomProductData({
+        product: product._id,
+      })
+    );
+    navigate("/step2");
   };
 
   const womens = [
@@ -392,7 +402,10 @@ const ProductCustomization = () => {
                 product
               </p>
 
-              <button className="openInTailuxStudioBtn">
+              <button
+                onClick={customiseProduct}
+                className="openInTailuxStudioBtn"
+              >
                 OPEN IN TAILUX STUDIO
               </button>
 

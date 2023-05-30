@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Banner from "../components/studio/Banner";
 import Tag from "../components/studio/Tag";
 import Navbar from "../components/layout/navbar/Navbar";
@@ -8,13 +8,16 @@ import FormStepper from "./FormStepper";
 import "./Studio.css";
 import "./Step1.css";
 import HeadPhone from "../components/layout/HeadPhone";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { collectCustomProductData } from "../actions/customProductActions";
+import { productsByCategory } from "../actions/productActions";
 
 function Step1() {
   const [category, setCategory] = useState();
   const [product, setProduct] = useState();
   const [designName, setDesignName] = useState();
+
+  const { products } = useSelector((state) => state.products);
 
   const navigate = useNavigate();
 
@@ -24,9 +27,19 @@ function Step1() {
     if (!category || !product || !designName) {
       return alert("Fill all Required data");
     }
-    dispatch(collectCustomProductData({ category, product, designName }));
+
+    dispatch(
+      collectCustomProductData({
+        product,
+        designName,
+      })
+    );
     navigate("/step2");
   };
+
+  useEffect(() => {
+    dispatch(productsByCategory(category));
+  }, [category]);
 
   return (
     <div id="Step-All-StudioPage">
@@ -53,8 +66,12 @@ function Step1() {
           <option placeholder="" value={undefined}>
             Choose product
           </option>
-          <option value="Formal Shirt">Formal Shirt</option>
-          <option value="Formal Paint">Formal Paint</option>
+          {products &&
+            products.map((product) => (
+              <option key={product._id} value={product._id}>
+                {product.name}
+              </option>
+            ))}
         </select>
         <h5 className="Content-h3">Name your Design</h5>
         <input

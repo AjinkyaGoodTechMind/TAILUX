@@ -33,7 +33,7 @@ export default function Step4b() {
 
   const [state, setState] = useState(true);
   const [inputStyle, setInputStyle] = useState();
-  const [selectSize, setSelectSize] = useState();
+  const [customSize, setCustomSize] = useState();
 
   const editSizesFun = () => {
     setState(false);
@@ -56,11 +56,16 @@ export default function Step4b() {
   };
 
   const submitData = () => {
-    if (!selectSize) {
+    if (!customSize) {
       return alert("Select a size");
     }
 
-    dispatch(collectCustomProductData({ size: selectSize }));
+    dispatch(
+      collectCustomProductData({
+        customSize: customSize.customSize,
+        sizeName: customSize.sizeName,
+      })
+    );
     navigate("/step5");
   };
 
@@ -226,7 +231,7 @@ export default function Step4b() {
                       <img src={DeleteIcon1} alt="DeleteIcon1" />
                     </button>
 
-                    {!selectSize && (
+                    {!customSize && (
                       <div style={state ? {} : { display: "none" }}>
                         <button className="editBtn" onClick={editSizesFun}>
                           Edit
@@ -235,7 +240,12 @@ export default function Step4b() {
 
                         <button
                           className="selectBtn"
-                          onClick={() => setSelectSize(`${size._id}`)}
+                          onClick={() =>
+                            setCustomSize({
+                              customSize: size._id,
+                              sizeName: size.name,
+                            })
+                          }
                         >
                           Select
                         </button>
@@ -244,7 +254,7 @@ export default function Step4b() {
 
                     <div
                       style={
-                        selectSize === `${size._id}`
+                        customSize && customSize.customSize === size._id
                           ? { display: "block" }
                           : { display: "none" }
                       }
@@ -252,7 +262,7 @@ export default function Step4b() {
                       <button className="selectedBtn">Selected</button>
                     </div>
 
-                    {!selectSize && (
+                    {!customSize && (
                       <div style={state ? { display: "none" } : {}}>
                         <button className="saveBtn" onClick={saveSizeFun}>
                           Save

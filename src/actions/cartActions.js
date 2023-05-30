@@ -7,7 +7,7 @@ export const addToCart = (details) => async (dispatch) => {
         dispatch({ type: ADD_TO_CART_REQUEST })
 
         const { data } = await axios.post("http://localhost:5000/api/cart/new", details)
-        console.log(data)
+
         dispatch({ type: ADD_TO_CART_SUCCESS, payload: data.success })
 
     } catch (error) {
@@ -24,7 +24,7 @@ export const userCarts = () => async (dispatch) => {
         dispatch({ type: USER_CARTS_REQUEST })
 
         const { data } = await axios.get('http://localhost:5000/api/carts')
-        console.log(data)
+
         dispatch({ type: USER_CARTS_SUCCESS, payload: data })
 
     } catch (error) {
@@ -41,7 +41,7 @@ export const removeCart = (id) => async (dispatch) => {
         dispatch({ type: REMOVE_CART_REQUEST })
 
         const { data } = await axios.delete(`http://localhost:5000/api/cart/${id}`)
-        console.log(data)
+
         dispatch({ type: REMOVE_CART_SUCCESS, payload: data.success })
 
     } catch (error) {
