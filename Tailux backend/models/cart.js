@@ -14,11 +14,11 @@ const cartSchema = new mongoose.Schema({
     },
     quantity: {
         type: Number,
-        required: true
+        required: true,
+        default: 1
     },
     size: {
         type: String,
-        required: true
     },
     customSize: {
         type: mongoose.Schema.ObjectId,
@@ -27,7 +27,26 @@ const cartSchema = new mongoose.Schema({
     color: {
         type: String,
         required: true
+    },
+    designName: {
+        type: String
+    },
+    fabric: {
+        type: String
+    },
+    pattern: {
+        type: String
+    },
+    collarStyle: {
+        type: String
+    },
+    buttonsStyle: {
+        type: String
+    },
+    customProduct: {
+        type: Boolean
     }
+
 })
 
 module.exports = mongoose.model("Cart", cartSchema)
