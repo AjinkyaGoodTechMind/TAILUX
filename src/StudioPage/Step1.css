@@ -1,7 +1,9 @@
-#Content select {
+#Content .productSelect, #Content .categorySelect {
+  max-width: 300px;
+}
+
+#Content .productSelect div, #Content .categorySelect div {
   font-size: 18px;
-  width: fit-content;
-  padding: 7px 15px;
 }
 
 input[id="NameDesign"] {
