@@ -1,7 +1,7 @@
-import Banner from "../components/studio/Banner";
-import Tag from "../components/studio/Tag";
-import Navbar from "../components/layout/navbar/Navbar";
-import Footer from "../components/layout/footer/Footer";
+import Banner from "../studio/Banner";
+import Tag from "../studio/Tag";
+import Navbar from "../layout/navbar/Navbar";
+import Footer from "../layout/footer/Footer";
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import Slider from "react-slick";
@@ -11,12 +11,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import FormStepper from "./FormStepper";
 
-import Collar1 from "../assets/images/Collar1.svg";
+import Collar1 from "../../assets/images/Collar1.svg";
 
 import "./Step5.css";
-import HeadPhone from "../components/layout/HeadPhone";
+import HeadPhone from "../layout/HeadPhone";
 import { useDispatch } from "react-redux";
-import { collectCustomProductData } from "../actions/customProductActions";
+import { collectCustomProductData } from "../../actions/customProductActions";
 
 export default function Step5() {
   const [collarStyle, setCollarStyle] = useState();
@@ -251,7 +251,7 @@ export default function Step5() {
         </div>
       </div>
       <div className="Buttons">
-        <button id="previous" onClick={() => Previous("/step4a")}>
+        <button id="previous" onClick={() => Previous("/step4")}>
           Previous
         </button>
         <button id="next" onClick={submitData}>

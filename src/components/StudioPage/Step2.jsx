@@ -1,7 +1,7 @@
-import Banner from "../components/studio/Banner";
-import Tag from "../components/studio/Tag";
-import Navbar from "../components/layout/navbar/Navbar";
-import Footer from "../components/layout/footer/Footer";
+import Banner from "../studio/Banner";
+import Tag from "../studio/Tag";
+import Navbar from "../layout/navbar/Navbar";
+import Footer from "../layout/footer/Footer";
 
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
@@ -10,9 +10,9 @@ import "slick-carousel/slick/slick-theme.css";
 import FormStepper from "./FormStepper";
 import AliceCarousel from "react-alice-carousel";
 import "./Studio.css";
-import HeadPhone from "../components/layout/HeadPhone";
+import HeadPhone from "../layout/HeadPhone";
 import { useDispatch } from "react-redux";
-import { collectCustomProductData } from "../actions/customProductActions";
+import { collectCustomProductData } from "../../actions/customProductActions";
 import "./Step2.css";
 
 function Step2() {

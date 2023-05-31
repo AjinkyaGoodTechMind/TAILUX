@@ -9,8 +9,9 @@ import { REMOVE_CART_RESET } from "../../constants/cartConstants";
 import { useNavigate } from "react-router-dom";
 import PriceDetails from "./PriceDetails";
 import { collectOrderData } from "../../actions/orderActions";
+import "./Cart.css";
 
-const Cart1 = () => {
+const Cart = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -47,7 +48,7 @@ const Cart1 = () => {
 
   const collectDataFun = () => {
     dispatch(collectOrderData({ products }));
-    navigate("/cart2");
+    navigate("/selectAddress");
   };
 
   return (
@@ -106,4 +107,4 @@ const Cart1 = () => {
   );
 };
 
-export default Cart1;
+export default Cart;

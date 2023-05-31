@@ -1,23 +1,20 @@
 import React, { useEffect } from "react";
-import Banner from "../components/studio/Banner";
-import Tag from "../components/studio/Tag";
-import Navbar from "../components/layout/navbar/Navbar";
-import Footer from "../components/layout/footer/Footer";
+import Banner from "../studio/Banner";
+import Tag from "../studio/Tag";
+import Navbar from "../layout/navbar/Navbar";
+import Footer from "../layout/footer/Footer";
 import FormStepper from "./FormStepper";
 import "./FinalStep.css";
 import { useDispatch, useSelector } from "react-redux";
-// import { createCustomProduct } from "../actions/customProductActions";
-import { addToCart } from "../actions/cartActions";
-import { ADD_TO_CART_RESET } from "../constants/cartConstants";
-import { productDetails } from "../actions/productActions";
-// import { NEW_CUSTOM_PRODUCT_RESET } from "../constants/customProductConstants";
+import { addToCart } from "../../actions/cartActions";
+import { ADD_TO_CART_RESET } from "../../constants/cartConstants";
+import { productDetails } from "../../actions/productActions";
 
 const FinalStep = () => {
   const { customProductData } = useSelector(
     (state) => state.collectCustomProductData
   );
 
-  // const { customProductCreated } = useSelector((state) => state.customProduct);
   const { cartAdded } = useSelector((state) => state.cart);
   const { product } = useSelector((state) => state.productDetails);
 
@@ -32,10 +29,6 @@ const FinalStep = () => {
   };
 
   useEffect(() => {
-    // if (customProductCreated) {
-    //   alert("Custom Product Created");
-    //   dispatch({ type: NEW_CUSTOM_PRODUCT_RESET });
-    // }
     if (cartAdded) {
       alert("Product Added to cart");
       dispatch({ type: ADD_TO_CART_RESET });

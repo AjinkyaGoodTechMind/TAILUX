@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import Navbar from "../layout/navbar/Navbar";
 import Footer from "../layout/footer/Footer";
-import "./Cart2.css";
+import "./SelectAddress.css";
 import { Link, useNavigate } from "react-router-dom";
 import HeadPhone from "../layout/HeadPhone";
 import { userCarts } from "../../actions/cartActions";
@@ -10,7 +10,7 @@ import { userAddresses } from "../../actions/addressActions";
 import PriceDetails from "./PriceDetails";
 import { collectOrderData } from "../../actions/orderActions";
 
-const Cart2 = () => {
+const SelectAddress = () => {
   const [address, setAddress] = useState();
 
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ const Cart2 = () => {
         shippingInfo: address,
       })
     );
-    navigate("/cart3");
+    navigate("/payment");
   };
 
   return (
@@ -90,4 +90,4 @@ const Cart2 = () => {
   );
 };
 
-export default Cart2;
+export default SelectAddress;

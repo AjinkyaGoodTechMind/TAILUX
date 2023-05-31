@@ -1,23 +1,23 @@
-import Banner from "../components/studio/Banner";
-import Tag from "../components/studio/Tag";
-import Navbar from "../components/layout/navbar/Navbar";
-import Footer from "../components/layout/footer/Footer";
+import Banner from "../studio/Banner";
+import Tag from "../studio/Tag";
+import Navbar from "../layout/navbar/Navbar";
+import Footer from "../layout/footer/Footer";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
-import ProfileIcon2 from "../assets/images/ProfileIcon2.svg";
-import ShirtIcon1 from "../assets/images/ShirtIcon1.svg";
-import PantIcon1 from "../assets/images/PantIcon1.svg";
-import DeleteIcon1 from "../assets/images/DeleteIcon1.svg";
-import EditIcon1 from "../assets/images/EditIcon1.svg";
+import ProfileIcon2 from "../../assets/images/ProfileIcon2.svg";
+import ShirtIcon1 from "../../assets/images/ShirtIcon1.svg";
+import PantIcon1 from "../../assets/images/PantIcon1.svg";
+import DeleteIcon1 from "../../assets/images/DeleteIcon1.svg";
+import EditIcon1 from "../../assets/images/EditIcon1.svg";
 
-import "./Step4a.css";
+import "./Step4.css";
 import "./Studio.css";
 import FormStepper from "./FormStepper";
-import HeadPhone from "../components/layout/HeadPhone";
-import { collectCustomProductData } from "../actions/customProductActions";
+import HeadPhone from "../layout/HeadPhone";
+import { collectCustomProductData } from "../../actions/customProductActions";
 import { useDispatch, useSelector } from "react-redux";
-import { userSizes } from "../actions/sizeActions";
+import { userSizes } from "../../actions/sizeActions";
 
 export default function Step4b() {
   const navigate = useNavigate();
@@ -231,7 +231,8 @@ export default function Step4b() {
                       <img src={DeleteIcon1} alt="DeleteIcon1" />
                     </button>
 
-                    {!customSize && (
+                    {(!customSize ||
+                      (customSize && customSize.customSize !== size._id)) && (
                       <div style={state ? {} : { display: "none" }}>
                         <button className="editBtn" onClick={editSizesFun}>
                           Edit

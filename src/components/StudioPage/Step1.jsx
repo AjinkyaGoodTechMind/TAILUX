@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import Banner from "../components/studio/Banner";
-import Tag from "../components/studio/Tag";
-import Navbar from "../components/layout/navbar/Navbar";
-import Footer from "../components/layout/footer/Footer";
+import Banner from "../studio/Banner";
+import Tag from "../studio/Tag";
+import Navbar from "../layout/navbar/Navbar";
+import Footer from "../layout/footer/Footer";
 import { useNavigate } from "react-router-dom";
 import FormStepper from "./FormStepper";
 import "./Studio.css";
 import "./Step1.css";
-import HeadPhone from "../components/layout/HeadPhone";
+import HeadPhone from "../layout/HeadPhone";
 import { useDispatch, useSelector } from "react-redux";
-import { collectCustomProductData } from "../actions/customProductActions";
-import { productsByCategory } from "../actions/productActions";
+import { collectCustomProductData } from "../../actions/customProductActions";
+import { productsByCategory } from "../../actions/productActions";
 import Select from "react-select";
 
 function Step1() {

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import Banner from "../components/studio/Banner";
-import Tag from "../components/studio/Tag";
-import Navbar from "../components/layout/navbar/Navbar";
-import Footer from "../components/layout/footer/Footer";
+import Banner from "../studio/Banner";
+import Tag from "../studio/Tag";
+import Navbar from "../layout/navbar/Navbar";
+import Footer from "../layout/footer/Footer";
 import { useNavigate } from "react-router-dom";
 import FormStepper from "./FormStepper";
 import "./Step3.css";
 import "./Studio.css";
-import HeadPhone from "../components/layout/HeadPhone";
+import HeadPhone from "../layout/HeadPhone";
 import { useDispatch } from "react-redux";
-import { collectCustomProductData } from "../actions/customProductActions";
+import { collectCustomProductData } from "../../actions/customProductActions";
 
 export default function Step3() {
   const [color, setColor] = useState();
@@ -23,7 +23,7 @@ export default function Step3() {
       return alert("Please Select a Color");
     }
     dispatch(collectCustomProductData({ color }));
-    navigate("/step4a");
+    navigate("/step4");
   };
 
   return (

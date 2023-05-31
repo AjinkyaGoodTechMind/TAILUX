@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import Navbar from "../layout/navbar/Navbar";
 import Footer from "../layout/footer/Footer";
 import HeadPhone from "../layout/HeadPhone";
-import "./Cart3.css";
+import "./Payment.css";
 
 import PhonePay from "../../assets/images/PhonePay.svg";
 import Paytm from "../../assets/images/Paytm.svg";
@@ -15,7 +15,7 @@ import { removeCart, userCarts } from "../../actions/cartActions";
 import { NEW_ORDER_SUCCESS } from "../../constants/orderConstants";
 import { REMOVE_CART_RESET } from "../../constants/cartConstants";
 
-const Cart3 = () => {
+const Payment = () => {
   const dispatch = useDispatch();
 
   const { orderCreated } = useSelector((state) => state.order);
@@ -184,4 +184,4 @@ const Cart3 = () => {
   );
 };
 
-export default Cart3;
+export default Payment;

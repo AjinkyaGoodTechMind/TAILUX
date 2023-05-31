@@ -10,20 +10,20 @@ import ResetPassword from "./components/user/ResetPassword";
 import ResetPasswordOtp from "./components/user/ResetPasswordOtp";
 import SetPassword from "./components/user/SetPassword";
 import Product from "./components/product/Product";
-import Step1 from "./StudioPage/Step1";
-import Step2 from "./StudioPage/Step2";
-import Step3 from "./StudioPage/Step3";
-import Step4a from "./StudioPage/Step4a";
-import Step5 from "./StudioPage/Step5";
-import Cart1 from "./components/cart/Cart1";
+import Step1 from "./components/StudioPage/Step1";
+import Step2 from "./components/StudioPage/Step2";
+import Step3 from "./components/StudioPage/Step3";
+import Step4 from "./components/StudioPage/Step4";
+import Step5 from "./components/StudioPage/Step5";
+import Cart from "./components/cart/Cart";
 import ProductCustomization from "./components/product/ProductCustomization";
 import { useDispatch, useSelector } from "react-redux";
 import { loadUser } from "./actions/userActions";
-import Category from "./components/category/category";
-import Cart2 from "./components/cart/Cart2";
-import Cart3 from "./components/cart/Cart3";
+import Category from "./components/productCategories/category";
+import SelectAddress from "./components/cart/SelectAddress";
+import Payment from "./components/cart/Payment";
 import { CLEAR_ERRORS } from "./constants/userConstants";
-import FinalStep from "./StudioPage/FinalStep";
+import FinalStep from "./components/StudioPage/FinalStep";
 
 function App() {
   const dispatch = useDispatch()
@@ -58,12 +58,12 @@ function App() {
         <Route exact path="/tailuxStudio" element={<Step1 />} />
         <Route exact path="/step2" element={<Step2 />} />
         <Route exact path="/step3" element={<Step3 />} />
-        <Route exact path="/step4a" element={<Step4a />} />
+        <Route exact path="/step4" element={<Step4 />} />
         <Route exact path="/step5" element={<Step5 />} />
         <Route exact path="/finalStep" element={<FinalStep />} />
-        <Route exact path="/cart" element={<Cart1 />} />
-        <Route exact path="/cart2" element={<Cart2 />} />
-        <Route exact path="/cart3" element={<Cart3 />} />
+        <Route exact path="/cart" element={<Cart />} />
+        <Route exact path="/selectAddress" element={<SelectAddress />} />
+        <Route exact path="/payment" element={<Payment />} />
         <Route exact path="/category/:categoryName" element={<Category />} />
       </Routes>
     </BrowserRouter>
