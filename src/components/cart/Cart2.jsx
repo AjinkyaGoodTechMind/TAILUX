@@ -8,7 +8,7 @@ import { userCarts } from "../../actions/cartActions";
 import { useDispatch, useSelector } from "react-redux";
 import { userAddresses } from "../../actions/addressActions";
 import PriceDetails from "./PriceDetails";
-import { collectOrderData, createOrder } from "../../actions/orderActions";
+import { collectOrderData } from "../../actions/orderActions";
 
 const Cart2 = () => {
   const [address, setAddress] = useState();
@@ -16,9 +16,7 @@ const Cart2 = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { cartItems } = useSelector((state) => state.carts);
   const { addresses } = useSelector((state) => state.addresses);
-  // const { order } = useSelector((state) => state.order);
 
   useEffect(() => {
     dispatch(userCarts());
@@ -53,9 +51,6 @@ const Cart2 = () => {
               <div key={key} className="addressBox">
                 <div>
                   <div>
-                    {/* <div className="myRadio">
-                  <p></p>
-                </div> */}
                     <input
                       onChange={(e) => setAddress(e.target.value)}
                       type="radio"
@@ -81,50 +76,6 @@ const Cart2 = () => {
                 </div>
               </div>
             ))}
-          {/* <div className="addressBox">
-            <div>
-              <div>
-                <div className="">
-                  <p></p>
-                </div>
-              </div>
-              <div>
-                <p>HOME</p>
-                <div>
-                  <p className="py-2">
-                    <span className="text15 name">M S Nageswara Rao</span>
-                    <span className="text15 mobileNumber">6304897782</span>
-                  </p>
-                  <p className="fullAddress">
-                    Plot no: 548 D.o : 4-8-98, Karanamgari veedhi, koretipadu,
-                    Guntur, Guntur, Andhra Pradesh - 522007
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="addressBox">
-            <div>
-              <div>
-                <div className="myRadio myRadioOff">
-                  <p></p>
-                </div>
-              </div>
-              <div>
-                <p>HOME</p>
-                <div>
-                  <p className="py-2">
-                    <span className="text15 name">M S Nageswara Rao</span>
-                    <span className="text15 mobileNumber">6304897782</span>
-                  </p>
-                  <p className="fullAddress">
-                    Plot no: 548 D.o : 4-8-98, Karanamgari veedhi, koretipadu,
-                    Guntur, Guntur, Andhra Pradesh - 522007
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div> */}
         </div>
 
         <div className="priceDetails">

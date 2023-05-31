@@ -2,8 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import Navbar from "../layout/navbar/Navbar";
-// import Women5 from "../../assets/images/Women5.png";
-// import { Carousel } from "react-responsive-carousel";
+
 import WishlistIcon2 from "../../assets/images/WishlistIcon2.svg";
 import { Link, useParams } from "react-router-dom";
 import Footer from "../layout/footer/Footer";
@@ -134,25 +133,9 @@ const Product = () => {
     showPlayButton: false,
     showNav: false,
     height: "600px",
-    // renderItem: this.myRenderItem.bind(this),
 
     items: product
-      ? // [
-        //     {
-        //       original: `http://localhost:5000/productImages/${product.images[0]}`,
-        //       thumbnail: `http://localhost:5000/productImages/${product.images[0]}`,
-        //     },
-        //     {
-        //       original: `http://localhost:5000/productImages/${product.images[0]}`,
-        //       thumbnail: `http://localhost:5000/productImages/${product.images[0]}`,
-        //     },
-        //     {
-        //       original: `http://localhost:5000/productImages/${product.images[0]}`,
-        //       thumbnail: `http://localhost:5000/productImages/${product.images[0]}`,
-        //     },
-        //   ]
-
-        product.images.map((image) => ({
+      ? product.images.map((image) => ({
           original: `http://localhost:5000/productImages/${product.images[0]}`,
           thumbnail: `http://localhost:5000/productImages/${product.images[0]}`,
         }))

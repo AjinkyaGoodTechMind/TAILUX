@@ -1,26 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 
-// import CarouselImage1 from "../../assets/images/CarouselImage1.png";
-// import CarouselImage2 from "../../assets/images/CarouselImage2.png";
-// import CarouselImage3 from "../../assets/images/CarouselImage3.png";
-
-// import fotor1 from "../../assets/images/fotor1.png";
-// import fotor2 from "../../assets/images/fotor2.png";
-// import fotor3 from "../../assets/images/fotor3.png";
-// import fotor4 from "../../assets/images/fotor4.png";
-
-// import Rectangle14 from "../../assets/images/Rectangle 14.png";
-// import Rectangle15 from "../../assets/images/Rectangle 15.png";
-// import Rectangle16 from "../../assets/images/Rectangle 16.png";
-
-// import Women1 from "../../assets/images/Women1.png";
-// import Women2 from "../../assets/images/Women2.png";
-// import Women3 from "../../assets/images/Women3.png";
-// import Women4 from "../../assets/images/Women4.png";
-
 import Fabric1 from "../../assets/images/Fabric1.png";
 import Fabric2 from "../../assets/images/Fabric2.png";
-// import Fabric3 from "../../assets/images/Fabric3.png";
 
 import { Carousel } from "react-responsive-carousel";
 import AliceCarousel from "react-alice-carousel";
@@ -32,7 +13,7 @@ import "../home/Home.css";
 import "./category.css";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { allProducts, productsByCategory } from "../../actions/productActions";
+import { productsByCategory } from "../../actions/productActions";
 import { categoryCarousel } from "../../actions/page/carouselActions";
 import { categoryDeal } from "../../actions/page/dealActions";
 import { categoryTrending } from "../../actions/page/trendingActions";
@@ -153,12 +134,7 @@ const Category = () => {
               </div>
             ))
             : ""}
-          {/* <div>
-            <img src={carousel ? `http://localhost:5000/carouselImages/${carousel.carouselImages[0]}` : ""} alt="CarouselImage2" />
-          </div>
-          <div>
-            <img src={carousel ? `http://localhost:5000/carouselImages/${carousel.carouselImages[0]}` : ""} alt="CarouselImage3" />
-          </div> */}
+
         </Carousel>
       </div>
 

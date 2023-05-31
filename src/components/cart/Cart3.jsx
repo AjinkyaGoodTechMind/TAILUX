@@ -10,16 +10,9 @@ import GooglePay from "../../assets/images/GooglePay.svg";
 import Card1 from "../../assets/images/Card1.png";
 import PriceDetails from "./PriceDetails";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  createOrder,
-  updateOrder,
-  userOrders,
-} from "../../actions/orderActions";
+import { createOrder, userOrders } from "../../actions/orderActions";
 import { removeCart, userCarts } from "../../actions/cartActions";
-import {
-  NEW_ORDER_SUCCESS,
-  UPDATE_ORDER_RESET,
-} from "../../constants/orderConstants";
+import { NEW_ORDER_SUCCESS } from "../../constants/orderConstants";
 import { REMOVE_CART_RESET } from "../../constants/cartConstants";
 
 const Cart3 = () => {

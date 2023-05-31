@@ -9,8 +9,6 @@ import Women3 from "../../assets/images/Women3.png";
 import Women4 from "../../assets/images/Women4.png";
 
 import Person1 from "../../assets/images/Person1.svg";
-// import Person2 from "../../assets/images/Person2.svg";
-// import Person3 from "../../assets/images/Person3.svg";
 
 import WishlistIcon2 from "../../assets/images/WishlistIcon2.svg";
 import Star1 from "../../assets/images/Star1.svg";
@@ -349,14 +347,7 @@ const ProductCustomization = () => {
                       </div>
                     ))
                   : ""}
-                {/* <div>
-                  <img src={Person2} alt="Person2" />
-                  <p className="text14">Anju</p>
-                </div>
-                <div>
-                  <img src={Person3} alt="Person3" />
-                  <p className="text14">Anjali</p>
-                </div> */}
+
                 <div>
                   <p>+</p>
                   <p className="text14">add new size</p>

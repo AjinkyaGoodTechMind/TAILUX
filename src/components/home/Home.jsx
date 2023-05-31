@@ -13,15 +13,6 @@ import Rectangle14 from "../../assets/images/Rectangle 14.png";
 import Rectangle15 from "../../assets/images/Rectangle 15.png";
 import Rectangle16 from "../../assets/images/Rectangle 16.png";
 
-// import Women1 from "../../assets/images/Women1.png";
-// import Women2 from "../../assets/images/Women2.png";
-// import Women3 from "../../assets/images/Women3.png";
-// import Women4 from "../../assets/images/Women4.png";
-
-import Fabric1 from "../../assets/images/Fabric1.png";
-import Fabric2 from "../../assets/images/Fabric2.png";
-// import Fabric3 from "../../assets/images/Fabric3.png";
-
 import { Carousel } from "react-responsive-carousel";
 import AliceCarousel from "react-alice-carousel";
 import Navbar from "../layout/navbar/Navbar";
@@ -39,7 +30,6 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(allProducts());
-    // console.log(products)
   }, []);
 
   const deals = [
@@ -80,7 +70,6 @@ const Home = () => {
       </Link>
       <div>
         <p className="text4">{product.name}</p>
-        {/* <p className="text4">Georgette Dress</p> */}
         <p className="text4">
           <span>
             ₹
@@ -93,106 +82,6 @@ const Home = () => {
       </div>
     </div>
   ));
-  // <div className="womenBox">
-  //   <img src={Women2} alt="Women2" />
-  //   <div>
-  //     <p className="text4">Landscape Print</p>
-  //     <p className="text4">Belted Shirtdress</p>
-  //     <p className="text4">
-  //       <span>₹1999</span> <span>₹1999</span>
-  //     </p>
-  //   </div>
-  // </div>,
-  // <div className="womenBox">
-  //   <img src={Women3} alt="Women3" />
-  //   <div>
-  //     <p className="text4">Lattice Floral Print</p>
-  //     <p className="text4">Cotton Linen Dress</p>
-  //     <p className="text4">
-  //       <span>₹1999</span> <span>₹1999</span>
-  //     </p>
-  //   </div>
-  // </div>,
-  // <div className="womenBox">
-  //   <img src={Women4} alt="Women4" />
-  //   <div>
-  //     <p className="text4">Shadow Ombre Print</p>
-  //     <p className="text4">Georgette Skirt</p>
-  //     <p className="text4">
-  //       <span>₹1999</span> <span>₹1999</span>
-  //     </p>
-  //   </div>
-  // </div>,
-  // <div className="womenBox">
-  //   <img src={Women1} alt="Women1" />
-  //   <div>
-  //     <p className="text4">Plunge Floral Print</p>
-  //     <p className="text4">Georgette Dress</p>
-  //     <p className="text4">
-  //       <span>₹1999</span> <span>₹1999</span>
-  //     </p>
-  //   </div>
-  // </div>,
-  // <div className="womenBox">
-  //   <img src={Women2} alt="Women2" />
-  //   <div>
-  //     <p className="text4">Plunge Floral Print</p>
-  //     <p className="text4">Georgette Dress</p>
-  //     <p className="text4">
-  //       <span>₹1999</span> <span>₹1999</span>
-  //     </p>
-  //   </div>
-  // </div>,
-  // <div className="womenBox">
-  //   <img src={Women2} alt="Women2" />
-  //   <div>
-  //     <p className="text4">Plunge Floral Print</p>
-  //     <p className="text4">Georgette Dress</p>
-  //     <p className="text4">
-  //       <span>₹1999</span> <span>₹1999</span>
-  //     </p>
-  //   </div>
-  // </div>,
-  // <div className="womenBox">
-  //   <img src={Women2} alt="Women2" />
-  //   <div>
-  //     <p className="text4">Plunge Floral Print</p>
-  //     <p className="text4">Georgette Dress</p>
-  //     <p className="text4">
-  //       <span>₹1999</span> <span>₹1999</span>
-  //     </p>
-  //   </div>
-  // </div>,
-  // <div className="womenBox">
-  //   <img src={Women2} alt="Women2" />
-  //   <div>
-  //     <p className="text4">Plunge Floral Print</p>
-  //     <p className="text4">Georgette Dress</p>
-  //     <p className="text4">
-  //       <span>₹1999</span> <span>₹1999</span>
-  //     </p>
-  //   </div>
-  // </div>,
-  // <div className="womenBox">
-  //   <img src={Women2} alt="Women2" />
-  //   <div>
-  //     <p className="text4">Plunge Floral Print</p>
-  //     <p className="text4">Georgette Dress</p>
-  //     <p className="text4">
-  //       <span>₹1999</span> <span>₹1999</span>
-  //     </p>
-  //   </div>
-  // </div>,
-  // <div className="womenBox">
-  //   <img src={Women2} alt="Women2" />
-  //   <div>
-  //     <p className="text4">Plunge Floral Print</p>
-  //     <p className="text4">Georgette Dress</p>
-  //     <p className="text4">
-  //       <span>₹1999</span> <span>₹1999</span>
-  //     </p>
-  //   </div>
-  // </div>
 
   const fabrics = [
     <div className="fabricBox">
@@ -363,7 +252,6 @@ const Home = () => {
             autoWidth
             disableButtonsControls
             disableDotsControls
-            // stagePadding={{ paddingLeft: 20, paddingRight: 20 }} // Add stag ePadding prop to add left and right padding
           />
         </div>
 
