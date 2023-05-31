@@ -15,6 +15,7 @@ import "./Studio.css";
 import HeadPhone from "../components/layout/HeadPhone";
 import { useDispatch } from "react-redux";
 import { collectCustomProductData } from "../actions/customProductActions";
+import "./Step2.css";
 
 function Step2() {
   const [fabric, setFabric] = useState();
@@ -38,259 +39,358 @@ function Step2() {
 
   const fabrics1 = [
     <div className="fabricBox">
-      <img
+      <div
+        style={
+          fabric === "fabric1"
+            ? {
+                flexDirection: "column",
+                backgroundImage:
+                  "url(http://localhost:3000/static/media/Fabric1.9dbb229b.png)",
+              }
+            : {}
+        }
         onClick={() => setFabric("fabric1")}
-        src={Fabric1}
-        draggable="false"
-        alt="Fabric1"
-      />
-      <p style={fabric === "fabric1" ? { top: "10px", bottom: "auto" } : {}}>
-        BROCADE SILK
-      </p>
-      <p
-        style={
-          fabric === "fabric1" ? { display: "block" } : { display: "none" }
-        }
       >
-        SELECTED
-      </p>
+        <p style={fabric === "fabric1" ? { color: "black" } : {}}>
+          BROCADE SILK
+        </p>
+        <p
+          style={
+            fabric === "fabric1" ? { display: "block" } : { display: "none" }
+          }
+        >
+          SELECTED
+        </p>
+      </div>
     </div>,
     <div className="fabricBox">
-      <img
+      <div
+        style={
+          fabric === "fabric2"
+            ? {
+                flexDirection: "column",
+                backgroundImage:
+                  "url(http://localhost:3000/static/media/Fabric1.9dbb229b.png)",
+              }
+            : {}
+        }
         onClick={() => setFabric("fabric2")}
-        src={Fabric2}
-        draggable="false"
-        alt="Fabric2"
-      />
-      <p style={fabric === "fabric2" ? { top: "10px", bottom: "auto" } : {}}>
-        CHINNAMON CHIFFON
-      </p>
-      <p
-        style={
-          fabric === "fabric2" ? { display: "block" } : { display: "none" }
-        }
       >
-        SELECTED
-      </p>
+        <p style={fabric === "fabric2" ? { color: "black" } : {}}>
+          CHINNAMON CHIFFON
+        </p>
+        <p
+          style={
+            fabric === "fabric2" ? { display: "block" } : { display: "none" }
+          }
+        >
+          SELECTED
+        </p>
+      </div>
     </div>,
     <div className="fabricBox">
-      <img
+      <div
+        style={
+          fabric === "fabric3"
+            ? {
+                flexDirection: "column",
+                backgroundImage:
+                  "url(http://localhost:3000/static/media/Fabric1.9dbb229b.png)",
+              }
+            : {}
+        }
         onClick={() => setFabric("fabric3")}
-        src={Fabric1}
-        draggable="false"
-        alt="Fabric1"
-      />
-      <p style={fabric === "fabric3" ? { top: "10px", bottom: "auto" } : {}}>
-        BROCADE SILK
-      </p>
-      <p
-        style={
-          fabric === "fabric3" ? { display: "block" } : { display: "none" }
-        }
       >
-        SELECTED
-      </p>
+        <p style={fabric === "fabric3" ? { color: "black" } : {}}>
+          BROCADE SILK
+        </p>
+        <p
+          style={
+            fabric === "fabric3" ? { display: "block" } : { display: "none" }
+          }
+        >
+          SELECTED
+        </p>
+      </div>
     </div>,
     <div className="fabricBox">
-      <img
+      <div
+        style={
+          fabric === "fabric4"
+            ? {
+                flexDirection: "column",
+                backgroundImage:
+                  "url(http://localhost:3000/static/media/Fabric1.9dbb229b.png)",
+              }
+            : {}
+        }
         onClick={() => setFabric("fabric4")}
-        src={Fabric2}
-        draggable="false"
-        alt="Fabric2"
-      />
-      <p style={fabric === "fabric4" ? { top: "10px", bottom: "auto" } : {}}>
-        CHINNAMON CHIFFON
-      </p>
-      <p
-        style={
-          fabric === "fabric4" ? { display: "block" } : { display: "none" }
-        }
       >
-        SELECTED
-      </p>
+        <p style={fabric === "fabric4" ? { color: "black" } : {}}>
+          CHINNAMON CHIFFON
+        </p>
+        <p
+          style={
+            fabric === "fabric4" ? { display: "block" } : { display: "none" }
+          }
+        >
+          SELECTED
+        </p>
+      </div>
     </div>,
     <div className="fabricBox">
-      <img
+      <div
+        style={
+          fabric === "fabric5"
+            ? {
+                flexDirection: "column",
+                backgroundImage:
+                  "url(http://localhost:3000/static/media/Fabric1.9dbb229b.png)",
+              }
+            : {}
+        }
         onClick={() => setFabric("fabric5")}
-        src={Fabric1}
-        draggable="false"
-        alt="Fabric1"
-      />
-      <p style={fabric === "fabric5" ? { top: "10px", bottom: "auto" } : {}}>
-        BROCADE SILK
-      </p>
-      <p
-        style={
-          fabric === "fabric5" ? { display: "block" } : { display: "none" }
-        }
       >
-        SELECTED
-      </p>
+        <p style={fabric === "fabric5" ? { color: "black" } : {}}>
+          BROCADE SILK
+        </p>
+        <p
+          style={
+            fabric === "fabric5" ? { display: "block" } : { display: "none" }
+          }
+        >
+          SELECTED
+        </p>
+      </div>
     </div>,
     <div className="fabricBox">
-      <img
+      <div
+        style={
+          fabric === "fabric6"
+            ? {
+                flexDirection: "column",
+                backgroundImage:
+                  "url(http://localhost:3000/static/media/Fabric1.9dbb229b.png)",
+              }
+            : {}
+        }
         onClick={() => setFabric("fabric6")}
-        src={Fabric2}
-        draggable="false"
-        alt="Fabric2"
-      />
-      <p style={fabric === "fabric6" ? { top: "10px", bottom: "auto" } : {}}>
-        CHINNAMON CHIFFON
-      </p>
-      <p
-        style={
-          fabric === "fabric6" ? { display: "block" } : { display: "none" }
-        }
       >
-        SELECTED
-      </p>
+        <p style={fabric === "fabric6" ? { color: "black" } : {}}>
+          CHINNAMON CHIFFON
+        </p>
+        <p
+          style={
+            fabric === "fabric6" ? { display: "block" } : { display: "none" }
+          }
+        >
+          SELECTED
+        </p>
+      </div>
     </div>,
     <div className="fabricBox">
-      <img
-        onClick={() => setFabric("fabric7")}
-        src={Fabric1}
-        draggable="false"
-        alt="Fabric1"
-      />
-      <p style={fabric === "fabric7" ? { top: "10px", bottom: "auto" } : {}}>
-        BROCADE SILK
-      </p>
-      <p
+      <div
         style={
-          fabric === "fabric7" ? { display: "block" } : { display: "none" }
+          fabric === "fabric7"
+            ? {
+                flexDirection: "column",
+                backgroundImage:
+                  "url(http://localhost:3000/static/media/Fabric1.9dbb229b.png)",
+              }
+            : {}
         }
+        onClick={() => setFabric("fabric7")}
       >
-        SELECTED
-      </p>
+        <p style={fabric === "fabric7" ? { color: "black" } : {}}>
+          {" "}
+          BROCADE SILK
+        </p>
+        <p
+          style={
+            fabric === "fabric7" ? { display: "block" } : { display: "none" }
+          }
+        >
+          SELECTED
+        </p>
+      </div>
     </div>,
   ];
 
   const fabrics2 = [
     <div className="fabricBox">
-      <img
+      <div
+        style={
+          pattern === "pattern1"
+            ? {
+                flexDirection: "column",
+                backgroundImage:
+                  "url(http://localhost:3000/static/media/Fabric1.9dbb229b.png)",
+              }
+            : {}
+        }
         onClick={() => setPattern("pattern1")}
-        src={Fabric1}
-        draggable="false"
-        alt="Fabric1"
-      />
-      <p style={pattern === "pattern1" ? { top: "10px", bottom: "auto" } : {}}>
-        BROCADE SILK
-      </p>
-      <p
-        style={
-          pattern === "pattern1" ? { display: "block" } : { display: "none" }
-        }
       >
-        SELECTED
-      </p>
+        <p style={pattern === "pattern1" ? { color: "black" } : {}}>
+          BROCADE SILK
+        </p>
+        <p
+          style={
+            pattern === "pattern1" ? { display: "block" } : { display: "none" }
+          }
+        >
+          SELECTED
+        </p>
+      </div>
     </div>,
     <div className="fabricBox">
-      <img
+      <div
+        style={
+          pattern === "pattern2"
+            ? {
+                flexDirection: "column",
+                backgroundImage:
+                  "url(http://localhost:3000/static/media/Fabric1.9dbb229b.png)",
+              }
+            : {}
+        }
         onClick={() => setPattern("pattern2")}
-        src={Fabric2}
-        draggable="false"
-        alt="Fabric2"
-      />
-      <p style={pattern === "pattern2" ? { top: "10px", bottom: "auto" } : {}}>
-        CHINNAMON CHIFFON
-      </p>
-      <p
-        style={
-          pattern === "pattern2" ? { display: "block" } : { display: "none" }
-        }
       >
-        SELECTED
-      </p>
+        <p style={pattern === "pattern2" ? { color: "black" } : {}}>
+          CHINNAMON CHIFFON
+        </p>
+        <p
+          style={
+            pattern === "pattern2" ? { display: "block" } : { display: "none" }
+          }
+        >
+          SELECTED
+        </p>
+      </div>
     </div>,
     <div className="fabricBox">
-      <img
+      <div
+        style={
+          pattern === "pattern3"
+            ? {
+                flexDirection: "column",
+                backgroundImage:
+                  "url(http://localhost:3000/static/media/Fabric1.9dbb229b.png)",
+              }
+            : {}
+        }
         onClick={() => setPattern("pattern3")}
-        src={Fabric1}
-        draggable="false"
-        alt="Fabric1"
-      />
-      <p style={pattern === "pattern3" ? { top: "10px", bottom: "auto" } : {}}>
-        BROCADE SILK
-      </p>
-      <p
-        style={
-          pattern === "pattern3" ? { display: "block" } : { display: "none" }
-        }
       >
-        SELECTED
-      </p>
+        <p style={pattern === "pattern3" ? { color: "black" } : {}}>
+          BROCADE SILK
+        </p>
+        <p
+          style={
+            pattern === "pattern3" ? { display: "block" } : { display: "none" }
+          }
+        >
+          SELECTED
+        </p>
+      </div>
     </div>,
     <div className="fabricBox">
-      <img
+      <div
+        style={
+          pattern === "pattern4"
+            ? {
+                flexDirection: "column",
+                backgroundImage:
+                  "url(http://localhost:3000/static/media/Fabric1.9dbb229b.png)",
+              }
+            : {}
+        }
         onClick={() => setPattern("pattern4")}
-        src={Fabric2}
-        draggable="false"
-        alt="Fabric2"
-      />
-      <p style={pattern === "pattern4" ? { top: "10px", bottom: "auto" } : {}}>
-        CHINNAMON CHIFFON
-      </p>
-      <p
-        style={
-          pattern === "pattern4" ? { display: "block" } : { display: "none" }
-        }
       >
-        SELECTED
-      </p>
+        <p style={pattern === "pattern4" ? { color: "black" } : {}}>
+          CHINNAMON CHIFFON
+        </p>
+        <p
+          style={
+            pattern === "pattern4" ? { display: "block" } : { display: "none" }
+          }
+        >
+          SELECTED
+        </p>
+      </div>
     </div>,
     <div className="fabricBox">
-      <img
+      <div
+        style={
+          pattern === "pattern5"
+            ? {
+                flexDirection: "column",
+                backgroundImage:
+                  "url(http://localhost:3000/static/media/Fabric1.9dbb229b.png)",
+              }
+            : {}
+        }
         onClick={() => setPattern("pattern5")}
-        src={Fabric1}
-        draggable="false"
-        alt="Fabric1"
-      />
-      <p style={pattern === "pattern5" ? { top: "10px", bottom: "auto" } : {}}>
-        BROCADE SILK
-      </p>
-      <p
-        style={
-          pattern === "pattern5" ? { display: "block" } : { display: "none" }
-        }
       >
-        SELECTED
-      </p>
+        <p style={pattern === "pattern5" ? { color: "black" } : {}}>
+          BROCADE SILK
+        </p>
+        <p
+          style={
+            pattern === "pattern5" ? { display: "block" } : { display: "none" }
+          }
+        >
+          SELECTED
+        </p>
+      </div>
     </div>,
     <div className="fabricBox">
-      <img
+      <div
+        style={
+          pattern === "pattern6"
+            ? {
+                flexDirection: "column",
+                backgroundImage:
+                  "url(http://localhost:3000/static/media/Fabric1.9dbb229b.png)",
+              }
+            : {}
+        }
         onClick={() => setPattern("pattern6")}
-        src={Fabric2}
-        draggable="false"
-        alt="Fabric2"
-      />
-      <p style={pattern === "pattern6" ? { top: "10px", bottom: "auto" } : {}}>
-        CHINNAMON CHIFFON
-      </p>
-      <p
-        style={
-          pattern === "pattern6" ? { display: "block" } : { display: "none" }
-        }
       >
-        SELECTED
-      </p>
+        <p style={pattern === "pattern6" ? { color: "black" } : {}}>
+          CHINNAMON CHIFFON
+        </p>
+        <p
+          style={
+            pattern === "pattern6" ? { display: "block" } : { display: "none" }
+          }
+        >
+          SELECTED
+        </p>
+      </div>
     </div>,
     <div className="fabricBox">
-      <img
-        onClick={() => setPattern("pattern7")}
-        src={Fabric1}
-        draggable="false"
-        alt="Fabric1"
-      />
-      <p style={pattern === "pattern7" ? { top: "10px", bottom: "auto" } : {}}>
-        BROCADE SILK
-      </p>
-      <p
+      <div
         style={
-          pattern === "pattern7" ? { display: "block" } : { display: "none" }
+          pattern === "pattern7"
+            ? {
+                flexDirection: "column",
+                backgroundImage:
+                  "url(http://localhost:3000/static/media/Fabric1.9dbb229b.png)",
+              }
+            : {}
         }
+        onClick={() => setPattern("pattern7")}
       >
-        SELECTED
-      </p>
+        <p style={pattern === "pattern7" ? { color: "black" } : {}}>
+          BROCADE SILK
+        </p>
+        <p
+          style={
+            pattern === "pattern7" ? { display: "block" } : { display: "none" }
+          }
+        >
+          SELECTED
+        </p>
+      </div>
     </div>,
   ];
 

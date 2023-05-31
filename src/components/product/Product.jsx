@@ -241,7 +241,7 @@ const Product = () => {
             </div>
 
             <div className="rightSide">
-              <div style={{ height: "820px" }}>
+              <div>
                 <p className="productName">{product.name}</p>
 
                 <div className="productPrice">
@@ -270,8 +270,10 @@ const Product = () => {
 
                 <div className="productSize">
                   <div className="text12">
-                    SIZE&nbsp;&nbsp;&nbsp;
-                    <Link to="/">SIZE CHART &nbsp;&rsaquo;</Link>
+                    SIZE
+                    <Link style={{ fontSize: "10px", color: "#ababab" }} to="/">
+                      SIZE CHART &nbsp;&rsaquo;
+                    </Link>
                   </div>
                   <div>
                     <button

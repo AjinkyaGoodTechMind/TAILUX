@@ -196,44 +196,54 @@ const Home = () => {
 
   const fabrics = [
     <div className="fabricBox">
-      <img src={Fabric1} alt="Fabric1" />
-      <p>BROCADE SILK</p>
+      <div>
+        <p>BROCADE SILK</p>
+      </div>
     </div>,
     <div className="fabricBox">
-      <img src={Fabric2} alt="Fabric2" />
-      <p>CHINNAMON CHIFFON</p>
+      <div>
+        <p>CHINNAMON CHIFFON</p>
+      </div>
     </div>,
     <div className="fabricBox">
-      <img src={Fabric1} alt="Fabric1" />
-      <p>BROCADE SILK</p>
+      <div>
+        <p>BROCADE SILK</p>
+      </div>
     </div>,
     <div className="fabricBox">
-      <img src={Fabric2} alt="Fabric2" />
-      <p>CHINNAMON CHIFFON</p>
+      <div>
+        <p>CHINNAMON CHIFFON</p>
+      </div>
     </div>,
     <div className="fabricBox">
-      <img src={Fabric1} alt="Fabric1" />
-      <p>BROCADE SILK</p>
+      <div>
+        <p>BROCADE SILK</p>
+      </div>
     </div>,
     <div className="fabricBox">
-      <img src={Fabric2} alt="Fabric2" />
-      <p>CHINNAMON CHIFFON</p>
+      <div>
+        <p>CHINNAMON CHIFFON</p>
+      </div>
     </div>,
     <div className="fabricBox">
-      <img src={Fabric1} alt="Fabric1" />
-      <p>BROCADE SILK</p>
+      <div>
+        <p>BROCADE SILK</p>
+      </div>
     </div>,
     <div className="fabricBox">
-      <img src={Fabric2} alt="Fabric2" />
-      <p>CHINNAMON CHIFFON</p>
+      <div>
+        <p>CHINNAMON CHIFFON</p>
+      </div>
     </div>,
     <div className="fabricBox">
-      <img src={Fabric1} alt="Fabric1" />
-      <p>BROCADE SILK</p>
+      <div>
+        <p>BROCADE SILK</p>
+      </div>
     </div>,
     <div className="fabricBox">
-      <img src={Fabric2} alt="Fabric2" />
-      <p>CHINNAMON CHIFFON</p>
+      <div>
+        <p>CHINNAMON CHIFFON</p>
+      </div>
     </div>,
   ];
 
@@ -277,7 +287,7 @@ const Home = () => {
         </div>
 
         {/* Masonry */}
-        <div className="seasonalWear"  style={{marginRight:"20px"}}>
+        <div className="seasonalWear" style={{ marginRight: "20px" }}>
           <p className="heading1">SEASONAL DESIGNER WEAR</p>
           <ResponsiveMasonry
             columnsCount={2}
@@ -344,7 +354,7 @@ const Home = () => {
         </div>
 
         {/* Fabric Sliider */}
-        <div>
+        <div className="fabricCarousel">
           <p className="heading1">PREMIUM RANGE OF FABRICS</p>
           <AliceCarousel
             mouseTracking
@@ -353,6 +363,7 @@ const Home = () => {
             autoWidth
             disableButtonsControls
             disableDotsControls
+            // stagePadding={{ paddingLeft: 20, paddingRight: 20 }} // Add stag ePadding prop to add left and right padding
           />
         </div>
 

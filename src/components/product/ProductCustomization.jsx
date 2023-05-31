@@ -331,7 +331,7 @@ const ProductCustomization = () => {
             <div className="customizeBox">
               <p>Customized Size and Fitting</p>
               <p>Select from a saved size or add new size</p>
-              <p className="text13">Saved Sizes</p>
+              <p className="text13 mt-3">Saved Sizes</p>
 
               <div className="savedSizes">
                 {sizes
@@ -363,7 +363,7 @@ const ProductCustomization = () => {
                 </div>
               </div>
 
-              <p className="text13">Select Colors</p>
+              <p className="text13 mt-3">Select Colors</p>
 
               <div className="selectColor">
                 <button
