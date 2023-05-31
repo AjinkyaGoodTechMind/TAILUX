@@ -125,15 +125,6 @@
   padding: 8px 0 5px 0;
 }
 
-/* .ProductCustomizeContainer
-  .productDetails
-  .productSize
-  > div
-  > button:first-child {
-  border: 1.5px solid #bebebe;
-  color: #bebebe;
-} */
-
 .ProductCustomizeContainer .productDetails .productSize > div > button {
   border-radius: 100%;
   width: 35px;
