@@ -76,6 +76,7 @@ const ProductCustomization = () => {
         size,
         color,
         customSize,
+        customProduct: false,
       })
     );
   };

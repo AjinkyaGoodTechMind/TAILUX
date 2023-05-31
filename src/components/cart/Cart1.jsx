@@ -9,11 +9,13 @@ import HeadPhone from "../layout/HeadPhone";
 import { useDispatch, useSelector } from "react-redux";
 import { removeCart, userCarts } from "../../actions/cartActions";
 import { REMOVE_CART_RESET } from "../../constants/cartConstants";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PriceDetails from "./PriceDetails";
+import { collectOrderData } from "../../actions/orderActions";
 
 const Cart1 = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { cartItems } = useSelector((state) => state.carts);
   const { cartRemoved } = useSelector((state) => state.cart);
@@ -28,6 +30,27 @@ const Cart1 = () => {
 
   const removeCartItem = (id) => {
     dispatch(removeCart(id));
+  };
+
+  const products = cartItems
+    ? cartItems.map((cartItem) => ({
+        product: cartItem.product._id,
+        price: cartItem.product.price,
+        quantity: cartItem.quantity,
+        customSize: cartItem.customSize,
+        color: cartItem.color,
+        pattern: cartItem.pattern,
+        fabric: cartItem.fabric,
+        collarStyle: cartItem.collarStyle,
+        buttonsStyle: cartItem.buttonsStyle,
+        designName: cartItem.designName,
+        customProduct: cartItem.customProduct,
+      }))
+    : {};
+
+  const collectDataFun = () => {
+    dispatch(collectOrderData({ products }));
+    navigate("/cart2");
   };
 
   return (
@@ -102,8 +125,8 @@ const Cart1 = () => {
 
           <div className="priceDetails">
             <PriceDetails />
-            <button className="placeOrderBtn text15">
-              <Link to="/cart2">PLACE ORDER</Link>
+            <button onClick={collectDataFun} className="placeOrderBtn text15">
+              PLACE ORDER
             </button>
           </div>
         </div>

@@ -8,7 +8,7 @@ import { userCarts } from "../../actions/cartActions";
 import { useDispatch, useSelector } from "react-redux";
 import { userAddresses } from "../../actions/addressActions";
 import PriceDetails from "./PriceDetails";
-import { createOrder } from "../../actions/orderActions";
+import { collectOrderData, createOrder } from "../../actions/orderActions";
 
 const Cart2 = () => {
   const [address, setAddress] = useState();
@@ -16,8 +16,8 @@ const Cart2 = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { addresses } = useSelector((state) => state.addresses);
   const { cartItems } = useSelector((state) => state.carts);
+  const { addresses } = useSelector((state) => state.addresses);
   // const { order } = useSelector((state) => state.order);
 
   useEffect(() => {
@@ -25,41 +25,12 @@ const Cart2 = () => {
     dispatch(userAddresses());
   }, []);
 
-  const products =
-    cartItems &&
-    cartItems.map((cartItem) => ({
-      product: cartItem.product._id,
-      price: cartItem.product.price,
-      quantity: cartItem.quantity,
-    }));
-
-  const price = cartItems.reduce((accumulator, cartItem) => {
-    return accumulator + cartItem.quantity * cartItem.product.price;
-  }, 0);
-
-  const discount = cartItems.reduce((accumulator, cartItem) => {
-    return (
-      accumulator +
-      ((cartItem.product.price * cartItem.product.discount) / 100) *
-        cartItem.quantity
-    );
-  }, 0);
-
-  const deliveryCharges = 99;
-
-  const totalAmount = price - discount + deliveryCharges;
-
-  const addressSelect = () => {
+  const addressSelectFun = () => {
     if (!address) return alert("Choose a address");
 
     dispatch(
-      createOrder({
-        products,
+      collectOrderData({
         shippingInfo: address,
-        paidAt: "23 May 2023",
-        shippingPrice: deliveryCharges,
-        totalPrice: totalAmount,
-        deliveredAt: "23 May 2023",
       })
     );
     navigate("/cart3");
@@ -158,7 +129,7 @@ const Cart2 = () => {
 
         <div className="priceDetails">
           <PriceDetails />
-          <button onClick={addressSelect} className="placeOrderBtn text15">
+          <button onClick={addressSelectFun} className="placeOrderBtn text15">
             DELIVERE HERE
           </button>
         </div>

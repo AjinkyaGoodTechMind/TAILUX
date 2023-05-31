@@ -28,7 +28,7 @@ const FinalStep = () => {
   };
 
   const addToCartFun = () => {
-    dispatch(addToCart(customProductData));
+    dispatch(addToCart({ ...customProductData, customProduct: true }));
   };
 
   useEffect(() => {

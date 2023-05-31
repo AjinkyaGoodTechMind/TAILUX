@@ -58,7 +58,16 @@ const Product = () => {
     if (!size) return alert("Please select product size");
     if (!color) return alert("Please select product color");
 
-    dispatch(addToCart({ user: user._id, product: id, quantity, size, color }));
+    dispatch(
+      addToCart({
+        user: user._id,
+        product: id,
+        quantity,
+        size,
+        color,
+        customProduct: false,
+      })
+    );
   };
 
   const womens = [
@@ -343,8 +352,8 @@ const Product = () => {
                       className={color === "red" ? "colorSelected" : ""}
                     ></button>
                     <button
-                      onClick={() => setColor("orage")}
-                      className={color === "orage" ? "colorSelected" : ""}
+                      onClick={() => setColor("orange")}
+                      className={color === "orange" ? "colorSelected" : ""}
                     ></button>
                     <button
                       onClick={() => setColor("white")}

@@ -10,18 +10,25 @@ import GooglePay from "../../assets/images/GooglePay.svg";
 import Card1 from "../../assets/images/Card1.png";
 import PriceDetails from "./PriceDetails";
 import { useDispatch, useSelector } from "react-redux";
-import { updateOrder, userOrders } from "../../actions/orderActions";
+import {
+  createOrder,
+  updateOrder,
+  userOrders,
+} from "../../actions/orderActions";
 import { removeCart, userCarts } from "../../actions/cartActions";
-import { UPDATE_ORDER_RESET } from "../../constants/orderConstants";
+import {
+  NEW_ORDER_SUCCESS,
+  UPDATE_ORDER_RESET,
+} from "../../constants/orderConstants";
 import { REMOVE_CART_RESET } from "../../constants/cartConstants";
 
 const Cart3 = () => {
   const dispatch = useDispatch();
 
-  const { orders } = useSelector((state) => state.orders);
-  const { orderUpdated } = useSelector((state) => state.order);
+  const { orderCreated } = useSelector((state) => state.order);
   const { cartItems } = useSelector((state) => state.carts);
   const { cartRemoved } = useSelector((state) => state.cart);
+  const { order } = useSelector((state) => state.collectOrderData);
 
   useEffect(() => {
     dispatch(userOrders());
@@ -29,24 +36,47 @@ const Cart3 = () => {
   }, []);
 
   useEffect(() => {
-    if (orderUpdated) {
+    if (orderCreated) {
       alert("Order Success!");
 
       cartItems.forEach((cartItem) => {
         dispatch(removeCart(cartItem._id));
       });
 
-      dispatch({ type: UPDATE_ORDER_RESET });
+      dispatch({ type: NEW_ORDER_SUCCESS });
     }
     if (cartRemoved) {
       dispatch({ type: REMOVE_CART_RESET });
     }
-  }, [orderUpdated, cartRemoved]);
+  }, [orderCreated, cartRemoved]);
+
+  const price = cartItems.reduce((accumulator, cartItem) => {
+    return accumulator + cartItem.quantity * cartItem.product.price;
+  }, 0);
+
+  const discount = cartItems.reduce((accumulator, cartItem) => {
+    return (
+      accumulator +
+      ((cartItem.product.price * cartItem.product.discount) / 100) *
+        cartItem.quantity
+    );
+  }, 0);
+
+  const deliveryCharges = 99;
+
+  const totalAmount = price - discount + deliveryCharges;
 
   const paymentFun = () => {
-    const id = orders[orders.length - 1]._id;
-
-    dispatch(updateOrder(id, { paymentInfo: { id: "paymentId" } }));
+    dispatch(
+      createOrder({
+        ...order,
+        paidAt: "23 May 2023",
+        shippingPrice: deliveryCharges,
+        totalPrice: totalAmount,
+        deliveredAt: "23 May 2023",
+        paymentInfo: { id: "paymentId" },
+      })
+    );
   };
 
   return (
