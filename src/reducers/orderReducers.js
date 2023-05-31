@@ -1,4 +1,4 @@
-import { CLEAR_ERRORS, NEW_ORDER_FAIL, NEW_ORDER_REQUEST, NEW_ORDER_RESET, NEW_ORDER_SUCCESS, UPDATE_ORDER_FAIL, UPDATE_ORDER_REQUEST, UPDATE_ORDER_RESET, UPDATE_ORDER_SUCCESS, USER_ORDERS_FAIL, USER_ORDERS_REQUEST, USER_ORDERS_SUCCESS } from '../constants/orderConstants'
+import { CLEAR_ERRORS, COLLECT_OREDER_DATA, NEW_ORDER_FAIL, NEW_ORDER_REQUEST, NEW_ORDER_RESET, NEW_ORDER_SUCCESS, UPDATE_ORDER_FAIL, UPDATE_ORDER_REQUEST, UPDATE_ORDER_RESET, UPDATE_ORDER_SUCCESS, USER_ORDERS_FAIL, USER_ORDERS_REQUEST, USER_ORDERS_SUCCESS } from '../constants/orderConstants'
 
 export const orderReducer = (state = {}, action) => {
     switch (action.type) {
@@ -69,6 +69,20 @@ export const ordersReducer = (state = {}, action) => {
             return {
                 ...state,
                 error: null
+            }
+        default:
+            return {
+                ...state
+            }
+    }
+}
+
+export const collectOrderReducer = (state = { order: {} }, action) => {
+    switch (action.type) {
+        case COLLECT_OREDER_DATA:
+            return {
+                ...state,
+                order: {...state.order, ...action.payload}
             }
         default:
             return {

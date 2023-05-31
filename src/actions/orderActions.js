@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { NEW_ORDER_FAIL, NEW_ORDER_REQUEST, NEW_ORDER_SUCCESS, UPDATE_ORDER_FAIL, UPDATE_ORDER_REQUEST, UPDATE_ORDER_SUCCESS, USER_ORDERS_FAIL, USER_ORDERS_REQUEST, USER_ORDERS_SUCCESS } from '../constants/orderConstants'
+import { COLLECT_OREDER_DATA, NEW_ORDER_FAIL, NEW_ORDER_REQUEST, NEW_ORDER_SUCCESS, UPDATE_ORDER_FAIL, UPDATE_ORDER_REQUEST, UPDATE_ORDER_SUCCESS, USER_ORDERS_FAIL, USER_ORDERS_REQUEST, USER_ORDERS_SUCCESS } from '../constants/orderConstants'
 
 // 1. Create New Order
 export const createOrder = (orderDetails) => async (dispatch) => {
@@ -51,6 +51,11 @@ export const updateOrder = (id, orderDetail) => async (dispatch) => {
             error: error.response.data.message
         })
     }
+}
+
+// 4. Collect Order data
+export const collectOrderData = (detail) => (dispatch) => {
+    dispatch({ type: COLLECT_OREDER_DATA, payload: detail })
 }
 
 
