@@ -16,7 +16,6 @@ import Step3 from "./StudioPage/Step3";
 import Step4a from "./StudioPage/Step4a";
 import Step5 from "./StudioPage/Step5";
 import Cart1 from "./components/cart/Cart1";
-import Mens from "./StudioPage/Mens";
 import ProductCustomization from "./components/product/ProductCustomization";
 import { useDispatch, useSelector } from "react-redux";
 import { loadUser } from "./actions/userActions";
@@ -65,7 +64,6 @@ function App() {
         <Route exact path="/cart" element={<Cart1 />} />
         <Route exact path="/cart2" element={<Cart2 />} />
         <Route exact path="/cart3" element={<Cart3 />} />
-        <Route exact path="/mens" element={<Mens />} />
         <Route exact path="/category/:categoryName" element={<Category />} />
       </Routes>
     </BrowserRouter>
