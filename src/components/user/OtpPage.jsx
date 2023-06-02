@@ -1,11 +1,13 @@
 import React, { Fragment, useState } from "react";
-import Navbar from "../layout/navbar/Navbar";
 import { Link } from "react-router-dom";
 import OTPInput from "react-otp-input";
-import "./OtpPage.css";
+
+import Navbar from "../layout/navbar/Navbar";
 
 import FacebookIcon2 from "../../assets/images/FacebookIcon2.svg";
 import GoogleIcon from "../../assets/images/GoogleIcon.svg";
+
+import "./OtpPage.css";
 
 const OtpPage = () => {
   const [otp, setOtp] = useState("");
@@ -26,7 +28,13 @@ const OtpPage = () => {
               </Link>
             </p>
 
-            <OTPInput value={otp} onChange={setOtp} numInputs={6} renderInput={(props) => <input {...props} />} inputStyle="otpBoxes" />
+            <OTPInput
+              value={otp}
+              onChange={setOtp}
+              numInputs={6}
+              renderInput={(props) => <input {...props} />}
+              inputStyle="otpBoxes"
+            />
 
             <p className="text1">
               OTP Not Received?{" "}

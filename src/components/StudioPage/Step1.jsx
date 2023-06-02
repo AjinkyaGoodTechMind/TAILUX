@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import Select from "react-select";
+
 import Banner from "../studio/Banner";
 import Tag from "../studio/Tag";
 import Navbar from "../layout/navbar/Navbar";
 import Footer from "../layout/footer/Footer";
-import { useNavigate } from "react-router-dom";
 import FormStepper from "./FormStepper";
-import "./Studio.css";
-import "./Step1.css";
 import HeadPhone from "../layout/HeadPhone";
-import { useDispatch, useSelector } from "react-redux";
+
 import { collectCustomProductData } from "../../actions/customProductActions";
 import { productsByCategory } from "../../actions/productActions";
-import Select from "react-select";
+
+import "./Studio.css";
+import "./Step1.css";
 
 function Step1() {
   const [category, setCategory] = useState();
@@ -42,28 +45,6 @@ function Step1() {
     dispatch(productsByCategory(category));
   }, [category]);
 
-  const productOptions = products
-    ? products.map((product) => ({
-        value: product._id,
-        label: product.name,
-      }))
-    : [];
-
-  const categoryOptions = [
-    {
-      value: "men",
-      label: "men",
-    },
-    {
-      value: "women",
-      label: "women",
-    },
-    {
-      value: "kids",
-      label: "kids",
-    },
-  ];
-
   return (
     <div id="Step-All-StudioPage">
       <Navbar />
@@ -77,28 +58,12 @@ function Step1() {
         <h3 className="Content-h1">Select The Product to Customize</h3>
         <h5 className="Content-h3">Select Category</h5>
 
-        <div className="categorySelect">
-          <Select
-            className="basic-single"
-            classNamePrefix="Choose category"
-            isSearchable={false}
-            name="category"
-            options={categoryOptions}
-            onChange={(option) => setCategory(option.value)}
-          />
-        </div>
+        <CategoriesDropdown setCategory={setCategory} />
+
         <h5 className="Content-h3">Select product to Customize</h5>
 
-        <div className="productSelect">
-          <Select
-            className="basic-single"
-            classNamePrefix="select"
-            isSearchable={true}
-            name="product"
-            options={productOptions}
-            onChange={(option) => setProduct(option.value)}
-          />
-        </div>
+        <ProductsDropdown setProduct={setProduct} products={products} />
+
         <h5 className="Content-h3">Name your Design</h5>
         <input
           style={{ outline: "none" }}
@@ -123,3 +88,55 @@ function Step1() {
 }
 
 export default Step1;
+
+const CategoriesDropdown = ({ setCategory }) => {
+  const categoryOptions = [
+    {
+      value: "men",
+      label: "men",
+    },
+    {
+      value: "women",
+      label: "women",
+    },
+    {
+      value: "kids",
+      label: "kids",
+    },
+  ];
+
+  return (
+    <div className="categorySelect">
+      <Select
+        className="basic-single"
+        classNamePrefix="Choose category"
+        isSearchable={false}
+        name="category"
+        options={categoryOptions}
+        onChange={(option) => setCategory(option.value)}
+      />
+    </div>
+  );
+};
+
+const ProductsDropdown = ({ products, setProduct }) => {
+  const productOptions = products
+    ? products.map((product) => ({
+        value: product._id,
+        label: product.name,
+      }))
+    : [];
+
+  return (
+    <div className="productSelect">
+      <Select
+        className="basic-single"
+        classNamePrefix="select"
+        isSearchable={true}
+        name="product"
+        options={productOptions}
+        onChange={(option) => setProduct(option.value)}
+      />
+    </div>
+  );
+};

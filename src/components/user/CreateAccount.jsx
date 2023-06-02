@@ -4,10 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Navbar from "../layout/navbar/Navbar";
 import { register } from "../../actions/userActions";
-import "./CreateAccount.css";
 
 import FacebookIcon2 from "../../assets/images/FacebookIcon2.svg";
 import GoogleIcon from "../../assets/images/GoogleIcon.svg";
+
+import "./CreateAccount.css";
 
 const CreateAccount = () => {
   const [formData, setFormData] = useState({});

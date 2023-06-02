@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import Home from "./components/home/Home";
-import "./App.css";
-// import LogInSignUp1 from "./components/user/LogInSignUp1";
 import OtpPage from "./components/user/OtpPage";
 import CreateAccount from "./components/user/CreateAccount";
 import Login from "./components/user/Login";
@@ -17,13 +17,15 @@ import Step4 from "./components/StudioPage/Step4";
 import Step5 from "./components/StudioPage/Step5";
 import Cart from "./components/cart/Cart";
 import ProductCustomization from "./components/product/ProductCustomization";
-import { useDispatch, useSelector } from "react-redux";
-import { loadUser } from "./actions/userActions";
 import Category from "./components/productCategories/category";
 import SelectAddress from "./components/cart/SelectAddress";
 import Payment from "./components/cart/Payment";
-import { CLEAR_ERRORS } from "./constants/userConstants";
 import FinalStep from "./components/StudioPage/FinalStep";
+
+import { CLEAR_ERRORS } from "./constants/userConstants";
+import { loadUser } from "./actions/userActions";
+
+import "./App.css";
 
 function App() {
   const dispatch = useDispatch()
@@ -65,6 +67,7 @@ function App() {
         <Route exact path="/selectAddress" element={<SelectAddress />} />
         <Route exact path="/payment" element={<Payment />} />
         <Route exact path="/category/:categoryName" element={<Category />} />
+
       </Routes>
     </BrowserRouter>
   );

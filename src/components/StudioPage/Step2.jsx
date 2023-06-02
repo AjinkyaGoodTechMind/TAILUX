@@ -1,18 +1,18 @@
+import React, { useState } from "react";
+import AliceCarousel from "react-alice-carousel";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 import Banner from "../studio/Banner";
 import Tag from "../studio/Tag";
 import Navbar from "../layout/navbar/Navbar";
 import Footer from "../layout/footer/Footer";
-
-import { useNavigate } from "react-router-dom";
-import React, { useState } from "react";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import FormStepper from "./FormStepper";
-import AliceCarousel from "react-alice-carousel";
-import "./Studio.css";
 import HeadPhone from "../layout/HeadPhone";
-import { useDispatch } from "react-redux";
+
 import { collectCustomProductData } from "../../actions/customProductActions";
+
+import "./Studio.css";
 import "./Step2.css";
 
 function Step2() {
@@ -35,6 +35,43 @@ function Step2() {
     navigate("/step3");
   };
 
+  return (
+    <div id="Step-All-StudioPage" className="overflow-hidden">
+      <Navbar />
+      <Banner />
+      <Tag />
+      {/* Stepper */}
+      <FormStepper active={1} />
+
+      <div id="step2Content">
+        <h3 className="Content-h1">Select Fabric for Formal Shirt</h3>
+        <h5 className="Content-h3">Choose Fabric</h5>
+
+        {/* Fabric Sliider */}
+        <FabricSlider fabric={fabric} setFabric={setFabric} />
+
+        <h5 className="Content-h3">Choose Pattern</h5>
+
+        {/* Fabric Sliider */}
+        <PatternSlider pattern={pattern} setPattern={setPattern} />
+      </div>
+
+      <div className="Buttons">
+        <button id="previous" onClick={() => Previous("/tailuxStudio")}>
+          Previous
+        </button>
+        <button onClick={submitData} id="next">
+          Next
+        </button>
+      </div>
+      <HeadPhone />
+      <Footer />
+    </div>
+  );
+}
+export default Step2;
+
+const FabricSlider = ({ fabric, setFabric }) => {
   const fabrics1 = [
     <div className="fabricBox">
       <div
@@ -214,6 +251,21 @@ function Step2() {
     </div>,
   ];
 
+  return (
+    <div>
+      <AliceCarousel
+        mouseTracking
+        items={fabrics1}
+        slideBy="page"
+        autoWidth
+        disableButtonsControls
+        disableDotsControls
+      />
+    </div>
+  );
+};
+
+const PatternSlider = ({ pattern, setPattern }) => {
   const fabrics2 = [
     <div className="fabricBox">
       <div
@@ -393,55 +445,15 @@ function Step2() {
   ];
 
   return (
-    <div id="Step-All-StudioPage" className="overflow-hidden">
-      <Navbar />
-      <Banner />
-      <Tag />
-      {/* Stepper */}
-      <FormStepper active={1} />
-
-      <div id="step2Content">
-        <h3 className="Content-h1">Select Fabric for Formal Shirt</h3>
-        <h5 className="Content-h3">Choose Fabric</h5>
-
-        {/* Fabric Sliider */}
-        <div>
-          <AliceCarousel
-            mouseTracking
-            items={fabrics1}
-            slideBy="page"
-            autoWidth
-            disableButtonsControls
-            disableDotsControls
-          />
-        </div>
-
-        <h5 className="Content-h3">Choose Pattern</h5>
-
-        {/* Fabric Sliider */}
-        <div>
-          <AliceCarousel
-            mouseTracking
-            items={fabrics2}
-            slideBy="page"
-            autoWidth
-            disableButtonsControls
-            disableDotsControls
-          />
-        </div>
-      </div>
-
-      <div className="Buttons">
-        <button id="previous" onClick={() => Previous("/tailuxStudio")}>
-          Previous
-        </button>
-        <button onClick={submitData} id="next">
-          Next
-        </button>
-      </div>
-      <HeadPhone />
-      <Footer />
+    <div>
+      <AliceCarousel
+        mouseTracking
+        items={fabrics2}
+        slideBy="page"
+        autoWidth
+        disableButtonsControls
+        disableDotsControls
+      />
     </div>
   );
-}
-export default Step2;
+};

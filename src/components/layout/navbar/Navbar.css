@@ -12,12 +12,6 @@
   flex-wrap: nowrap;
 }
 
-/* nav a,
-nav img,
-nav div {
-  background-color: rgba(255, 255, 255, 0.38) !important;
-} */
-
 .nav .navLogo {
   width: 90px;
   margin: 0 40px;

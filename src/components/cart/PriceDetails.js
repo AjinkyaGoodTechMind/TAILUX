@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+
 import { useDispatch, useSelector } from "react-redux";
 import { userCarts } from "../../actions/cartActions";
 
@@ -12,14 +13,17 @@ const PriceDetails = () => {
         dispatch(userCarts());
     }, []);
 
+    // Total price of cart produts
     const price = cartItems.reduce((accumulator, cartItem) => {
         return accumulator + cartItem.quantity * cartItem.product.price;
     }, 0);
 
+    // Total Quantity of products
     const itemsCount = cartItems.reduce((accumulator, cartItem) => {
         return accumulator + cartItem.quantity;
     }, 0);
 
+    // Total discount on Products
     const discount = cartItems.reduce((accumulator, cartItem) => {
         return (
             accumulator +
@@ -30,6 +34,7 @@ const PriceDetails = () => {
 
     const deliveryCharges = 99;
 
+    // Total amount after minus discount and add deliveryCharges
     const totalAmount = price - discount + deliveryCharges;
 
     return (

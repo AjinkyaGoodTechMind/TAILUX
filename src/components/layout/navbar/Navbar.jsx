@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import Logo from "../../../assets/images/Logo.svg";
 import SearchIcon from "../../../assets/images/SearchIcon.svg";
 import ProfileIcon from "../../../assets/images/ProfileIcon.svg";
 import WishlistIcon from "../../../assets/images/WishlistIcon.svg";
 import BagIcon from "../../../assets/images/BagIcon.svg";
 import "./Navbar.css";
-import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const { isAuthenticated } = useSelector((state) => state.user);
@@ -34,11 +35,13 @@ const Navbar = () => {
       </div>
 
       <div className="rightSide">
-
-      <div className="searchBar">
-        <img src={SearchIcon} alt="" />
-        <input type="text" placeholder="Search for products, brands and more" />
-      </div>
+        <div className="searchBar">
+          <img src={SearchIcon} alt="" />
+          <input
+            type="text"
+            placeholder="Search for products, brands and more"
+          />
+        </div>
 
         {isAuthenticated ? (
           <>

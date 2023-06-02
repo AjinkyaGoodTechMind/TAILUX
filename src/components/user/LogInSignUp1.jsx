@@ -1,11 +1,12 @@
 import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
+
 import Navbar from "../layout/navbar/Navbar";
 
 import FacebookIcon2 from "../../assets/images/FacebookIcon2.svg";
 import GoogleIcon from "../../assets/images/GoogleIcon.svg";
 
 import "./LogInSignUp.css";
-import { Link } from "react-router-dom";
 
 const LogInSignUp1 = () => {
   return (
@@ -19,7 +20,14 @@ const LogInSignUp1 = () => {
               Login <span> or</span> Signup
             </p>
 
-            <input className="input1" type="text" min={10} name="" id="" placeholder="+91   |   Mobile Number" />
+            <input
+              className="input1"
+              type="text"
+              min={10}
+              name=""
+              id=""
+              placeholder="+91   |   Mobile Number"
+            />
 
             <p className="text1">
               By continuing, I agree to the{" "}

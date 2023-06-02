@@ -1,13 +1,14 @@
 import React, { Fragment, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
 import Navbar from "../layout/navbar/Navbar";
 import Footer from "../layout/footer/Footer";
-
 import HeadPhone from "../layout/HeadPhone";
-import { useDispatch, useSelector } from "react-redux";
+import PriceDetails from "./PriceDetails";
+
 import { removeCart, userCarts } from "../../actions/cartActions";
 import { REMOVE_CART_RESET } from "../../constants/cartConstants";
-import { useNavigate } from "react-router-dom";
-import PriceDetails from "./PriceDetails";
 import { collectOrderData } from "../../actions/orderActions";
 import "./Cart.css";
 
@@ -46,6 +47,7 @@ const Cart = () => {
       }))
     : {};
 
+  // Process to complete order
   const collectDataFun = () => {
     dispatch(collectOrderData({ products }));
     navigate("/selectAddress");

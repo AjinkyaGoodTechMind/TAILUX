@@ -1,14 +1,16 @@
 import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import Banner from "../studio/Banner";
 import Tag from "../studio/Tag";
 import Navbar from "../layout/navbar/Navbar";
 import Footer from "../layout/footer/Footer";
 import FormStepper from "./FormStepper";
-import "./FinalStep.css";
-import { useDispatch, useSelector } from "react-redux";
+
 import { addToCart } from "../../actions/cartActions";
-import { ADD_TO_CART_RESET } from "../../constants/cartConstants";
 import { productDetails } from "../../actions/productActions";
+import { ADD_TO_CART_RESET } from "../../constants/cartConstants";
+import "./FinalStep.css";
 
 const FinalStep = () => {
   const { customProductData } = useSelector(

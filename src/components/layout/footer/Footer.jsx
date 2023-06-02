@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import FacebookIcon from "../../../assets/images/FacebookIcon.svg";
 import InstaIcon from "../../../assets/images/InstaIcon.svg";
@@ -9,7 +10,6 @@ import AppleStore from "../../../assets/images/AppleStore.svg";
 import PlayStore from "../../../assets/images/PlayStore.svg";
 
 import "./Footer.css";
-import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
