@@ -24,7 +24,7 @@
   margin-top: 30px;
 }
 
-.cart3Container > .paymentContainer > .savedUpi > div > div {
+.cart3Container > .paymentContainer > .savedUpi > div > label {
   display: flex;
   align-items: center;
   column-gap: 20px;
@@ -32,15 +32,20 @@
   padding: 20px 0;
 }
 
-.cart3Container > .paymentContainer > .savedUpi > div > div:last-child{
-    border-bottom: 2px solid #8C8C8C;
+.cart3Container > .paymentContainer > .savedUpi > div > label:last-child {
+  border-bottom: 2px solid #8c8c8c;
 }
 
 .cart3Container > .paymentContainer > .savedUpi > p:first-child {
   padding-bottom: 10px;
 }
 
-.cart3Container > .paymentContainer > .savedUpi > div > div > div:nth-child(2) {
+.cart3Container
+  > .paymentContainer
+  > .savedUpi
+  > div
+  > label
+  > div:nth-child(3) {
   display: flex;
   align-items: center;
 }
@@ -49,8 +54,8 @@
   > .paymentContainer
   > .savedUpi
   > div
-  > div
-  > div:nth-child(2)
+  > label
+  > div:nth-child(3)
   > img {
   width: 40px;
   margin-right: 10px;
@@ -71,8 +76,8 @@
   > .paymentContainer
   > .savedUpi
   > div
-  > div
-  > div:nth-child(2)
+  > label
+  > div:nth-child(3)
   > p {
   font-size: 14px;
   line-height: 16px;
@@ -82,8 +87,8 @@
   > .paymentContainer
   > .savedUpi
   > div
-  > div
-  > div:nth-child(2)
+  > label
+  > div:nth-child(3)
   > p:last-child {
   margin-left: 30px !important;
 }
@@ -99,7 +104,7 @@
   border-bottom: 2px solid #8c8c8c;
 }
 
-.cart3Container > .paymentContainer > .savedCards > div > div {
+.cart3Container > .paymentContainer > .savedCards > div > label {
   display: flex;
   column-gap: 20px;
 }
@@ -108,9 +113,9 @@
   padding-bottom: 20px;
 }
 
-.cart3Container > .paymentContainer > .otherPaymentOptions > div {
+.cart3Container > .paymentContainer > .otherPaymentOptions > label {
   display: flex;
-  column-gap: 10px;
+  column-gap: 20px;
   padding: 25px 0;
   border-bottom: 1px solid #dbdbdb;
   align-items: center;
@@ -121,7 +126,33 @@
   line-height: 16px;
 }
 
-.cart3Container > .paymentContainer > .otherPaymentOptions > div:last-child{
-    padding-bottom: 0;
-    border:none
+.cart3Container > .paymentContainer > .otherPaymentOptions > label:last-child {
+  padding-bottom: 0;
+  border: none;
+}
+
+input[name="paymentOption"] {
+  display: none; /* Hide the default radio button */
+}
+
+.custom-radio {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid black;
+  position: relative;
+  /* top: 4px; */
+}
+
+input[name="paymentOption"]:checked + .custom-radio::before {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-color: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
 }

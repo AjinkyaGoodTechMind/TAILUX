@@ -1,10 +1,13 @@
 import React, { Fragment, useEffect, useState } from "react";
-import ImageGallery from "react-image-gallery";
-import "react-image-gallery/styles/css/image-gallery.css";
-import Navbar from "../layout/navbar/Navbar";
-
-import WishlistIcon2 from "../../assets/images/WishlistIcon2.svg";
 import { Link, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
+import ImageGallery from "react-image-gallery";
+import AliceCarousel from "react-alice-carousel";
+import "react-image-gallery/styles/css/image-gallery.css";
+import ProgressBar from "@ramonak/react-progress-bar";
+
+import Navbar from "../layout/navbar/Navbar";
 import Footer from "../layout/footer/Footer";
 
 import Women1 from "../../assets/images/Women1.png";
@@ -15,15 +18,12 @@ import Women4 from "../../assets/images/Women4.png";
 import Star1 from "../../assets/images/Star1.svg";
 import Star2 from "../../assets/images/Star2.svg";
 import Truck1 from "../../assets/images/Truck1.svg";
+import WishlistIcon2 from "../../assets/images/WishlistIcon2.svg";
 
-import AliceCarousel from "react-alice-carousel";
-import ProgressBar from "@ramonak/react-progress-bar";
-
-import "./Product.css";
-import { useDispatch, useSelector } from "react-redux";
 import { productDetails } from "../../actions/productActions";
 import { addToCart } from "../../actions/cartActions";
 import { ADD_TO_CART_RESET } from "../../constants/cartConstants";
+import "./Product.css";
 
 const Product = () => {
   const [quantity, setQuantity] = useState(1);
@@ -69,6 +69,399 @@ const Product = () => {
     );
   };
 
+  return (
+    <Fragment>
+      <Navbar />
+
+      <div className="productContainer">
+        {product ? (
+          <div>
+            <div>
+              <ProductImageGallery product={product} />
+              <div className="aboutProduct">
+                <AboutProduct />
+              </div>
+            </div>
+
+            <div className="rightSide">
+              <div>
+                <p className="productName">{product.name}</p>
+
+                <div className="productPrice">
+                  <span>
+                    ₹
+                    {Math.floor(
+                      product.price - (product.price * product.discount) / 100
+                    )}
+                  </span>
+                  <span>
+                    MRP&nbsp;<span>₹{product.price}</span>
+                  </span>
+
+                  <div className="allCenter">
+                    <span>{product.ratings}</span>
+                    <img src={Star1} alt="Star1" />
+                    <span>{product.numOfReviews / 1000}k Ratings</span>
+                  </div>
+
+                  <button>
+                    <img src={WishlistIcon2} alt="" />
+                  </button>
+                </div>
+
+                <p>inclusive of all taxes</p>
+
+                <div className="productSize">
+                  <ProductSize
+                    product={product}
+                    size={size}
+                    setSize={setSize}
+                  />
+                </div>
+
+                <div className="deliveryOption">
+                  <p className="text12">
+                    Delivery Options&nbsp;&nbsp;&nbsp;
+                    <img src={Truck1} alt="Truck1" />
+                  </p>
+                  <div>
+                    <div>
+                      <input placeholder="Enter pincode" type="text" />
+                      <p>verify</p>
+                      <span>
+                        Please enter PIN code to check delivery time & Pay on
+                        Delivery Availability
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="productColor">
+                  <ProductColor color={color} setColor={setColor} />
+                </div>
+
+                <select
+                  onChange={(e) => setQuantity(e.target.value)}
+                  name=""
+                  id=""
+                  value={quantity}
+                >
+                  <option value={1}>QTY:1</option>
+                  <option value={2}>QTY:2</option>
+                  <option value={3}>QTY:3</option>
+                </select>
+
+                <Link
+                  to={`/productCustomization/${id}`}
+                  className="costomizeBtn"
+                >
+                  CUSTOMIZE
+                </Link>
+                <button onClick={addToBagHandler} className="addToBagBtn">
+                  ADD TO BAG
+                </button>
+              </div>
+
+              <div className="mt-4 ratingsAndReviews">
+                <Ratings product={product} />
+              </div>
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
+
+        <div>
+          <p className="heading3">MORE PRODUCTS ON:-</p>
+          <div>
+            <Link to="/">FROK</Link>
+            <Link to="/">GREEN</Link>
+            <Link to="/">TAILOR</Link>
+          </div>
+        </div>
+
+        <div>
+          <p className="heading1">SOME MORE LIKE THESE </p>
+          <SimilarProduct />
+        </div>
+      </div>
+
+      <Footer />
+    </Fragment>
+  );
+};
+
+const ProductImageGallery = ({ product }) => {
+  const properties = {
+    autoPlay: true,
+    infinite: true,
+    showFullscreenButton: false,
+    thumbnailPosition: "left",
+    useBrowserFullscreen: false,
+    showPlayButton: false,
+    showNav: false,
+    height: "600px",
+
+    items: product
+      ? product.images.map((image) => ({
+          original: `http://localhost:5000/productImages/${product.images[0]}`,
+          thumbnail: `http://localhost:5000/productImages/${product.images[0]}`,
+        }))
+      : [],
+  };
+
+  return <ImageGallery {...properties} />;
+};
+
+const AboutProduct = () => {
+  return (
+    <>
+      <p className="heading3">ABOUT THE PRODUCT</p>
+      <div>
+        <p className="text5 my-3">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged
+        </p>
+
+        <p className="text5 my-3">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged
+        </p>
+
+        <div>
+          <div>
+            <div className="mb-2">
+              <p className="text6">Size & Fit</p>
+              <p className="text7">Regular Fit</p>
+              <p className="text7">
+                The model (height 6') is wearing a size 40
+              </p>
+            </div>
+
+            <div>
+              <p className="text6"> Material & Care</p>
+              <p className="text7"> Material: CottonMachine Wash</p>
+            </div>
+          </div>
+
+          <div>
+            <div>
+              <p className="text9 mb-2">Specifications</p>
+              <div className="specificationBox">
+                <div>
+                  <p className="text8">Sleeve Length</p>
+                  <p className="text7 mb-2">Long Sleeves</p>
+                  <p className="text8">Collar</p>
+                  <p className="text7">Spread Collar</p>
+                </div>
+                <div>
+                  <p className="text8">Fit</p>
+                  <p className="text7 mb-2">Regular Fit</p>
+                  <p className="text8">Length</p>
+                  <p className="text7 mb-2">Regular</p>
+                </div>
+                <div>
+                  <p className="text8">Pattern Type</p>
+                  <p className="text7 mb-2">Solid</p>
+                  <p className="text8">Occasion</p>
+                  <p className="text7 mb-2">Casual</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+const ProductSize = ({ product, size, setSize }) => {
+  return (
+    <>
+      <div className="text12">
+        SIZE
+        <Link style={{ fontSize: "10px", color: "#ababab" }} to="/">
+          SIZE CHART &nbsp;&rsaquo;
+        </Link>
+      </div>
+      <div>
+        <button
+          onClick={() => setSize("xs")}
+          disabled={!product.sizes.includes("xs")}
+          className={size === "xs" ? "sizeSelected" : ""}
+        >
+          XS
+        </button>
+        <button
+          onClick={() => setSize("s")}
+          disabled={!product.sizes.includes("s")}
+          className={size === "s" ? "sizeSelected" : ""}
+        >
+          S
+        </button>
+        <button
+          onClick={() => setSize("m")}
+          disabled={!product.sizes.includes("m")}
+          className={size === "m" ? "sizeSelected" : ""}
+        >
+          M
+        </button>
+        <button
+          onClick={() => setSize("l")}
+          disabled={!product.sizes.includes("l")}
+          className={size === "l" ? "sizeSelected" : ""}
+        >
+          L
+        </button>
+        <button
+          onClick={() => setSize("xl")}
+          disabled={!product.sizes.includes("xl")}
+          className={size === "xl" ? "sizeSelected" : ""}
+        >
+          XL
+        </button>
+        <button
+          onClick={() => setSize("xxl")}
+          disabled={!product.sizes.includes("xxl")}
+          className={size === "xxl" ? "sizeSelected" : ""}
+        >
+          XXL
+        </button>
+      </div>
+    </>
+  );
+};
+
+const ProductColor = ({ color, setColor }) => {
+  return (
+    <>
+      <p className="text12">COLOR</p>
+      <div>
+        <button
+          onClick={() => setColor("gray")}
+          className={color === "gray" ? "colorSelected" : ""}
+        ></button>
+        <button
+          onClick={() => setColor("black")}
+          className={color === "black" ? "colorSelected" : ""}
+        ></button>
+        <button
+          onClick={() => setColor("red")}
+          className={color === "red" ? "colorSelected" : ""}
+        ></button>
+        <button
+          onClick={() => setColor("orange")}
+          className={color === "orange" ? "colorSelected" : ""}
+        ></button>
+        <button
+          onClick={() => setColor("white")}
+          className={color === "white" ? "colorSelected" : ""}
+        ></button>
+        <button
+          onClick={() => setColor("blue")}
+          className={color === "blue" ? "colorSelected" : ""}
+        ></button>
+      </div>
+    </>
+  );
+};
+
+const Ratings = ({ product }) => {
+  return (
+    <>
+      <p className="text10">Ratings & Reviews</p>
+      <p className="my-3">
+        <span>{product.ratings}</span>
+        <img src={Star1} alt="Star1" />
+      </p>
+
+      <p>{product.numOfReviews / 1000}k Verified Buyers</p>
+
+      <div>
+        <div>
+          <span className="text11">5</span>
+          <img src={Star2} alt={Star2} />
+          <div>
+            <ProgressBar
+              isLabelVisible={false}
+              bgColor={"#00C17C"}
+              maxCompleted={3100}
+              height="5px"
+              completed={1800}
+            />
+          </div>
+          <span className="text11">1.8K</span>
+        </div>
+        <div>
+          <span className="text11">4</span>
+          <img src={Star2} alt={Star2} />
+          <div>
+            <ProgressBar
+              isLabelVisible={false}
+              bgColor={"#008555"}
+              maxCompleted={3100}
+              height="5px"
+              completed={900}
+            />
+          </div>
+          <span className="text11">900</span>
+        </div>
+        <div>
+          <span className="text11">3</span>
+          <img src={Star2} alt={Star2} />
+          <div>
+            <ProgressBar
+              isLabelVisible={false}
+              bgColor={"#009BA5"}
+              maxCompleted={3100}
+              height="5px"
+              completed={570}
+            />
+          </div>
+          <span className="text11">570</span>
+        </div>
+        <div>
+          <span className="text11">2</span>
+          <img src={Star2} alt={Star2} />
+          <div>
+            <ProgressBar
+              isLabelVisible={false}
+              bgColor={"#FFB800"}
+              maxCompleted={1000}
+              height="5px"
+              completed={231}
+            />
+          </div>
+          <span className="text11">231</span>
+        </div>
+        <div>
+          <span className="text11">1</span>
+          <img src={Star2} alt={Star2} />
+          <div>
+            <ProgressBar
+              isLabelVisible={false}
+              bgColor={"#FF6D6D"}
+              maxCompleted={3100}
+              height="5px"
+              completed={28}
+            />
+          </div>
+          <span className="text11">28</span>
+        </div>
+      </div>
+    </>
+  );
+};
+
+const SimilarProduct = () => {
   const womens = [
     <div className="womenBox">
       <img src={Women1} alt="Women1" />
@@ -124,367 +517,15 @@ const Product = () => {
     </div>,
   ];
 
-  const properties = {
-    autoPlay: true,
-    infinite: true,
-    showFullscreenButton: false,
-    thumbnailPosition: "left",
-    useBrowserFullscreen: false,
-    showPlayButton: false,
-    showNav: false,
-    height: "600px",
-
-    items: product
-      ? product.images.map((image) => ({
-          original: `http://localhost:5000/productImages/${product.images[0]}`,
-          thumbnail: `http://localhost:5000/productImages/${product.images[0]}`,
-        }))
-      : [],
-  };
-
   return (
-    <Fragment>
-      <Navbar />
-
-      <div className="productContainer">
-        {product ? (
-          <div>
-            <div>
-              {/* Product Carousel */}
-
-              <ImageGallery {...properties} style={{ display: "block" }} />
-
-              <div className="aboutProduct">
-                <p className="heading3">ABOUT THE PRODUCT</p>
-                <div>
-                  <p className="text5 my-3">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book. It has survived not only five centuries,
-                    but also the leap into electronic typesetting, remaining
-                    essentially unchanged
-                  </p>
-
-                  <p className="text5 my-3">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book. It has survived not only five centuries,
-                    but also the leap into electronic typesetting, remaining
-                    essentially unchanged
-                  </p>
-
-                  <div>
-                    <div>
-                      <div className="mb-2">
-                        <p className="text6">Size & Fit</p>
-                        <p className="text7">Regular Fit</p>
-                        <p className="text7">
-                          The model (height 6') is wearing a size 40
-                        </p>
-                      </div>
-
-                      <div>
-                        <p className="text6"> Material & Care</p>
-                        <p className="text7"> Material: CottonMachine Wash</p>
-                      </div>
-                    </div>
-
-                    <div>
-                      <div>
-                        <p className="text9 mb-2">Specifications</p>
-                        <div className="specificationBox">
-                          <div>
-                            <p className="text8">Sleeve Length</p>
-                            <p className="text7 mb-2">Long Sleeves</p>
-                            <p className="text8">Collar</p>
-                            <p className="text7">Spread Collar</p>
-                          </div>
-                          <div>
-                            <p className="text8">Fit</p>
-                            <p className="text7 mb-2">Regular Fit</p>
-                            <p className="text8">Length</p>
-                            <p className="text7 mb-2">Regular</p>
-                          </div>
-                          <div>
-                            <p className="text8">Pattern Type</p>
-                            <p className="text7 mb-2">Solid</p>
-                            <p className="text8">Occasion</p>
-                            <p className="text7 mb-2">Casual</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="rightSide">
-              <div>
-                <p className="productName">{product.name}</p>
-
-                <div className="productPrice">
-                  <span>
-                    ₹
-                    {Math.floor(
-                      product.price - (product.price * product.discount) / 100
-                    )}
-                  </span>
-                  <span>
-                    MRP&nbsp;<span>₹{product.price}</span>
-                  </span>
-
-                  <div className="allCenter">
-                    <span>{product.ratings}</span>
-                    <img src={Star1} alt="Star1" />
-                    <span>{product.numOfReviews / 1000}k Ratings</span>
-                  </div>
-
-                  <button>
-                    <img src={WishlistIcon2} alt="" />
-                  </button>
-                </div>
-
-                <p>inclusive of all taxes</p>
-
-                <div className="productSize">
-                  <div className="text12">
-                    SIZE
-                    <Link style={{ fontSize: "10px", color: "#ababab" }} to="/">
-                      SIZE CHART &nbsp;&rsaquo;
-                    </Link>
-                  </div>
-                  <div>
-                    <button
-                      onClick={() => setSize("xs")}
-                      disabled={!product.sizes.includes("xs")}
-                      className={size === "xs" ? "sizeSelected" : ""}
-                    >
-                      XS
-                    </button>
-                    <button
-                      onClick={() => setSize("s")}
-                      disabled={!product.sizes.includes("s")}
-                      className={size === "s" ? "sizeSelected" : ""}
-                    >
-                      S
-                    </button>
-                    <button
-                      onClick={() => setSize("m")}
-                      disabled={!product.sizes.includes("m")}
-                      className={size === "m" ? "sizeSelected" : ""}
-                    >
-                      M
-                    </button>
-                    <button
-                      onClick={() => setSize("l")}
-                      disabled={!product.sizes.includes("l")}
-                      className={size === "l" ? "sizeSelected" : ""}
-                    >
-                      L
-                    </button>
-                    <button
-                      onClick={() => setSize("xl")}
-                      disabled={!product.sizes.includes("xl")}
-                      className={size === "xl" ? "sizeSelected" : ""}
-                    >
-                      XL
-                    </button>
-                    <button
-                      onClick={() => setSize("xxl")}
-                      disabled={!product.sizes.includes("xxl")}
-                      className={size === "xxl" ? "sizeSelected" : ""}
-                    >
-                      XXL
-                    </button>
-                  </div>
-                </div>
-
-                <div className="deliveryOption">
-                  <p className="text12">
-                    Delivery Options&nbsp;&nbsp;&nbsp;
-                    <img src={Truck1} alt="Truck1" />
-                  </p>
-                  <div>
-                    <div>
-                      <input placeholder="Enter pincode" type="text" />
-                      <p>verify</p>
-                      <span>
-                        Please enter PIN code to check delivery time & Pay on
-                        Delivery Availability
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="productColor">
-                  <p className="text12">COLOR</p>
-                  <div>
-                    <button
-                      onClick={() => setColor("gray")}
-                      className={color === "gray" ? "colorSelected" : ""}
-                    ></button>
-                    <button
-                      onClick={() => setColor("black")}
-                      className={color === "black" ? "colorSelected" : ""}
-                    ></button>
-                    <button
-                      onClick={() => setColor("red")}
-                      className={color === "red" ? "colorSelected" : ""}
-                    ></button>
-                    <button
-                      onClick={() => setColor("orange")}
-                      className={color === "orange" ? "colorSelected" : ""}
-                    ></button>
-                    <button
-                      onClick={() => setColor("white")}
-                      className={color === "white" ? "colorSelected" : ""}
-                    ></button>
-                    <button
-                      onClick={() => setColor("blue")}
-                      className={color === "blue" ? "colorSelected" : ""}
-                    ></button>
-                  </div>
-                </div>
-
-                <select
-                  onChange={(e) => setQuantity(e.target.value)}
-                  name=""
-                  id=""
-                  value={quantity}
-                >
-                  <option value={1}>QTY:1</option>
-                  <option value={2}>QTY:2</option>
-                  <option value={3}>QTY:3</option>
-                </select>
-
-                <Link
-                  to={`/productCustomization/${id}`}
-                  className="costomizeBtn"
-                >
-                  CUSTOMIZE
-                </Link>
-                <button onClick={addToBagHandler} className="addToBagBtn">
-                  ADD TO BAG
-                </button>
-              </div>
-
-              <div className="mt-4 ratingsAndReviews">
-                <p className="text10">Ratings & Reviews</p>
-                <p className="my-3">
-                  <span>{product.ratings}</span>
-                  <img src={Star1} alt="Star1" />
-                </p>
-
-                <p>{product.numOfReviews / 1000}k Verified Buyers</p>
-
-                <div>
-                  <div>
-                    <span className="text11">5</span>
-                    <img src={Star2} alt={Star2} />
-                    <div>
-                      <ProgressBar
-                        isLabelVisible={false}
-                        bgColor={"#00C17C"}
-                        maxCompleted={3100}
-                        height="5px"
-                        completed={1800}
-                      />
-                    </div>
-                    <span className="text11">1.8K</span>
-                  </div>
-                  <div>
-                    <span className="text11">4</span>
-                    <img src={Star2} alt={Star2} />
-                    <div>
-                      <ProgressBar
-                        isLabelVisible={false}
-                        bgColor={"#008555"}
-                        maxCompleted={3100}
-                        height="5px"
-                        completed={900}
-                      />
-                    </div>
-                    <span className="text11">900</span>
-                  </div>
-                  <div>
-                    <span className="text11">3</span>
-                    <img src={Star2} alt={Star2} />
-                    <div>
-                      <ProgressBar
-                        isLabelVisible={false}
-                        bgColor={"#009BA5"}
-                        maxCompleted={3100}
-                        height="5px"
-                        completed={570}
-                      />
-                    </div>
-                    <span className="text11">570</span>
-                  </div>
-                  <div>
-                    <span className="text11">2</span>
-                    <img src={Star2} alt={Star2} />
-                    <div>
-                      <ProgressBar
-                        isLabelVisible={false}
-                        bgColor={"#FFB800"}
-                        maxCompleted={1000}
-                        height="5px"
-                        completed={231}
-                      />
-                    </div>
-                    <span className="text11">231</span>
-                  </div>
-                  <div>
-                    <span className="text11">1</span>
-                    <img src={Star2} alt={Star2} />
-                    <div>
-                      <ProgressBar
-                        isLabelVisible={false}
-                        bgColor={"#FF6D6D"}
-                        maxCompleted={3100}
-                        height="5px"
-                        completed={28}
-                      />
-                    </div>
-                    <span className="text11">28</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        ) : (
-          ""
-        )}
-
-        <div>
-          <p className="heading3">MORE PRODUCTS ON:-</p>
-          <div>
-            <Link to="/">FROK</Link>
-            <Link to="/">GREEN</Link>
-            <Link to="/">TAILOR</Link>
-          </div>
-        </div>
-
-        <div>
-          <p className="heading1">SOME MORE LIKE THESE </p>
-          <AliceCarousel
-            mouseTracking
-            items={womens}
-            slideBy="page"
-            autoWidth
-            disableButtonsControls
-            disableDotsControls
-          />
-        </div>
-      </div>
-
-      <Footer />
-    </Fragment>
+    <AliceCarousel
+      mouseTracking
+      items={womens}
+      slideBy="page"
+      autoWidth
+      disableButtonsControls
+      disableDotsControls
+    />
   );
 };
 
