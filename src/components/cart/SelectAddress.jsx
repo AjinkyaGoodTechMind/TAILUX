@@ -1,14 +1,16 @@
 import React, { Fragment, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
 import Navbar from "../layout/navbar/Navbar";
 import Footer from "../layout/footer/Footer";
-import "./SelectAddress.css";
-import { Link, useNavigate } from "react-router-dom";
 import HeadPhone from "../layout/HeadPhone";
-import { userCarts } from "../../actions/cartActions";
-import { useDispatch, useSelector } from "react-redux";
-import { userAddresses } from "../../actions/addressActions";
 import PriceDetails from "./PriceDetails";
+
+import { userCarts } from "../../actions/cartActions";
+import { userAddresses } from "../../actions/addressActions";
 import { collectOrderData } from "../../actions/orderActions";
+import "./SelectAddress.css";
 
 const SelectAddress = () => {
   const [address, setAddress] = useState();
@@ -22,7 +24,8 @@ const SelectAddress = () => {
     dispatch(userCarts());
     dispatch(userAddresses());
   }, []);
-
+ 
+  //  addinng  addreds
   const addressSelectFun = () => {
     if (!address) return alert("Choose a address");
 
@@ -49,14 +52,15 @@ const SelectAddress = () => {
           {addresses &&
             addresses.map((address, key) => (
               <div key={key} className="addressBox">
-                <div>
+                <label>
                   <div>
                     <input
                       onChange={(e) => setAddress(e.target.value)}
-                      type="radio"
                       value={address._id}
+                      type="radio"
                       name="address"
                     />
+                    <span class="custom-radio"></span>
                   </div>
                   <div>
                     <p>{address.primaryLocation}</p>
@@ -73,7 +77,7 @@ const SelectAddress = () => {
                       </p>
                     </div>
                   </div>
-                </div>
+                </label>
               </div>
             ))}
         </div>

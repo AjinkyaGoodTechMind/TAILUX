@@ -1,21 +1,24 @@
 import React, { Fragment, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import Navbar from "../layout/navbar/Navbar";
 import Footer from "../layout/footer/Footer";
+import PriceDetails from "./PriceDetails";
 import HeadPhone from "../layout/HeadPhone";
-import "./Payment.css";
 
 import PhonePay from "../../assets/images/PhonePay.svg";
 import Paytm from "../../assets/images/Paytm.svg";
 import GooglePay from "../../assets/images/GooglePay.svg";
 import Card1 from "../../assets/images/Card1.png";
-import PriceDetails from "./PriceDetails";
-import { useDispatch, useSelector } from "react-redux";
+
 import { createOrder, userOrders } from "../../actions/orderActions";
 import { removeCart, userCarts } from "../../actions/cartActions";
 import { NEW_ORDER_SUCCESS } from "../../constants/orderConstants";
 import { REMOVE_CART_RESET } from "../../constants/cartConstants";
+import "./Payment.css";
 
 const Payment = () => {
+
   const dispatch = useDispatch();
 
   const { orderCreated } = useSelector((state) => state.order);
@@ -59,6 +62,7 @@ const Payment = () => {
 
   const totalAmount = price - discount + deliveryCharges;
 
+  // Payment Submit
   const paymentFun = () => {
     dispatch(
       createOrder({
@@ -85,90 +89,85 @@ const Payment = () => {
             <p className="text15">Saved UPIs</p>
 
             <div>
-              <div>
-                <div className="myRadio myRadioOff">
-                  <p></p>
-                </div>
-
+              <label>
+                <input type="radio" name="paymentOption" />
+                <span class="custom-radio"></span>
                 <div>
                   <img src={PhonePay} alt="PhonePay" />
                   <p>Google Pay UPI ID</p>
                   <p>6304897782@ok</p>
                 </div>
-              </div>
-              <div>
-                <div className="myRadio myRadioOff">
-                  <p></p>
-                </div>
+              </label>
+              <label>
+                <input type="radio" name="paymentOption" />
+                <span class="custom-radio"></span>
 
                 <div>
                   <img src={GooglePay} alt="GooglePay" />
                   <p>Phonepe UPI ID</p>
                   <p>6304897782@ybl</p>
                 </div>
-              </div>
-              <div>
-                <div className="myRadio myRadioOff">
-                  <p></p>
-                </div>
+              </label>
+              <label>
+                <input type="radio" name="paymentOption" />
+                <span class="custom-radio"></span>
 
                 <div>
                   <img src={Paytm} alt="Paytm" />
                   <p>Paytm UPI ID</p>
                   <p>6304897782@paytm</p>
                 </div>
-              </div>
+              </label>
             </div>
           </div>
 
           <div className="savedCards">
             <p className="text15">Saved Cards</p>
             <div>
-              <div>
-                <div className="myRadio myRadioOff">
-                  <p></p>
-                </div>
+              <label>
+                <input type="radio" name="paymentOption" />
+                <span class="custom-radio"></span>
+
                 <img src={Card1} alt="Card1" />
-              </div>
-              <div>
-                <div className="myRadio myRadioOff">
-                  <p></p>
-                </div>
+              </label>
+              <label>
+                <input type="radio" name="paymentOption" />
+                <span class="custom-radio"></span>
+
                 <img src={Card1} alt="Card1" />
-              </div>
+              </label>
             </div>
           </div>
 
           <div className="otherPaymentOptions">
             <p className="text15">Other Payment Options</p>
 
-            <div>
-              <div className="myRadio myRadioOff">
-                <p></p>
-              </div>
+            <label>
+              <input type="radio" name="paymentOption" />
+              <span class="custom-radio"></span>
+
               <p>Pay With UPI</p>
-            </div>
+            </label>
 
-            <div>
-              <div className="myRadio myRadioOff">
-                <p></p>
-              </div>
+            <label>
+              <input type="radio" name="paymentOption" />
+              <span class="custom-radio"></span>
+
               <p>Pay With Wallet</p>
-            </div>
+            </label>
 
-            <div>
-              <div className="myRadio myRadioOff">
-                <p></p>
-              </div>
+            <label>
+              <input type="radio" name="paymentOption" />
+              <span class="custom-radio"></span>
+
               <p>Credit/Debit/ATM card</p>
-            </div>
+            </label>
 
-            <div>
-              <div className="myRadio myRadioOff">
-                <p></p>
-              </div>
+            <label>
+              <input type="radio" name="paymentOption" />
+              <span class="custom-radio"></span>
               <p>Cash On Delivery</p>
-            </div>
+            </label>
           </div>
         </div>
 
