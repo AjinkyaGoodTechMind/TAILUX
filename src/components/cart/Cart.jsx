@@ -36,6 +36,7 @@ const Cart = () => {
         product: cartItem.product._id,
         price: cartItem.product.price,
         quantity: cartItem.quantity,
+        size: cartItem.size,
         customSize: cartItem.customSize,
         color: cartItem.color,
         pattern: cartItem.pattern,

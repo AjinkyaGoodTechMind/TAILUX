@@ -30,6 +30,7 @@
   column-gap: 20px;
   border-bottom: 1px solid #dbdbdb;
   padding: 20px 0;
+  cursor: pointer;
 }
 
 .cart3Container > .paymentContainer > .savedUpi > div > label:last-child {
@@ -107,6 +108,7 @@
 .cart3Container > .paymentContainer > .savedCards > div > label {
   display: flex;
   column-gap: 20px;
+  cursor: pointer;
 }
 
 .cart3Container > .paymentContainer > .otherPaymentOptions > p {
@@ -119,6 +121,7 @@
   padding: 25px 0;
   border-bottom: 1px solid #dbdbdb;
   align-items: center;
+  cursor: pointer;
 }
 
 .cart3Container > .paymentContainer > .otherPaymentOptions {

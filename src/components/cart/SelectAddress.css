@@ -49,6 +49,7 @@
   display: flex;
   align-items: center;
   column-gap: 20px;
+  cursor: pointer;
 }
 
 .cart2Container > .addressContainer .addressBox > label > div:first-child {
